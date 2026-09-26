@@ -3,9 +3,10 @@ extends Node2D
 var duration: float = 4.0
 var timer: float = 0.0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Signals.boss_defeated.connect(on_boss_defeated)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,5 +15,8 @@ func _process(delta: float) -> void:
 	if timer < 0:
 		timer += duration
 		print("spawned")
-	
 	pass
+
+
+func on_boss_defeated() -> void:
+	print("boss was defeated")
