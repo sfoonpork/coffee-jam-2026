@@ -20,7 +20,8 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_enemy() -> void:
-	var enemy = enemy_scene.instantiate()
+	var enemy: Node2D = enemy_scene.instantiate()
+	enemy.modulate = Color.RED  # TODO delete when we have enemy sprites
 	var position_x: float = randf_range(0, 1080)
 	var position_y: float = randf_range(0, 720)
 	enemy.position = Vector2(position_x, position_y)

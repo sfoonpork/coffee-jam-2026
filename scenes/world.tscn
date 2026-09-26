@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nuaj6esmw8kh"]
 
-[ext_resource type="Script" uid="uid://drhdkekdpxmsl" path="res://scenes/enemy_spawner.gd" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://drhdkekdpxmsl" path="res://scripts/enemy_spawner.gd" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://6yqgadlnx335" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://bp16xb33m618e" path="res://scenes/enemy.tscn" id="3_4wyf3"]
 
