@@ -14,9 +14,14 @@ func _process(delta: float) -> void:
 	timer -= delta
 	if timer < 0:
 		timer += duration
-		print("spawned")
+		spawn_enemy()
 	pass
 
+func spawn_enemy() -> void:
+	print("spawned")
+
+func on_enemy_spawned() -> void:
+	pass
 
 func on_boss_defeated() -> void:
 	print("boss was defeated")
