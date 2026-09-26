@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var enemy_scene: PackedScene
+
 var duration: float = 4.0
 var timer: float = 0.0
 
@@ -18,6 +20,12 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_enemy() -> void:
+	var enemy = enemy_scene.instantiate()
+	var position_x: float = randf_range(0, 1080)
+	var position_y: float = randf_range(0, 720)
+	enemy.position = Vector2(position_x, position_y)
+	add_child(enemy)
+	Signals.enemy_spawned.emit()
 	print("spawned")
 
 func on_enemy_spawned() -> void:
