@@ -1,5 +1,5 @@
 class_name Enemy
-extends RigidBody2D
+extends CharacterBody2D
 
 @export var speed: float = 100.0
 
@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Player) -> void:
 	body.take_damage(50.0)
 	# TODO: knockback for damage
+	GameData.enemies_killed += 1
 	queue_free()
 	pass # Replace with function body.
 
@@ -32,4 +33,5 @@ func _on_area_2d_body_entered(body: Player) -> void:
 func take_damage(amount: float) -> void:
 	stats.health -= amount
 	if stats.health <= 0.0:
+		GameData.enemies_killed += 1
 		queue_free()

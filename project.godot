@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signals="*uid://bjecx720tf1sw"
+GameData="*uid://ctcab65uxvsnf"
 
 [display]
 

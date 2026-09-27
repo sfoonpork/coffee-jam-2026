@@ -24,6 +24,11 @@ var look: Vector2 = Vector2.UP
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.position = get_viewport().size / 2.0
+	apply_look()
+	look_sprite.position = look.normalized() * 32.0
+	look_sprite.rotation = atan2(look.y, look.x)
+	
+	stats.health = stats.max_health
 
 
 func apply_accel(action: String, direction: Vector2) -> void:
@@ -87,6 +92,7 @@ func _process(delta: float) -> void:
 		bullet.ignore = "player"
 		add_sibling(bullet)
 		
+		GameData.bullets_fired += 1
 		print("fired")
 	
 	pass
@@ -95,4 +101,5 @@ func _process(delta: float) -> void:
 func take_damage(amount: float) -> void:
 	stats.health -= amount
 	if stats.health <= 0.0:
+		Signals.player_died.emit()
 		queue_free()

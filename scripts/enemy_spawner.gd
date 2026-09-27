@@ -31,6 +31,8 @@ func _process(delta: float) -> void:
 
 
 func spawn_enemy() -> void:
+	if not player:
+		return
 	var enemy: Enemy = enemy_scene.instantiate()
 	var position_x: float = randf_range(LEFT_BOUND, RIGHT_BOUND)
 	var position_y: float = randf_range(UPPER_BOUND, LOWER_BOUND)
