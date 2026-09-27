@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends Entity
 
 # wobble on speed stop (follow thru animation)
 @export var look_sprite: Sprite2D

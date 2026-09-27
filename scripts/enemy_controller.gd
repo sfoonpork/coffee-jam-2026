@@ -1,5 +1,5 @@
 class_name Enemy
-extends CharacterBody2D
+extends Entity
 
 @export var speed: float = 100.0
 
