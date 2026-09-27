@@ -12,7 +12,7 @@ var speed: float = 0.0
 var moving: bool = false
 
 var shoot_timer: float = 0.0
-var shoot_rate: float = 8.0
+#var shoot_rate: float = 8.0
 var shooting: bool = false
 
 # Looking
@@ -21,7 +21,7 @@ var look: Vector2 = Vector2.UP
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	super._ready()
+	super()
 	stats = preload("uid://bkq410kip5nju")
 	stats.health = stats.max_health
 	
@@ -46,7 +46,7 @@ func apply_look() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	super._process(delta)
+	super(delta)
 	
 	var input_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	super.move(input_vector, delta)
@@ -59,18 +59,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		shooting = false
 	
-	shoot_timer -= delta
-	
-	if shooting:
-		while shoot_timer <= 0.0:
-			shoot_timer += 1.0 / shoot_rate
-			shoot(look, "Player", Color.WHITE)
-	else:
-		if shoot_timer <= 0.0:
-			shoot_timer = 0.0
+	if stats.fire_rate > 0.0:
+
+		shoot_timer -= delta
+		
+		if shooting:
+			while shoot_timer <= 0.0:
+				shoot_timer += 1.0 / stats.fire_rate
+				shoot(look, "player", Color.WHITE)
+		else:
+			if shoot_timer <= 0.0:
+				shoot_timer = 0.0
 
 
 func die() -> void:
-	super.die()
 	Signals.player_died.emit()
+	super()
 	

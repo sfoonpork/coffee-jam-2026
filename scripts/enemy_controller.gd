@@ -6,27 +6,28 @@ var enemy_types: Array[EnemyStats] = [preload("uid://d3r0qmikupetq"), preload("u
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
 var timer: float = 1.0
-var duration: float = 0.5
+#var duration: float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super._ready()
+	super()
 	stats = enemy_types.pick_random()
 	stats = stats.duplicate()
 	stats.health = stats.max_health
+	ui.set_health_color(Color.RED)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	super._process(delta)
+	super(delta)
 	if player:
 		var player_direction: Vector2 = (player.position - position).normalized()
-		#position += player_direction * stats.speed * delta
 		super.move(player_direction, delta)
-		timer -= delta
-		while timer < 0.0:
-			timer += duration
-			shoot(player_direction, "Enemy", Color.RED)
+		if stats.fire_rate > 0.0:
+			timer -= delta
+			while timer < 0.0:
+				timer += 1.0 / stats.fire_rate
+				shoot(player_direction, "enemy", Color.RED)
 
 
 func _on_area_2d_body_entered(body: Player) -> void:
@@ -41,5 +42,5 @@ func _on_area_2d_body_entered(body: Player) -> void:
 
 
 func die() -> void:
-	super.die()
 	GameData.enemies_killed += 1
+	super()
