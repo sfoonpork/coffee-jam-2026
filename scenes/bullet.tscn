@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c422k1dftc1kc" path="res://scripts/bullet.gd" id="1_mkf8s"]
 [ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="2_y25gk"]
+[ext_resource type="AudioStream" uid="uid://bhemw3qb5gfoc" path="res://sfx/whoosh.mp3" id="3_l5glv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik31s"]
 size = Vector2(8, 16)
@@ -21,4 +22,8 @@ shape = SubResource("RectangleShape2D_ik31s")
 [node name="DespawnTimer" type="Timer" parent="." unique_id=230833931]
 one_shot = true
 
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="." unique_id=708153722]
+stream = ExtResource("3_l5glv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
