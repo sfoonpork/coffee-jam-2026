@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://c1i8jds66wegj"]
+
+[ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_ao0gc"]
+[ext_resource type="Resource" uid="uid://bhicqcvhylxvq" path="res://resources/enemies/mortar_enemy.tres" id="2_3jp0w"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="4_pl4dt"]
+
+[sub_resource type="Resource" id="Resource_kkx44"]
+script = ExtResource("1_ao0gc")
+enemy = ExtResource("2_3jp0w")
+weight = 10
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[resource]
+script = ExtResource("4_pl4dt")
+name = "Test Wave 3"
+num_enemies = 3
+spawn_time = 4.0
+enemy_pool = Array[ExtResource("1_ao0gc")]([SubResource("Resource_kkx44")])
+metadata/_custom_type_script = "uid://boh8sawl8snby"

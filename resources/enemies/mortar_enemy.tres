@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://bhicqcvhylxvq"]
+
+[ext_resource type="Script" uid="uid://b7m0ebbk7gghx" path="res://scripts/enemy_stats.gd" id="1_vul4f"]
+
+[resource]
+script = ExtResource("1_vul4f")
+name = "Mortar Enemy"
+max_health = 500.0
+fire_rate = 0.5
+bullet_speed = 1000.0
+metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
