@@ -1,4 +1,5 @@
-extends Node
+class_name Player
+extends Node2D
 
 @export var look_sprite: Sprite2D
 

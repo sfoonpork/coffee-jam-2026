@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dnyjl232du0xd" path="res://scripts/player_controller.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="2_g2els"]
 
-[node name="Player" type="Node2D" unique_id=321489202 node_paths=PackedStringArray("look_sprite")]
+[node name="Player" type="Node2D" unique_id=321489202 node_paths=PackedStringArray("look_sprite") groups=["player"]]
 script = ExtResource("1_3vyb7")
 look_sprite = NodePath("LookSprite2D")
 
