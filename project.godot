@@ -76,6 +76,8 @@ ui_down={
 
 [layer_names]
 
+2d_physics/layer_5="AffectsEnemy"
+2d_physics/layer_6="Enemy"
 2d_physics/layer_7="AffectsPlayer"
 2d_physics/layer_8="Player"
 

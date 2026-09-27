@@ -1,11 +1,11 @@
 class_name EnemySpawner
 extends Node2D
 
-const LEFT_BOUND = 0.0
+const LEFT_BOUND = 16.0
 const RIGHT_BOUND = 1280.0
-const UPPER_BOUND = 0.0
+const UPPER_BOUND = 16.0
 const LOWER_BOUND = 720.0
-const MIN_SPAWN_DISTANCE = 180.0
+const MIN_SPAWN_DISTANCE = 175.0
 
 @export var enemy_scene: PackedScene
 
