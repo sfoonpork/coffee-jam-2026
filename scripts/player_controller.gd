@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 	super._process(delta)
 	
 	var input_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	super.move(input_vector)
+	super.move(input_vector, delta)
 	
 	apply_look()
 	
@@ -68,7 +68,8 @@ func _process(delta: float) -> void:
 	else:
 		if shoot_timer <= 0.0:
 			shoot_timer = 0.0
-	
+
+
 func die() -> void:
 	super.die()
 	Signals.player_died.emit()

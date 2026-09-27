@@ -22,5 +22,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Entity) -> void:
 	body.take_damage(speed / 10.0)
+	body.take_knockback(direction.normalized() * 250.0)
 	queue_free()
 	pass # Replace with function body.

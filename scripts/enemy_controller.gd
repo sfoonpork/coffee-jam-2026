@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if player:
 		var player_direction: Vector2 = (player.position - position).normalized()
 		#position += player_direction * stats.speed * delta
-		super.move(player_direction)
+		super.move(player_direction, delta)
 		timer -= delta
 		while timer < 0.0:
 			timer += duration
@@ -29,11 +29,14 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Player) -> void:
-	body.take_damage(60.0)
-	# TODO: knockback for damage
-	GameData.enemies_killed += 1
-	queue_free()
-	pass # Replace with function body.
+	
+	var direction: Vector2 = body.position - self.position
+	body.take_knockback(direction.normalized() * 500.0)
+	self.take_knockback(-direction.normalized() * 500.0)
+	
+	var damage: float = 10.0
+	body.take_damage(damage)
+	self.take_damage(damage)
 
 
 func die() -> void:
