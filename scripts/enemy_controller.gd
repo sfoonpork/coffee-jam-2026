@@ -1,5 +1,5 @@
 class_name Enemy
-extends Node2D
+extends RigidBody2D
 
 @export var speed: float = 100.0
 
@@ -18,3 +18,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var player_direction: Vector2 = (player.position - position).normalized()
 	position += player_direction * stats.speed * delta
+
+
+func on_body_entered(speed: float) -> void:
+	print(2)
+	stats.health -= speed / 10.0
+	if stats.health <= 0.0:
+		queue_free()

@@ -1,5 +1,5 @@
 class_name Player
-extends Node2D
+extends CharacterBody2D
 
 @export var look_sprite: Sprite2D
 
@@ -60,7 +60,10 @@ func _process(delta: float) -> void:
 				move = Vector2.ZERO
 				#print("reset")
 	
-	self.position += move * delta
+	#self.position += move * delta
+	#self.set_velocity(move * delta)
+	self.set_velocity(move)
+	move_and_slide()
 	
 	apply_look()
 	
