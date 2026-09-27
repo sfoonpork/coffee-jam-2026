@@ -3,6 +3,7 @@ extends Node
 
 var enemies_killed: int = 0
 var bullets_fired: int = 0
+var end_state: String = ""
 
 
 func reset() -> void:

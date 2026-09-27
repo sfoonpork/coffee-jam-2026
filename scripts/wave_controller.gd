@@ -32,6 +32,7 @@ func end_wave() -> void:
 	print("wave defeated")
 	wave_index += 1
 	if wave_index == waves.size():
+		GameData.end_state = "You won!"
 		Signals.game_defeated.emit()
 		return
 	var upgrade_ui: UpgradeUI = UPGRADE_UI.instantiate()

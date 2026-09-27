@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 
 
 func die() -> void:
+	GameData.end_state = "You were defeated!"
 	Signals.player_died.emit()
 	super()
 	
