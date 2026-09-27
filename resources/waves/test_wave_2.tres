@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://dlo6qpwjdvysi"]
+
+[ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_jghsa"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="2_qncqq"]
+[ext_resource type="Resource" uid="uid://bj8cnvcn4nat" path="res://resources/enemies/very_fast_enemy.tres" id="2_xh7s4"]
+[ext_resource type="Resource" uid="uid://bsroal1ol5i62" path="res://resources/enemies/tank_enemy.tres" id="3_bljw3"]
+
+[sub_resource type="Resource" id="Resource_kkx44"]
+script = ExtResource("1_jghsa")
+enemy = ExtResource("2_xh7s4")
+weight = 10
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[sub_resource type="Resource" id="Resource_5jn4l"]
+script = ExtResource("1_jghsa")
+enemy = ExtResource("3_bljw3")
+weight = 20
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[resource]
+script = ExtResource("2_qncqq")
+name = "Test Wave 2"
+num_enemies = 20
+spawn_time = 1.5
+enemy_pool = Array[ExtResource("1_jghsa")]([SubResource("Resource_kkx44"), SubResource("Resource_5jn4l")])
+metadata/_custom_type_script = "uid://boh8sawl8snby"
