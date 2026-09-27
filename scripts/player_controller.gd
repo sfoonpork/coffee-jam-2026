@@ -11,6 +11,10 @@ var speed: float = 0.0
 
 var moving: bool = false
 
+var shoot_timer: float = 0.0
+var shoot_rate: float = 8.0
+var shooting: bool = false
+
 # Looking
 var look: Vector2 = Vector2.UP
 
@@ -50,19 +54,21 @@ func _process(delta: float) -> void:
 	apply_look()
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		
-		shoot(look, "Player", Color.WHITE)
-		#TODO: hook up bullet spawning to world (position, direction, ignore tag) - hits targets when collisions provided
-		#var bullet: Bullet = bullet_scene.instantiate()
-		#bullet.position = position + look.normalized() * 32.0
-		#bullet.direction = look
-		#bullet.ignore = "player"
-		#add_sibling(bullet)
-		#
-		#GameData.bullets_fired += 1
-		#print("fired")
+		shooting = true
 
-
+	if Input.is_action_just_released("ui_accept"):
+		shooting = false
+	
+	shoot_timer -= delta
+	
+	if shooting:
+		while shoot_timer <= 0.0:
+			shoot_timer += 1.0 / shoot_rate
+			shoot(look, "Player", Color.WHITE)
+	else:
+		if shoot_timer <= 0.0:
+			shoot_timer = 0.0
+	
 func die() -> void:
 	super.die()
 	Signals.player_died.emit()
