@@ -87,7 +87,7 @@ func take_damage(amount: float) -> void:
 func die() -> void:
 	var death_sfx: AudioStreamMP3 = preload("uid://beyg3eg8ccc70")
 	var death_sound = AudioStreamPlayer2D.new()
-	death_sound.volume_db += 12.0
+	#death_sound.volume_db += 12.0
 	death_sound.pitch_scale = 1.0 + randf()
 	death_sound.stream = death_sfx
 	add_sibling(death_sound)
