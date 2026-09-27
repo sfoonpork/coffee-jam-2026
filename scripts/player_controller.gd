@@ -1,14 +1,76 @@
 class_name Player
 extends Node2D
 
+@export var look_sprite: Sprite2D
+
+# wobble on speed stop (follow thru animation)
+
+# Accelarate to move speed
+var accel: Vector2 = Vector2.ZERO
+var accel_speed: float = 50.0
+var max_speed: float = 250.0
+
+# General movement
+var move: Vector2 = Vector2.ZERO
+var speed: float = 0.0
+
+# Looking
+var look: Vector2 = Vector2.UP
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	self.position = get_viewport().size / 2.0
+
+
+func apply_accel(action: String, direction: Vector2) -> void:
+	
+	if Input.is_action_just_pressed(action):
+		accel += direction
+	if Input.is_action_just_released(action):
+		accel -= direction
+
+
+func apply_look() -> void:
+
+	var pos_mouse: Vector2 = get_viewport().get_mouse_position()
+	var pos_player: Vector2 = self.position
+	look = pos_mouse - pos_player
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("ui_accept"):
-		Signals.boss_defeated.emit()
+	
+	apply_accel("ui_up", Vector2.UP)
+	apply_accel("ui_down", Vector2.DOWN)
+	apply_accel("ui_left", Vector2.LEFT)
+	apply_accel("ui_right", Vector2.RIGHT)
+	
+	if accel.length_squared() > 0.0:
+		move += accel.normalized() * accel_speed
+		#print("accel")
+		if move.length() > max_speed:
+			move = move.normalized() * max_speed
+			#print("max")
+	else:
+		if move.length_squared() > 0.0:
+			var move_last = move
+			move -= move.normalized() * accel_speed
+			#print("deccel")
+			if move.dot(move_last) <= 0.0:
+				move = Vector2.ZERO
+				#print("reset")
+	
+	self.position += move * delta
+	
+	apply_look()
+	
+	if look.length_squared() > 0.0:
+		look_sprite.position = look.normalized() * 32.0
+		look_sprite.rotation = atan2(look.y, look.x)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		#TODO: hook up bullet spawning to world (position, direction, ignore tag) - hits targets when collisions provided
+		Signals.bullet_spawned.emit(self.position, self.look, "player")
+		print("fired")
+	
 	pass
