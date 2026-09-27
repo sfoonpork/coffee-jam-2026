@@ -77,3 +77,8 @@ func _process(delta: float) -> void:
 		print("fired")
 	
 	pass
+
+
+func take_damage(amount: float) -> void:
+	print("damage")
+	queue_free()

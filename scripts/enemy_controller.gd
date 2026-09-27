@@ -12,16 +12,24 @@ var enemy_types: Array[EnemyStats] = [preload("uid://d3r0qmikupetq"), preload("u
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	stats = enemy_types.pick_random()
+	stats = stats.duplicate()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var player_direction: Vector2 = (player.position - position).normalized()
-	position += player_direction * stats.speed * delta
+	if player:
+		var player_direction: Vector2 = (player.position - position).normalized()
+		position += player_direction * stats.speed * delta
 
 
-func on_body_entered(speed: float) -> void:
+func take_damage(amount: float) -> void:
 	print(2)
-	stats.health -= speed / 10.0
+	stats.health -= amount
 	if stats.health <= 0.0:
 		queue_free()
+
+
+func _on_area_2d_body_entered(body: Player) -> void:
+	print(20)
+	body.take_damage(100.0)
+	pass # Replace with function body.

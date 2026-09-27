@@ -23,6 +23,6 @@ func setup(_origin: Vector2, _direction: Vector2, _ignore: String) -> void:
 
 
 func _on_body_entered(body: Enemy) -> void:
-	body.on_body_entered(speed)
+	body.take_damage(speed / 10.0)
 	queue_free()
 	pass # Replace with function body.

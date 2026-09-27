@@ -17,7 +17,7 @@ func on_bullet_spawn(origin: Vector2, direction: Vector2, ignore: String) -> voi
 	print(1)
 	var bullet: Bullet = bullet_scene.instantiate()
 	#bullet.setup(position, direction, ignore)
-	bullet.position = origin
+	bullet.position = origin + direction.normalized() * 32.0
 	bullet.direction = direction
 	bullet.ignore = ignore
 	add_child(bullet)
