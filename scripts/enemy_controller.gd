@@ -1,7 +1,7 @@
 class_name Enemy
 extends Entity
 
-var enemy_types: Array[EnemyStats] = [preload("uid://d3r0qmikupetq"), preload("uid://cg3ytuokfahcp"), preload("uid://bsroal1ol5i62"), preload("uid://bj8cnvcn4nat")]
+var enemy_type: EnemyStats
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
@@ -11,7 +11,7 @@ var timer: float = 1.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	stats = enemy_types.pick_random()
+	stats = enemy_type
 	stats = stats.duplicate()
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
@@ -43,4 +43,5 @@ func _on_area_2d_body_entered(body: Player) -> void:
 
 func die() -> void:
 	GameData.enemies_killed += 1
+	Signals.enemy_killed.emit()
 	super()

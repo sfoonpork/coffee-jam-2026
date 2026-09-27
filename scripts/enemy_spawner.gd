@@ -1,3 +1,4 @@
+class_name EnemySpawner
 extends Node2D
 
 const LEFT_BOUND = 0.0
@@ -7,6 +8,12 @@ const LOWER_BOUND = 720.0
 const MIN_SPAWN_DISTANCE = 180.0
 
 @export var enemy_scene: PackedScene
+
+var is_spawning: bool = false
+var spawn_timer: Timer
+var cur_wave: WaveStats
+var enemies_to_spawn: int
+var enemies_left: int
 
 var duration: float = 4.0
 var timer: float = 0.0
@@ -20,14 +27,18 @@ var enemy_positions_y: Array[float]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.boss_defeated.connect(on_boss_defeated)
+	Signals.wave_started.connect(start_wave)
+	Signals.enemy_killed.connect(on_enemy_killed)
+	
+	spawn_timer = Timer.new()
+	add_child(spawn_timer)
+	spawn_timer.timeout.connect(spawn_enemy)
+	spawn_timer.one_shot = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	timer -= delta
-	if timer < 0:
-		timer += duration
-		spawn_enemy()
+	pass
 
 
 func spawn_enemy() -> void:
@@ -66,14 +77,43 @@ func spawn_enemy() -> void:
 	enemy_positions_x.append(position_x)
 	enemy_positions_y.append(position_y)
 	enemy.modulate = Color.RED  # TODO delete when we have enemy sprites
+	enemy.enemy_type = get_enemy_type()
 	
 	add_child(enemy)
 	Signals.enemy_spawned.emit()
+	enemies_left += 1
+	enemies_to_spawn -= 1
+	if enemies_to_spawn == 0:
+		spawn_timer.stop()
 	print(enemy.stats.name + " spawned at " + str(enemy.position))
 
 
-func on_enemy_spawned() -> void:
-	pass
+func get_enemy_type() -> EnemyStats:
+	var total_weight: int = 0
+	for enemy_tuple in cur_wave.enemy_pool:
+		total_weight += enemy_tuple.weight
+	
+	var target: int = randi_range(0, total_weight)
+	
+	for enemy_tuple in cur_wave.enemy_pool:
+		target -= enemy_tuple.weight
+		if target <= 0:
+			return enemy_tuple.enemy
+	
+	return null
+
+
+func start_wave(new_wave: WaveStats) -> void:
+	cur_wave = new_wave
+	is_spawning = true
+	enemies_to_spawn = cur_wave.num_enemies
+	spawn_timer.start(cur_wave.spawn_time)
+
+
+func on_enemy_killed() -> void:
+	enemies_left -= 1
+	if enemies_to_spawn == 0 and enemies_left == 0:
+		Signals.wave_defeated.emit()
 
 
 func on_boss_defeated() -> void:
