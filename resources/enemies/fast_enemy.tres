@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_37f2w")
 name = "Fast Enemy"
-health = 75.0
+max_health = 75.0
 speed = 150.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
