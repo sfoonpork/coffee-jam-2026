@@ -12,9 +12,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func on_bullet_spawn(origin: Vector2, direction: Vector2, ignore: String) -> void:
 	
-	print(1)
 	var bullet: Bullet = bullet_scene.instantiate()
 	#bullet.setup(position, direction, ignore)
 	bullet.position = origin + direction.normalized() * 32.0
