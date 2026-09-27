@@ -28,6 +28,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 player=""
+
 [input]
 
 ui_accept={

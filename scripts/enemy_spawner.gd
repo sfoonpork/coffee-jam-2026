@@ -28,13 +28,6 @@ func _process(delta: float) -> void:
 	if timer < 0:
 		timer += duration
 		spawn_enemy()
-	
-	if Input.is_action_just_released("ui_accept"):
-		print("Min X: " + str(enemy_positions_x.min()))
-		print("Max X: " + str(enemy_positions_x.max()))
-		print("Min Y: " + str(enemy_positions_y.min()))
-		print("Max Y: " + str(enemy_positions_y.max()))
-	pass
 
 
 func spawn_enemy() -> void:
