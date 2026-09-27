@@ -15,6 +15,8 @@ var max_speed: float = 250.0
 var move: Vector2 = Vector2.ZERO
 var speed: float = 0.0
 
+var moving: bool = false
+
 # Looking
 var look: Vector2 = Vector2.UP
 
@@ -27,8 +29,12 @@ func apply_accel(action: String, direction: Vector2) -> void:
 	
 	if Input.is_action_just_pressed(action):
 		accel += direction
+		moving = true
 	if Input.is_action_just_released(action):
-		accel -= direction
+		if moving:
+			accel -= direction
+			if accel.length_squared() == 0.0:
+				moving = false
 
 
 func apply_look() -> void:

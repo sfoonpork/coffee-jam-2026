@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Player) -> void:
 	body.take_damage(50.0)
+	# TODO: knockback for damage
 	queue_free()
 	pass # Replace with function body.
 
