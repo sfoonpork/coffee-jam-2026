@@ -13,6 +13,7 @@ func _ready() -> void:
 	super._ready()
 	stats = enemy_types.pick_random()
 	stats = stats.duplicate()
+	stats.health = stats.max_health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
