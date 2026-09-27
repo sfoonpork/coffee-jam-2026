@@ -5,15 +5,9 @@ extends Entity
 @export var look_sprite: Sprite2D
 @export var bullet_scene: PackedScene
 
-var stats: PlayerStats = preload("uid://bkq410kip5nju")
 
 # Accelarate to move speed
-var accel: Vector2 = Vector2.ZERO
-var accel_speed: float = 50.0
-var max_speed: float = 250.0
-
 # General movement
-var move: Vector2 = Vector2.ZERO
 var speed: float = 0.0
 
 var moving: bool = false
@@ -23,6 +17,8 @@ var look: Vector2 = Vector2.UP
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	stats = preload("uid://bkq410kip5nju")
 	self.position = get_viewport().size / 2.0
 	apply_look()
 	look_sprite.position = look.normalized() * 32.0
@@ -58,25 +54,7 @@ func _process(delta: float) -> void:
 	apply_accel("ui_left", Vector2.LEFT)
 	apply_accel("ui_right", Vector2.RIGHT)
 	
-	if accel.length_squared() > 0.0:
-		move += accel.normalized() * accel_speed
-		#print("accel")
-		if move.length() > max_speed:
-			move = move.normalized() * max_speed
-			#print("max")
-	else:
-		if move.length_squared() > 0.0:
-			var move_last = move
-			move -= move.normalized() * accel_speed
-			#print("deccel")
-			if move.dot(move_last) <= 0.0:
-				move = Vector2.ZERO
-				#print("reset")
-	
-	#self.position += move * delta
-	#self.set_velocity(move * delta)
-	self.set_velocity(move)
-	move_and_slide()
+	super.move(accel)
 	
 	apply_look()
 	
@@ -94,12 +72,9 @@ func _process(delta: float) -> void:
 		
 		GameData.bullets_fired += 1
 		print("fired")
+
+
+func die() -> void:
+	super.die()
+	Signals.player_died.emit()
 	
-	pass
-
-
-func take_damage(amount: float) -> void:
-	stats.health -= amount
-	if stats.health <= 0.0:
-		Signals.player_died.emit()
-		queue_free()

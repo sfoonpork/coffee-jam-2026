@@ -3,7 +3,7 @@ extends Entity
 
 @export var speed: float = 100.0
 
-var stats: EnemyStats
+#var stats: EnemyStats
 var enemy_types: Array[EnemyStats] = [preload("uid://d3r0qmikupetq"), preload("uid://cg3ytuokfahcp"), preload("uid://bsroal1ol5i62"), preload("uid://bj8cnvcn4nat")]
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
@@ -30,8 +30,6 @@ func _on_area_2d_body_entered(body: Player) -> void:
 	pass # Replace with function body.
 
 
-func take_damage(amount: float) -> void:
-	stats.health -= amount
-	if stats.health <= 0.0:
-		GameData.enemies_killed += 1
-		queue_free()
+func die() -> void:
+	super.die()
+	GameData.enemies_killed += 1

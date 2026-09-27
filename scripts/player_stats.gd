@@ -1,7 +1,7 @@
 class_name PlayerStats
-extends Resource
+extends EntityStats
 
-@export var max_health: float
-@export var speed: float
+#@export var max_health: float
+#@export var speed: float
 
-var health: float
+#var health: float
