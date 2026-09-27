@@ -3,8 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://rggq6ftkarc6" path="res://scripts/enemy_controller.gd" id="1_md0e3"]
 
-[node name="Enemy" type="Node2D" unique_id=321489202]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ticvn"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik31s"]
+radius = 32.06244
+
+[node name="Enemy" type="RigidBody2D" unique_id=2122596783]
+gravity_scale = 0.0
 script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=153926240]
 texture = ExtResource("1_7p1mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847753246]
+shape = SubResource("RectangleShape2D_ticvn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1802807542]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=520474289]
+shape = SubResource("CircleShape2D_ik31s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
