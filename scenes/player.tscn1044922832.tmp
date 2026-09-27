@@ -3,15 +3,9 @@
 [ext_resource type="Script" uid="uid://dnyjl232du0xd" path="res://scripts/player_controller.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="2_g2els"]
 
-[node name="Player" type="Node2D" unique_id=321489202 node_paths=PackedStringArray("look_sprite")]
+[node name="Player" type="Node2D" unique_id=321489202]
 script = ExtResource("1_3vyb7")
-look_sprite = NodePath("LookSprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=104182442]
 texture_filter = 1
-texture = ExtResource("2_g2els")
-
-[node name="LookSprite2D" type="Sprite2D" parent="." unique_id=501349345]
-position = Vector2(0, -32)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_g2els")
