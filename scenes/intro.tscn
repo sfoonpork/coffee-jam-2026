@@ -19,7 +19,7 @@ offset_right = 62.0
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "(INTRO SCREEN)
-Click to start"
+text = "(START SCREEN)
+Click to begin"
 horizontal_alignment = 1
 vertical_alignment = 1
