@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		
-		shoot(look)
+		shoot(look, "Player", Color.WHITE)
 		#TODO: hook up bullet spawning to world (position, direction, ignore tag) - hits targets when collisions provided
 		#var bullet: Bullet = bullet_scene.instantiate()
 		#bullet.position = position + look.normalized() * 32.0

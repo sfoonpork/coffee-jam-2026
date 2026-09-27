@@ -5,6 +5,8 @@ var enemy_types: Array[EnemyStats] = [preload("uid://d3r0qmikupetq"), preload("u
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
+var timer: float = 1.0
+var duration: float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +22,10 @@ func _process(delta: float) -> void:
 		var player_direction: Vector2 = (player.position - position).normalized()
 		#position += player_direction * stats.speed * delta
 		super.move(player_direction)
+		timer -= delta
+		while timer < 0.0:
+			timer += duration
+			shoot(player_direction, "Enemy", Color.RED)
 
 
 func _on_area_2d_body_entered(body: Player) -> void:

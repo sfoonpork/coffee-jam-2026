@@ -20,13 +20,7 @@ func _process(delta: float) -> void:
 	self.position += direction.normalized() * speed * delta
 
 
-func setup(_origin: Vector2, _direction: Vector2, _ignore: String) -> void:
-	position = _origin
-	direction = _direction
-	ignore = _ignore
-
-
-func _on_body_entered(body: Enemy) -> void:
+func _on_body_entered(body: Entity) -> void:
 	body.take_damage(speed / 10.0)
 	queue_free()
 	pass # Replace with function body.

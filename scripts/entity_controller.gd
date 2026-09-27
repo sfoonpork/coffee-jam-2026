@@ -41,12 +41,14 @@ func move(accel: Vector2) -> void:
 	
 
 
-func shoot(direction: Vector2) -> void:
+func shoot(direction: Vector2, ignore: String, color: Color) -> void:
 	
 	var bullet: Bullet = preload("uid://datv25v5nu10j").instantiate()
 	bullet.position = position + direction.normalized() * 32.0
 	bullet.direction = direction
-	bullet.ignore = "player"
+	bullet.ignore = ignore
+	bullet.modulate = color
+	
 	add_sibling(bullet)
 	
 	GameData.bullets_fired += 1
