@@ -12,6 +12,8 @@ var valid: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$ShootAudio.pitch_scale = 4.0 + randf() * 2.0
+	$ShootAudio.play()
 	speed = 500.0
 	valid = true
 	collided = {}
