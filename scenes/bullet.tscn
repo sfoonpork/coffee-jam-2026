@@ -7,6 +7,8 @@
 size = Vector2(8, 16)
 
 [node name="Bullet" type="Area2D" unique_id=966431872]
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("1_mkf8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1413399820]
