@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=808563378 node_paths=PackedStringArray("look_sprite") groups=["player"]]
 collision_layer = 128
-collision_mask = 128
+collision_mask = 64
 motion_mode = 1
 script = ExtResource("1_3vyb7")
 look_sprite = NodePath("LookSprite2D")

@@ -1,10 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
-var stats: PlayerStats = preload("uid://bkq410kip5nju")
-
 # wobble on speed stop (follow thru animation)
 @export var look_sprite: Sprite2D
+@export var bullet_scene: PackedScene
+
+var stats: PlayerStats = preload("uid://bkq410kip5nju")
 
 # Accelarate to move speed
 var accel: Vector2 = Vector2.ZERO
@@ -80,7 +81,12 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		#TODO: hook up bullet spawning to world (position, direction, ignore tag) - hits targets when collisions provided
-		Signals.bullet_spawned.emit(self.position, self.look, "player")
+		var bullet: Bullet = bullet_scene.instantiate()
+		bullet.position = position + look.normalized() * 32.0
+		bullet.direction = look
+		bullet.ignore = "player"
+		add_sibling(bullet)
+		
 		print("fired")
 	
 	pass

@@ -5,9 +5,13 @@ var direction: Vector2
 var ignore: String
 var speed: float = 500.0
 
+@onready var despawn_timer: Timer = $DespawnTimer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	despawn_timer.start(5.0)
+	despawn_timer.timeout.connect(queue_free)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
