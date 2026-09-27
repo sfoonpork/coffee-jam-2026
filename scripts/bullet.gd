@@ -31,12 +31,15 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: CollisionObject2D) -> void:
-	
 	if body.is_in_group(ignore):
 		return
-	
+		
+	if not valid:
+		return
+
 	var entity = body as Entity
 	if entity:
+		valid = false
 		body.take_damage(speed / 10.0)
 		body.take_knockback(direction.normalized() * 250.0)
 		queue_free()

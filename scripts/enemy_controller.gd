@@ -3,10 +3,12 @@ extends Entity
 
 var enemy_type: EnemyStats
 
+var timer: float = 1.0
+
+var is_dying: bool = false
+
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
-var timer: float = 1.0
-#var duration: float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,6 +44,10 @@ func _on_area_2d_body_entered(body: Player) -> void:
 
 
 func die() -> void:
+	if is_dying:
+		return
+	
+	is_dying = true
 	GameData.enemies_killed += 1
 	Signals.enemy_killed.emit()
 	super()

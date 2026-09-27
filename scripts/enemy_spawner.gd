@@ -112,6 +112,7 @@ func start_wave(new_wave: WaveStats) -> void:
 
 func on_enemy_killed() -> void:
 	enemies_left -= 1
+	print("enemies_left: " + str(enemies_left))
 	if enemies_to_spawn == 0 and enemies_left == 0:
 		Signals.wave_defeated.emit()
 
