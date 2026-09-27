@@ -22,14 +22,13 @@ func _process(delta: float) -> void:
 		position += player_direction * stats.speed * delta
 
 
+func _on_area_2d_body_entered(body: Player) -> void:
+	body.take_damage(50.0)
+	queue_free()
+	pass # Replace with function body.
+
+
 func take_damage(amount: float) -> void:
-	print(2)
 	stats.health -= amount
 	if stats.health <= 0.0:
 		queue_free()
-
-
-func _on_area_2d_body_entered(body: Player) -> void:
-	print(20)
-	body.take_damage(100.0)
-	pass # Replace with function body.

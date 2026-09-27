@@ -1,9 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
-@export var look_sprite: Sprite2D
+var stats: PlayerStats = preload("uid://bkq410kip5nju")
 
 # wobble on speed stop (follow thru animation)
+@export var look_sprite: Sprite2D
 
 # Accelarate to move speed
 var accel: Vector2 = Vector2.ZERO
@@ -80,5 +81,6 @@ func _process(delta: float) -> void:
 
 
 func take_damage(amount: float) -> void:
-	print("damage")
-	queue_free()
+	stats.health -= amount
+	if stats.health <= 0.0:
+		queue_free()
