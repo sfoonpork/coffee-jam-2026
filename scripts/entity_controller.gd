@@ -60,13 +60,14 @@ func move(accel: Vector2, delta: float) -> void:
 	move_and_slide()
 
 
-func shoot(direction: Vector2, ignore: String, color: Color) -> void:
+func fire(direction: Vector2, ignore: String, color: Color) -> void:
 	
 	var bullet: Bullet = preload("uid://datv25v5nu10j").instantiate()
 	bullet.position = position + direction.normalized() * 32.0
 	bullet.direction = direction
 	bullet.ignore = ignore
 	bullet.modulate = color
+	bullet.speed = stats.bullet_speed
 	
 	add_sibling(bullet)
 	

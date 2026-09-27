@@ -11,9 +11,9 @@ var speed: float = 0.0
 
 var moving: bool = false
 
-var shoot_timer: float = 0.0
-#var shoot_rate: float = 8.0
-var shooting: bool = false
+var fire_timer: float = 0.0
+#var fire_rate: float = 8.0
+var firing: bool = false
 
 # Looking
 var look: Vector2 = Vector2.UP
@@ -54,22 +54,22 @@ func _process(delta: float) -> void:
 	apply_look()
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		shooting = true
+		firing = true
 
 	if Input.is_action_just_released("ui_accept"):
-		shooting = false
+		firing = false
 	
 	if stats.fire_rate > 0.0:
 
-		shoot_timer -= delta
+		fire_timer -= delta
 		
-		if shooting:
-			while shoot_timer <= 0.0:
-				shoot_timer += 1.0 / stats.fire_rate
-				shoot(look, "player", Color.WHITE)
+		if firing:
+			while fire_timer <= 0.0:
+				fire_timer += 1.0 / stats.fire_rate
+				fire(look, "player", Color.WHITE)
 		else:
-			if shoot_timer <= 0.0:
-				shoot_timer = 0.0
+			if fire_timer <= 0.0:
+				fire_timer = 0.0
 
 
 func die() -> void:

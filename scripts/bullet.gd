@@ -14,7 +14,7 @@ var valid: bool
 func _ready() -> void:
 	$ShootAudio.pitch_scale = 4.0 + randf() * 2.0
 	$ShootAudio.play()
-	speed = 500.0
+	#speed = 500.0
 	valid = true
 	collided = {}
 	despawn_timer.start(5.0)

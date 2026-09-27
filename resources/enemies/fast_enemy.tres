@@ -8,4 +8,5 @@ name = "Fast Enemy"
 max_health = 75.0
 speed = 150.0
 fire_rate = 1.0
+bullet_speed = 250.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
