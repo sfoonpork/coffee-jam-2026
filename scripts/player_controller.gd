@@ -26,6 +26,7 @@ func _ready() -> void:
 	stats = stats.duplicate()
 	stats.health = stats.max_health
 	stats.bullet_speed_factor = 1
+	stats.bullet_espresso_count = 1
 
 	self.position = get_viewport_rect().size / 2.0
 	
@@ -54,6 +55,8 @@ func _process(delta: float) -> void:
 	
 	super(delta)
 	
+	#print(stats.bullet_espresso_count)
+	
 	var input_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	super.move(input_vector, delta)
 	
@@ -72,7 +75,14 @@ func _process(delta: float) -> void:
 		if firing:
 			while fire_timer <= 0.0:
 				fire_timer += 1.0 / stats.fire_rate
-				fire(look, "player", Color.WHITE)
+				var rad: float = deg_to_rad(5.0)
+				var offset: float = 0.0
+				if stats.bullet_espresso_count % 2 == 0:
+					offset += 0.5
+				offset -= int(stats.bullet_espresso_count/2)
+				var look_curr = look.rotated(rad * offset)
+				for i in range(stats.bullet_espresso_count):
+					fire(look_curr.rotated(rad * i), "player", Color.WHITE)
 		else:
 			if fire_timer <= 0.0:
 				fire_timer = 0.0

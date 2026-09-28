@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CoffeeClassStats" format=3 uid="uid://bm7o1ijlkt0ey"]
+
+[ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_58yy4"]
+[ext_resource type="Resource" uid="uid://1j0hdgx2m44t" path="res://resources/upgrades/drinks/milk.tres" id="2_58yy4"]
+
+[resource]
+script = ExtResource("1_58yy4")
+name = "Latte"
+upgrade = ExtResource("2_58yy4")
+metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

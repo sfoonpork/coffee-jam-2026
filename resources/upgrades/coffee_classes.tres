@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="CoffeeClassNode" format=3 uid="uid://d285d026kt5lc"]
+
+[ext_resource type="Script" uid="uid://2hjqj2en0tgv" path="res://scripts/coffee_class_node.gd" id="1_fbxav"]
+[ext_resource type="Resource" uid="uid://di61phhiudwwx" path="res://resources/upgrades/classes/cappucino.tres" id="2_cjr0i"]
+[ext_resource type="Resource" uid="uid://cpnvwfgbwwj48" path="res://resources/upgrades/classes/black.tres" id="2_tiffe"]
+[ext_resource type="Resource" uid="uid://defs7t2yjkjfu" path="res://resources/upgrades/classes/mocha.tres" id="3_85gaa"]
+[ext_resource type="Resource" uid="uid://br6vhiby2ckc8" path="res://resources/upgrades/classes/macchiato.tres" id="4_pbjpu"]
+[ext_resource type="Resource" uid="uid://bm7o1ijlkt0ey" path="res://resources/upgrades/classes/latte.tres" id="5_ves6u"]
+[ext_resource type="Resource" uid="uid://desk2t5fjidbl" path="res://resources/upgrades/classes/red_eye.tres" id="6_wxj52"]
+[ext_resource type="Resource" uid="uid://dul18hijptvb5" path="res://resources/upgrades/classes/lungo.tres" id="7_6svug"]
+[ext_resource type="Resource" uid="uid://c0i4fhjxbv3oc" path="res://resources/upgrades/classes/doppio.tres" id="8_cfucw"]
+[ext_resource type="Resource" uid="uid://dhml2rxlobkuu" path="res://resources/upgrades/classes/long_black.tres" id="9_0tdrv"]
+[ext_resource type="Resource" uid="uid://bnjxtjknubewg" path="res://resources/upgrades/classes/americano.tres" id="10_ve8eq"]
+
+[sub_resource type="Resource" id="Resource_fdlmy"]
+script = ExtResource("1_fbxav")
+value = ExtResource("2_cjr0i")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_eeko3"]
+script = ExtResource("1_fbxav")
+value = ExtResource("3_85gaa")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_gcer2"]
+script = ExtResource("1_fbxav")
+value = ExtResource("4_pbjpu")
+next = Array[ExtResource("1_fbxav")]([SubResource("Resource_fdlmy"), SubResource("Resource_eeko3")])
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_my06r"]
+script = ExtResource("1_fbxav")
+value = ExtResource("2_cjr0i")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_2q6oy"]
+script = ExtResource("1_fbxav")
+value = ExtResource("3_85gaa")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_vad8r"]
+script = ExtResource("1_fbxav")
+value = ExtResource("5_ves6u")
+next = Array[ExtResource("1_fbxav")]([SubResource("Resource_my06r"), SubResource("Resource_2q6oy")])
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_ir4m1"]
+script = ExtResource("1_fbxav")
+value = ExtResource("6_wxj52")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_28m1t"]
+script = ExtResource("1_fbxav")
+value = ExtResource("7_6svug")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_cula1"]
+script = ExtResource("1_fbxav")
+value = ExtResource("8_cfucw")
+next = Array[ExtResource("1_fbxav")]([SubResource("Resource_ir4m1"), SubResource("Resource_28m1t")])
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_kduis"]
+script = ExtResource("1_fbxav")
+value = ExtResource("6_wxj52")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_uggan"]
+script = ExtResource("1_fbxav")
+value = ExtResource("9_0tdrv")
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[sub_resource type="Resource" id="Resource_46h2t"]
+script = ExtResource("1_fbxav")
+value = ExtResource("10_ve8eq")
+next = Array[ExtResource("1_fbxav")]([SubResource("Resource_kduis"), SubResource("Resource_uggan")])
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"
+
+[resource]
+script = ExtResource("1_fbxav")
+value = ExtResource("2_tiffe")
+next = Array[ExtResource("1_fbxav")]([SubResource("Resource_gcer2"), SubResource("Resource_vad8r"), SubResource("Resource_cula1"), SubResource("Resource_46h2t")])
+metadata/_custom_type_script = "uid://2hjqj2en0tgv"

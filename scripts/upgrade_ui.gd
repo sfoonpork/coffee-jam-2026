@@ -9,6 +9,9 @@ const CARD_UI = preload("uid://dia2yamwblh47")
 var card_uis: Array[CardUI]
 var seen: Dictionary
 
+var root: CoffeeClassNode = preload("uid://d285d026kt5lc")
+var curr = root
+
 func _ready() -> void:
 	curr_upgrade_pool = upgrade_pool.duplicate()
 	seen = {}
@@ -20,13 +23,13 @@ func prompt(amount: int, promotion: bool) -> void:
 		var card_ui: CardUI = CARD_UI.instantiate()
 		card_ui.position = Vector2((i - num_cards/2) * 384.0 - card_ui.size.x/2.0, -card_ui.size.y/2.0)
 		card_uis.append(card_ui)
-		randomize_upgrades(card_ui, amount, promotion)
+		randomize_upgrade(card_ui, amount, promotion)
 		add_child(card_ui)
 
 	get_tree().paused = true
 
 
-func randomize_upgrades(card_ui: CardUI, remaining: int, promotion: bool) -> void:
+func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void:
 	
 	
 	if upgrade_pool.size() == 0:
@@ -56,8 +59,7 @@ func randomize_upgrades(card_ui: CardUI, remaining: int, promotion: bool) -> voi
 
 func select_upgrade(upgrade: UpgradeStats, remaining: int, promotion: bool) -> void:
 	
-	for modifier in upgrade.modifiers:
-		Signals.add_player_stat.emit(modifier.property, modifier.value)
+	apply_modifiers(upgrade.modifiers)
 	
 	for upgrade_tuple in curr_upgrade_pool:
 		if upgrade_tuple.upgrade == upgrade:
@@ -71,15 +73,81 @@ func select_upgrade(upgrade: UpgradeStats, remaining: int, promotion: bool) -> v
 	card_uis.clear()
 	
 	if remaining == 0:
-		get_tree().paused = false
 		Signals.upgrade_chosen.emit()
 		seen = {}
 		if promotion:
 			promote()
+		else:
+			get_tree().paused = false
+			
 	else:
 		prompt(remaining, promotion)
 
 
 func promote() -> void:
+	
+	var num_cards = curr.next.size()
+	if num_cards == 0:
+		print("no classes left")
+		get_tree().paused = false
+		return
+	
+	
+	var dist: float = 256.0 + 32.0
+	var offset: float = 0.0
+	if num_cards % 2 == 0:
+		offset += 0.5
+	offset -= int(num_cards/2)
+	
+	var start_x = dist * offset
+	
+	for i in range(num_cards):
+		
+		var card_ui: CardUI = CARD_UI.instantiate()
+		var candidate: CoffeeClassNode = curr.next[i]
+		
+		card_ui.text = candidate.value.name + "\n"
+		card_ui.text += "\nADD " + candidate.value.upgrade.name
+		
+		card_ui.position = Vector2(start_x + dist * i - card_ui.size.x/2.0, -card_ui.size.y/2.0)
+		card_uis.append(card_ui)
+		list_coffee_class(card_ui, candidate)
+		add_child(card_ui)
+	
 	print("promotion")
 	pass
+
+
+func list_coffee_class(card_ui: CardUI, coffee_class: CoffeeClassNode) -> void:
+	
+	if upgrade_pool.size() == 0:
+		return
+	
+	card_ui.pressed.connect(func(): select_promotion(coffee_class))
+	
+
+
+func select_promotion(coffee_class: CoffeeClassNode) -> void:
+	
+	curr = coffee_class
+	
+	apply_modifiers(coffee_class.value.upgrade.modifiers)
+	
+	for card_ui in card_uis:
+		card_ui.queue_free()
+	card_uis.clear()
+	
+	get_tree().paused = false
+	Signals.upgrade_chosen.emit()
+	seen = {}
+
+func apply_modifiers(modifiers: Array[UpgradeModifier]) -> void:
+
+	for modifier in modifiers:
+		if modifier.operation == UpgradeModifier.OPERATION.SET:
+			Signals.set_player_stat.emit(modifier.property, modifier.value)
+		if modifier.operation == UpgradeModifier.OPERATION.ADD:
+			Signals.add_player_stat.emit(modifier.property, modifier.value)
+		if modifier.operation == UpgradeModifier.OPERATION.MUL:
+			Signals.mul_player_stat.emit(modifier.property, modifier.value)
+	
