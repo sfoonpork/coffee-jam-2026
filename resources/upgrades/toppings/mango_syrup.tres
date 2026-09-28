@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://bcbapds6eye11"]
+
+[ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_6x5cv"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_4deqv"]
+
+[sub_resource type="Resource" id="Resource_gbnav"]
+script = ExtResource("1_6x5cv")
+property = "health_regen_rate"
+operation = 1
+value = 10.0
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[resource]
+script = ExtResource("2_4deqv")
+name = "Mango Syrup"
+modifiers = Array[ExtResource("1_6x5cv")]([SubResource("Resource_gbnav")])
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"

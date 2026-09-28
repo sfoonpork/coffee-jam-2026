@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cey3pfs0nq3gy"]
+
+[ext_resource type="Script" uid="uid://cot62uwxxr3ks" path="res://scripts/upgrade_ui.gd" id="1_k1o73"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_weight_tuple.gd" id="2_jc35x"]
+[ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_stats.gd" id="3_gbnav"]
+
+[sub_resource type="Resource" id="Resource_gbnav"]
+script = ExtResource("3_gbnav")
+value = null
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[sub_resource type="Resource" id="Resource_k1o73"]
+script = ExtResource("2_jc35x")
+modifiers = Array[ExtResource("3_gbnav")]([SubResource("Resource_gbnav")])
+weight = 10
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"
+
+[sub_resource type="Resource" id="Resource_6ij7f"]
+script = ExtResource("2_jc35x")
+weight = 10
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"
+
+[sub_resource type="Resource" id="Resource_jc35x"]
+script = ExtResource("2_jc35x")
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"
+
+[node name="UpgradeUI" type="CanvasLayer" unique_id=1697273238]
+process_mode = 3
+script = ExtResource("1_k1o73")
+upgrade_pool = Array[ExtResource("2_jc35x")]([SubResource("Resource_k1o73"), SubResource("Resource_6ij7f"), SubResource("Resource_jc35x")])

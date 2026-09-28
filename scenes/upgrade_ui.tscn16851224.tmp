@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cey3pfs0nq3gy"]
+
+[ext_resource type="Script" uid="uid://cot62uwxxr3ks" path="res://scripts/upgrade_ui.gd" id="1_k1o73"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_jc35x"]
+
+[node name="UpgradeUI" type="CanvasLayer" unique_id=1697273238]
+process_mode = 3
+script = ExtResource("1_k1o73")
+upgrade_pool = Array[ExtResource("2_jc35x")]([null])

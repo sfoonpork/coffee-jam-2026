@@ -28,6 +28,10 @@ func _ready() -> void:
 	self.position = get_viewport().size / 2.0
 	
 	apply_look()
+	
+	Signals.set_player_stat.connect(set_stat)
+	Signals.add_player_stat.connect(add_stat)
+	Signals.mul_player_stat.connect(mul_stat)
 
 
 
@@ -76,4 +80,18 @@ func die() -> void:
 	GameData.end_state = "You were defeated!"
 	Signals.player_died.emit()
 	super()
-	
+
+
+func set_stat(property: String, value: Variant) -> void:
+	stats.set(property, value)
+	print(str(property) + ": =" + str(value))
+
+
+func add_stat(property: String, value: Variant) -> void:
+	stats.set(property, stats.get(property) + value)
+	print(str(property) + ": *" + str(value))
+
+
+func mul_stat(property: String, value: Variant) -> void:
+	stats.set(property, stats.get(property) * value)
+	print(str(property) + ": *" + str(value))

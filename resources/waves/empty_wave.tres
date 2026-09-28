@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://bmmrnaom2na2i"]
+
+[ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_xqbwx"]
+[ext_resource type="Script" uid="uid://b7m0ebbk7gghx" path="res://scripts/enemy_stats.gd" id="2_28rxf"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="4_m3bqi"]
+
+[sub_resource type="Resource" id="Resource_n0bti"]
+script = ExtResource("2_28rxf")
+metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
+
+[sub_resource type="Resource" id="Resource_xqbwx"]
+script = ExtResource("1_xqbwx")
+enemy = SubResource("Resource_n0bti")
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[resource]
+script = ExtResource("4_m3bqi")
+name = "Empty Wave"
+num_enemies = 1
+enemy_pool = Array[ExtResource("1_xqbwx")]([SubResource("Resource_xqbwx")])
+metadata/_custom_type_script = "uid://boh8sawl8snby"

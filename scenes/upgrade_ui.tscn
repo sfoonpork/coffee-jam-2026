@@ -1,40 +1,37 @@
 [gd_scene format=3 uid="uid://cey3pfs0nq3gy"]
 
 [ext_resource type="Script" uid="uid://cot62uwxxr3ks" path="res://scripts/upgrade_ui.gd" id="1_k1o73"]
+[ext_resource type="Script" uid="uid://4qx56ckevutv" path="res://scripts/upgrade_weight_tuple.gd" id="2_gbnav"]
+[ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/cherry_syrup.tres" id="3_6ij7f"]
+[ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="4_1atii"]
+[ext_resource type="Resource" uid="uid://17i4ncday2xj" path="res://resources/upgrades/toppings/creamer.tres" id="5_sc7q0"]
+[ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/whipped_cream.tres" id="6_fq5lg"]
+
+[sub_resource type="Resource" id="Resource_gbnav"]
+script = ExtResource("2_gbnav")
+upgrade = ExtResource("3_6ij7f")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_6ij7f"]
+script = ExtResource("2_gbnav")
+upgrade = ExtResource("4_1atii")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_g3bku"]
+script = ExtResource("2_gbnav")
+upgrade = ExtResource("5_sc7q0")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_onvvk"]
+script = ExtResource("2_gbnav")
+upgrade = ExtResource("6_fq5lg")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
 
 [node name="UpgradeUI" type="CanvasLayer" unique_id=1697273238]
 process_mode = 3
 script = ExtResource("1_k1o73")
-
-[node name="Panel" type="Panel" parent="." unique_id=410382864]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -242.5
-offset_top = -247.0
-offset_right = 242.5
-offset_bottom = 247.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Panel" unique_id=903836247]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = -11.5
-offset_right = 197.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Click to continue 
-(upgrades will be here eventually)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+upgrade_pool = Array[ExtResource("2_gbnav")]([SubResource("Resource_gbnav"), SubResource("Resource_6ij7f"), SubResource("Resource_g3bku"), SubResource("Resource_onvvk")])

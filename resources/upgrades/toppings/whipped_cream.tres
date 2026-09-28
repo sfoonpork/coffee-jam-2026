@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://dypm0pvsh5t6c"]
+
+[ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_bgvda"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_clggq"]
+
+[sub_resource type="Resource" id="Resource_gbnav"]
+script = ExtResource("1_bgvda")
+property = "fire_rate"
+operation = 1
+value = 0.25
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[resource]
+script = ExtResource("2_clggq")
+name = "Whipped Cream"
+modifiers = Array[ExtResource("1_bgvda")]([SubResource("Resource_gbnav")])
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://dvf3a6p4ld42p"]
+
+[ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_87qfw"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="1_yxjsa"]
+
+[sub_resource type="Resource" id="Resource_gbnav"]
+script = ExtResource("1_87qfw")
+property = "max_health"
+operation = 1
+value = 100.0
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[resource]
+script = ExtResource("1_yxjsa")
+name = "Cherry Syrup"
+modifiers = Array[ExtResource("1_87qfw")]([SubResource("Resource_gbnav")])
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"
