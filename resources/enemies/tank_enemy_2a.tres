@@ -8,6 +8,6 @@ name = "Tank Enemy"
 max_health = 1000.0
 speed = 25.0
 fire_rate = 2.0
-bullet_speed = 500.0
+bullet_speed = 1000.0
 health_regen_rate = 100.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
