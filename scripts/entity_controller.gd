@@ -6,7 +6,7 @@ var ui: EntityUI
 var stats: EntityStats
 var move_direction: Vector2 = Vector2.ZERO
 var accel_speed: float = 2500.0
-var health_regen_rate: float = 10.0
+#var health_regen_rate: float = 10.0
 
 var knockback_direction: Vector2 = Vector2.ZERO
 var rotation_velocity: float = 0.0
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	
 	
 func regen_health_tick(delta: float) -> void:
-	stats.health += health_regen_rate * delta
+	stats.health += stats.health_regen_rate * delta
 	if stats.health >= stats.max_health:
 		stats.health = stats.max_health
 

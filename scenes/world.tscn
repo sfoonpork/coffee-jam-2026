@@ -6,13 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bp16xb33m618e" path="res://scenes/enemy.tscn" id="3_4wyf3"]
 [ext_resource type="Script" uid="uid://dcnanqppi12o1" path="res://scripts/wave_controller.gd" id="5_71j4m"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="6_i7141"]
-[ext_resource type="Resource" uid="uid://d07tikqgubi40" path="res://resources/waves/test_wave_1.tres" id="7_4mrxx"]
-[ext_resource type="Resource" uid="uid://bwy6ebod5s35b" path="res://resources/waves/test_wave_4.tres" id="7_w7kh3"]
-[ext_resource type="Resource" uid="uid://dlo6qpwjdvysi" path="res://resources/waves/test_wave_2.tres" id="8_4mrxx"]
-[ext_resource type="Resource" uid="uid://co3ef165jp6tp" path="res://resources/waves/test_wave_1a.tres" id="8_e3hyu"]
-[ext_resource type="Resource" uid="uid://bmmrnaom2na2i" path="res://resources/waves/empty_wave.tres" id="8_xo05s"]
-[ext_resource type="Resource" uid="uid://c1i8jds66wegj" path="res://resources/waves/test_wave_3.tres" id="9_7r4gi"]
+[ext_resource type="Resource" uid="uid://cd6vah6lb4ktf" path="res://resources/waves/wave_1_1.tres" id="8_w7kh3"]
+[ext_resource type="Resource" uid="uid://co2b1g6iheue7" path="res://resources/waves/wave_1_2.tres" id="9_e3hyu"]
+[ext_resource type="Resource" uid="uid://daqdf6hya7374" path="res://resources/waves/wave_1_3.tres" id="10_q5onr"]
+[ext_resource type="Resource" uid="uid://6bjn5x072ib1" path="res://resources/waves/wave_1_4.tres" id="11_o8fc1"]
 [ext_resource type="Script" uid="uid://6y2semd1a132" path="res://scripts/game_ui.gd" id="12_q5onr"]
+[ext_resource type="Resource" uid="uid://bkwyy88uo220q" path="res://resources/waves/wave_1_5.tres" id="12_xo05s"]
 [ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="13_jhx03"]
 [ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="14_o8fc1"]
 
@@ -45,7 +44,7 @@ polygon = PackedVector2Array(-10, -10, 1290, -10, 1290, 730, -10, 730, 0, 720, 1
 
 [node name="WaveController" type="Node2D" parent="." unique_id=150573778 node_paths=PackedStringArray("game_ui")]
 script = ExtResource("5_71j4m")
-waves = Array[ExtResource("6_i7141")]([ExtResource("8_xo05s"), ExtResource("7_4mrxx"), ExtResource("8_e3hyu"), ExtResource("8_4mrxx"), ExtResource("9_7r4gi"), ExtResource("7_w7kh3"), ExtResource("8_xo05s"), ExtResource("8_xo05s")])
+waves = Array[ExtResource("6_i7141")]([ExtResource("8_w7kh3"), ExtResource("9_e3hyu"), ExtResource("10_q5onr"), ExtResource("11_o8fc1"), ExtResource("12_xo05s")])
 game_ui = NodePath("../GameUI")
 metadata/_custom_type_script = "uid://dcnanqppi12o1"
 

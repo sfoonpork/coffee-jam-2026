@@ -38,7 +38,7 @@ func randomize_upgrade(card_ui: CardUI) -> void:
 			var upgrade = upgrade_tuple.upgrade
 			card_ui.text = upgrade.name + "\n"
 			for modifier in upgrade.modifiers:
-				card_ui.text += modifier.property + ": " + str(UpgradeModifier.OPERATION.keys()[modifier.operation]) + " " + str(modifier.value)
+				card_ui.text += "\n" + modifier.property + ": " + str(UpgradeModifier.OPERATION.keys()[modifier.operation]) + " " + str(modifier.value)
 			card_ui.pressed.connect(func(): select_upgrade(upgrade))
 			upgrade_pool.remove_at(i)
 			return
