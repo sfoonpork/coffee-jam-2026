@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://nuaj6esmw8kh"]
+
+[ext_resource type="Script" uid="uid://hwxjrcokrn8o" path="res://scripts/world.gd" id="1_k0juu"]
+[ext_resource type="Script" uid="uid://drhdkekdpxmsl" path="res://scripts/enemy_spawner.gd" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://6yqgadlnx335" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bp16xb33m618e" path="res://scenes/enemy.tscn" id="3_4wyf3"]
+[ext_resource type="Script" uid="uid://dcnanqppi12o1" path="res://scripts/wave_controller.gd" id="5_71j4m"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="6_i7141"]
+[ext_resource type="Resource" uid="uid://cd6vah6lb4ktf" path="res://resources/waves/wave_1_1.tres" id="8_w7kh3"]
+[ext_resource type="Resource" uid="uid://co2b1g6iheue7" path="res://resources/waves/wave_1_2.tres" id="9_e3hyu"]
+[ext_resource type="Resource" uid="uid://daqdf6hya7374" path="res://resources/waves/wave_1_3.tres" id="10_q5onr"]
+[ext_resource type="Resource" uid="uid://6bjn5x072ib1" path="res://resources/waves/wave_1_4.tres" id="11_o8fc1"]
+[ext_resource type="Script" uid="uid://6y2semd1a132" path="res://scripts/game_ui.gd" id="12_q5onr"]
+[ext_resource type="Resource" uid="uid://bkwyy88uo220q" path="res://resources/waves/wave_1_5.tres" id="12_xo05s"]
+[ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="13_jhx03"]
+[ext_resource type="Resource" uid="uid://cvldmmif7wtx4" path="res://resources/waves/wave_2_1.tres" id="13_pm21f"]
+[ext_resource type="Resource" uid="uid://10241yfquhxl" path="res://resources/waves/wave_2_2.tres" id="14_2lf6f"]
+[ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="14_o8fc1"]
+[ext_resource type="Resource" uid="uid://bceax7p00ucad" path="res://resources/waves/wave_2_3.tres" id="15_7iits"]
+[ext_resource type="Resource" uid="uid://uqet6ruf7qp0" path="res://resources/waves/wave_2_4.tres" id="16_oo54l"]
+[ext_resource type="Resource" uid="uid://bio6g1km1hfku" path="res://resources/waves/wave_2_5.tres" id="17_kpybi"]
+[ext_resource type="Script" uid="uid://cot62uwxxr3ks" path="res://scripts/upgrade_ui.gd" id="20_oo54l"]
+[ext_resource type="Script" uid="uid://4qx56ckevutv" path="res://scripts/upgrade_weight_tuple.gd" id="21_kpybi"]
+[ext_resource type="Resource" uid="uid://17i4ncday2xj" path="res://resources/upgrades/toppings/whipped_cream.tres" id="22_ctatt"]
+[ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/creamer.tres" id="23_navra"]
+[ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/cherry_syrup.tres" id="24_luhhm"]
+[ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="25_fh13f"]
+[ext_resource type="Resource" uid="uid://exsu4h5pl47l" path="res://resources/upgrades/toppings/strawberry_syrup.tres" id="26_rup4s"]
+[ext_resource type="Resource" uid="uid://cf5sat3xeiw2o" path="res://resources/upgrades/toppings/huckleberry_syrup.tres" id="27_4kbfs"]
+[ext_resource type="Resource" uid="uid://e3ofaccen3qc" path="res://resources/upgrades/toppings/blackberry_syrup.tres" id="28_f17e3"]
+[ext_resource type="Resource" uid="uid://bs3718nefp3s7" path="res://resources/upgrades/toppings/raspberry_syrup.tres" id="29_x2olw"]
+[ext_resource type="Resource" uid="uid://rgjwrpo542p2" path="res://resources/upgrades/toppings/blueberry_syrup.tres" id="30_817gm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font = ExtResource("13_jhx03")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
+
+[sub_resource type="Resource" id="Resource_2lf6f"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("22_ctatt")
+weight = 20
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_xgqkh"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("23_navra")
+weight = 20
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_munwf"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("24_luhhm")
+weight = 1
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_ts3gi"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("25_fh13f")
+weight = 20
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_0nbtd"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("26_rup4s")
+weight = 30
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_37qwj"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("27_4kbfs")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_navra"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("28_f17e3")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_luhhm"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("29_x2olw")
+weight = 10
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[sub_resource type="Resource" id="Resource_fh13f"]
+script = ExtResource("21_kpybi")
+upgrade = ExtResource("30_817gm")
+weight = 30
+metadata/_custom_type_script = "uid://4qx56ckevutv"
+
+[node name="World" type="Node2D" unique_id=336910571]
+script = ExtResource("1_k0juu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1654504226]
+modulate = Color(0.19, 0.19, 0.19, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("14_o8fc1")
+
+[node name="Player" parent="." unique_id=321489202 instance=ExtResource("2_rwgxs")]
+position = Vector2(640, 360)
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=1230008194]
+script = ExtResource("1_nnsk1")
+enemy_scene = ExtResource("3_4wyf3")
+
+[node name="WorldBounds" type="StaticBody2D" parent="." unique_id=1497804548]
+collision_layer = 80
+collision_mask = 160
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBounds" unique_id=833257095]
+polygon = PackedVector2Array(-10, -10, 1290, -10, 1290, 730, -10, 730, 0, 720, 1280, 720, 1280, 0, 0, 0, 0, 720, -10, 730)
+
+[node name="WaveController" type="Node2D" parent="." unique_id=150573778 node_paths=PackedStringArray("game_ui", "upgrade_ui")]
+script = ExtResource("5_71j4m")
+game_ui = NodePath("../GameUI")
+upgrade_ui = NodePath("../UpgradeUI")
+waves = Array[ExtResource("6_i7141")]([ExtResource("8_w7kh3"), ExtResource("9_e3hyu"), ExtResource("10_q5onr"), ExtResource("11_o8fc1"), ExtResource("12_xo05s"), ExtResource("13_pm21f"), ExtResource("14_2lf6f"), ExtResource("15_7iits"), ExtResource("16_oo54l"), ExtResource("17_kpybi")])
+metadata/_custom_type_script = "uid://dcnanqppi12o1"
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=2110353650]
+script = ExtResource("12_q5onr")
+
+[node name="WaveLabel" type="Label" parent="GameUI" unique_id=466075634]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_right = 29.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "WAVE 0"
+label_settings = SubResource("LabelSettings_q5onr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="GameUI" unique_id=2085821277]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -75.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "STATS"
+label_settings = SubResource("LabelSettings_pm21f")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="UpgradeUI" type="CanvasLayer" parent="." unique_id=1697273238]
+process_mode = 3
+script = ExtResource("20_oo54l")
+upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_munwf"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_37qwj"), SubResource("Resource_navra"), SubResource("Resource_luhhm"), SubResource("Resource_fh13f")])

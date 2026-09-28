@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CoffeeClassStats" format=3 uid="uid://bnjxtjknubewg"]
+
+[ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_k6rdw"]
+[ext_resource type="Resource" uid="uid://c74lrrw3as3y7" path="res://resources/upgrades/drinks/hot_water.tres" id="2_k6rdw"]
+
+[resource]
+script = ExtResource("1_k6rdw")
+name = "Americano"
+upgrade = ExtResource("2_k6rdw")
+metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

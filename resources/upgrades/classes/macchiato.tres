@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CoffeeClassStats" format=3 uid="uid://br6vhiby2ckc8"]
+
+[ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_1pahb"]
+[ext_resource type="Resource" uid="uid://blrom7nl0mxi2" path="res://resources/upgrades/drinks/foam.tres" id="2_1pahb"]
+
+[resource]
+script = ExtResource("1_1pahb")
+name = "Macchiato"
+upgrade = ExtResource("2_1pahb")
+metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

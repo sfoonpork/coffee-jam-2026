@@ -80,7 +80,7 @@ func fire(direction: Vector2, ignore: String, color: Color) -> void:
 	bullet.direction = direction
 	bullet.ignore = ignore
 	bullet.modulate = color
-	bullet.speed = stats.bullet_speed
+	bullet.speed = stats.bullet_speed * stats.bullet_speed_factor
 	
 	add_sibling(bullet)
 	

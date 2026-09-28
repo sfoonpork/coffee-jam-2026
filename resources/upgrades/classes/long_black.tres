@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CoffeeClassStats" format=3 uid="uid://dhml2rxlobkuu"]
+
+[ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_gcer2"]
+[ext_resource type="Resource" uid="uid://c74lrrw3as3y7" path="res://resources/upgrades/drinks/hot_water.tres" id="2_vad8r"]
+
+[resource]
+script = ExtResource("1_gcer2")
+name = "Long Black"
+upgrade = ExtResource("2_vad8r")
+metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"
