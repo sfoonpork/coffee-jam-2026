@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://blrom7nl0mxi2"]
+
+[ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_3fgxm"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_7wcq8"]
+
+[sub_resource type="Resource" id="Resource_efl55"]
+script = ExtResource("1_3fgxm")
+property = "bullet_milk_count"
+operation = 1
+value = 2
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[resource]
+script = ExtResource("2_7wcq8")
+name = "Foam"
+modifiers = Array[ExtResource("1_3fgxm")]([SubResource("Resource_efl55")])
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"

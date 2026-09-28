@@ -3,7 +3,7 @@ extends Entity
 
 var enemy_type: EnemyStats
 
-var timer: float = 1.0
+var timer: float = 2.0
 
 var is_dying: bool = false
 
@@ -17,6 +17,7 @@ func _ready() -> void:
 	stats = stats.duplicate()
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
+	stats.bullet_speed_factor = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

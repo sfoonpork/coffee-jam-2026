@@ -5,9 +5,9 @@
 
 [sub_resource type="Resource" id="Resource_gbnav"]
 script = ExtResource("1_6x5cv")
-property = "health_regen_rate"
+property = "speed"
 operation = 1
-value = 10.0
+value = 100.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]

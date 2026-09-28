@@ -26,3 +26,4 @@ func _process(delta: float) -> void:
 	$WaveLabel.position.y = position_start.y + (anim_in + anim_land) * 32.0
 	
 	$WaveLabel.modulate.a = a
+	$StatsLabel.text = "BULLETS FIRED: " + str(GameData.bullets_fired) + "\nENEMIES KILLED: " + str(GameData.enemies_killed)

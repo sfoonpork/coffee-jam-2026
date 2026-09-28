@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://1j0hdgx2m44t"]
+
+[ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_isxcv"]
+[ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_js75k"]
+
+[sub_resource type="Resource" id="Resource_efl55"]
+script = ExtResource("1_isxcv")
+property = "bullet_milk_count"
+operation = 1
+value = 10
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[sub_resource type="Resource" id="Resource_p5qw8"]
+script = ExtResource("1_isxcv")
+property = "fire_rate"
+operation = 1
+value = 5.0
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[sub_resource type="Resource" id="Resource_1kw67"]
+script = ExtResource("1_isxcv")
+property = "bullet_speed_factor"
+operation = 2
+value = 0.75
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
+[resource]
+script = ExtResource("2_js75k")
+name = "Milk"
+modifiers = Array[ExtResource("1_isxcv")]([SubResource("Resource_efl55"), SubResource("Resource_p5qw8"), SubResource("Resource_1kw67")])
+metadata/_custom_type_script = "uid://bfdy76mlspsxa"

@@ -1,10 +1,11 @@
 class_name WaveController
 extends Node2D
 
-const UPGRADE_UI = preload("uid://cey3pfs0nq3gy")
+#const UPGRADE_UI = preload("uid://cey3pfs0nq3gy")
 
-@export var waves: Array[WaveStats]
 @export var game_ui: GameUI
+@export var upgrade_ui: UpgradeUI
+@export var waves: Array[WaveStats]
 
 var wave_index: int = 0
 var in_intermission: bool = false
@@ -46,7 +47,6 @@ func end_wave() -> void:
 		Signals.game_defeated.emit()
 		return
 	
-	var upgrade_ui: UpgradeUI = UPGRADE_UI.instantiate()
-	add_child(upgrade_ui)
+	upgrade_ui.prompt(1)
 	
 	pass
