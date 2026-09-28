@@ -27,6 +27,9 @@ func start_wave() -> void:
 	print("Starting wave: " + waves[wave_index].name)
 	Signals.wave_started.emit(waves[wave_index])
 	game_ui.set_wave_text("WAVE " + str(wave_index + 1))
+	if wave_index + 1 == waves.size():
+		game_ui.set_wave_text("FINAL WAVE")
+		
 	SoundManager.play(position, preload("uid://el6yecnhnc0b"), -6.0, 1.0)
 	
 
