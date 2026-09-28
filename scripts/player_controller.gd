@@ -3,7 +3,7 @@ extends Entity
 
 # wobble on speed stop (follow thru animation)
 @export var look_sprite: Sprite2D
-
+@export var player_stats_label: Label
 
 # Accelarate to move speed
 # General movement
@@ -56,6 +56,17 @@ func _process(delta: float) -> void:
 	super(delta)
 	
 	#print(stats.bullet_espresso_count)
+	player_stats_label.text = ""
+	player_stats_label.text += "\nMAX HEALTH: " + str(stats.max_health)
+	player_stats_label.text += "\nHEALTH REGEN RATE: " + str(stats.health_regen_rate)
+	player_stats_label.text += "\n-\nSPEED: " + str(stats.speed)
+	player_stats_label.text += "\n-\nFIRE RATE: " + str(stats.fire_rate)
+	player_stats_label.text += "\nBULLET SPEED: " + str(stats.bullet_speed)
+	player_stats_label.text += "\nBULLET SPEED MULTIPLIER: " + str(stats.bullet_speed_factor)
+	player_stats_label.text += "\n-\nMILK COUNT: " + str(stats.bullet_milk_count)
+	player_stats_label.text += "\nESPRESSO COUNT: " + str(stats.bullet_espresso_count)
+	player_stats_label.text += "\nCHOCOLATE COUNT: " + str(stats.bullet_chocolate_count)
+	player_stats_label.modulate.a = 0.5
 	
 	var input_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	super.move(input_vector, delta)

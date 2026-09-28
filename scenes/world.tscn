@@ -105,8 +105,9 @@ offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("14_o8fc1")
 
-[node name="Player" parent="." unique_id=321489202 instance=ExtResource("2_rwgxs")]
+[node name="Player" parent="." unique_id=321489202 node_paths=PackedStringArray("player_stats_label") instance=ExtResource("2_rwgxs")]
 position = Vector2(640, 360)
+player_stats_label = NodePath("../GameUI/PlayerStatsLabel")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1230008194]
 script = ExtResource("1_nnsk1")
@@ -147,7 +148,7 @@ label_settings = SubResource("LabelSettings_q5onr")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatsLabel" type="Label" parent="GameUI" unique_id=2085821277]
+[node name="PlayerStatsLabel" type="Label" parent="GameUI" unique_id=2085821277]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -159,7 +160,20 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "STATS"
+text = "PLAYER STATS"
 label_settings = SubResource("LabelSettings_pm21f")
 horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StatsLabel" type="Label" parent="GameUI" unique_id=1998280575]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -75.0
+offset_right = 193.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "STATS"
+label_settings = SubResource("LabelSettings_pm21f")
 vertical_alignment = 2
