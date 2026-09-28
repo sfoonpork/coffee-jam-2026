@@ -47,6 +47,9 @@ func end_wave() -> void:
 		Signals.game_defeated.emit()
 		return
 	
-	upgrade_ui.prompt(1)
+	var amount = int(wave_index / 5) + 1
+	var promotion = wave_index % 5 == 0
+	print("wave index: " + str(wave_index) + ", prompts: " + str(amount) + ", promotion: " + str(promotion))
+	upgrade_ui.prompt(amount, promotion)
 	
 	pass
