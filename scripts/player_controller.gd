@@ -75,17 +75,23 @@ func _process(delta: float) -> void:
 		if firing:
 			while fire_timer <= 0.0:
 				fire_timer += 1.0 / stats.fire_rate
-				var rad: float = deg_to_rad(5.0)
-				var offset: float = 0.0
-				if stats.bullet_espresso_count % 2 == 0:
-					offset += 0.5
-				offset -= int(stats.bullet_espresso_count/2)
-				var look_curr = look.rotated(rad * offset)
-				for i in range(stats.bullet_espresso_count):
-					fire(look_curr.rotated(rad * i), "player", Color.WHITE)
+				fire_multiple(stats.bullet_espresso_count, 1.0, 0.0)
+				fire_multiple(stats.bullet_milk_count, 1.5, -250.0)
+				fire_multiple(stats.bullet_chocolate_count, 0.5, 240.0)
 		else:
 			if fire_timer <= 0.0:
 				fire_timer = 0.0
+
+
+func fire_multiple(amount: int, init_speed_factor: float, accel_rate: float) -> void:
+	var rad: float = deg_to_rad(5.0)
+	var offset: float = 0.0
+	if amount % 2 == 0:
+		offset += 0.5
+	offset -= int(amount/2)
+	var look_curr = look.rotated(rad * offset)
+	for i in range(amount):
+		fire(look_curr.rotated(rad * i), init_speed_factor, accel_rate, "player", Color.WHITE)
 
 
 func die() -> void:

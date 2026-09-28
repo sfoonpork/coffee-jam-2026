@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 			timer -= delta
 			while timer < 0.0:
 				timer += 1.0 / stats.fire_rate
-				fire(player_direction, "enemy", Color.RED)
+				fire(player_direction, 1.0, 0.0, "enemy", Color.RED)
 
 
 func _on_area_2d_body_entered(body: Player) -> void:

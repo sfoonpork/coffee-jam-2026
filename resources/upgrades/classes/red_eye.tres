@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CoffeeClassStats" format=3 uid="uid://desk2t5fjidbl"]
 
 [ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_nd7ge"]
-[ext_resource type="Resource" uid="uid://c74lrrw3as3y7" path="res://resources/upgrades/drinks/hot_water.tres" id="2_1gr45"]
+[ext_resource type="Resource" uid="uid://buam344grxyoc" path="res://resources/upgrades/drinks/espresso.tres" id="2_nd7ge"]
 
 [resource]
 script = ExtResource("1_nd7ge")
 name = "Red Eye"
-upgrade = ExtResource("2_1gr45")
+upgrade = ExtResource("2_nd7ge")
 metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

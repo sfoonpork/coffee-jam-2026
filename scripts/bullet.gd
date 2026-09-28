@@ -2,8 +2,10 @@ class_name Bullet
 extends Area2D
 
 var direction: Vector2
+var accel_rate: float
 var ignore: String
 var speed: float
+var speed_factor: float
 var collided: Dictionary
 var valid: bool
 
@@ -26,8 +28,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	speed += accel_rate * delta
 	self.rotation = atan2(direction.y, direction.x) + PI / 2.0
-	self.position += direction.normalized() * speed * delta
+	self.position += direction.normalized() * speed * speed_factor * delta
 	if not valid:
 		queue_free()
 
@@ -43,7 +46,8 @@ func _on_body_entered(body: CollisionObject2D) -> void:
 	if entity:
 		valid = false
 		body.take_damage(speed / 10.0)
-		body.take_knockback(direction.normalized() * 250.0)
+		var direction_to_entity = entity.position - self.position
+		body.take_knockback(direction_to_entity.normalized() * 250.0)
 		queue_free()
 	
 
