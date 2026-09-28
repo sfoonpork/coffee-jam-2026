@@ -16,33 +16,53 @@ func _ready() -> void:
 	curr_upgrade_pool = upgrade_pool.duplicate()
 	seen = {}
 
+
+func lay_out_cards(num_cards: int) -> Array[CardUI]:
+	
+	var curr_card_uis: Array[CardUI] = []
+	var dist: float = 256.0 + 32.0
+	var offset: float = 0.0
+	if num_cards % 2 == 0:
+		offset += 0.5
+	offset -= int(num_cards/2)
+	
+	var start_x = dist * offset
+	
+	for i in range(num_cards):
+		
+		var card_ui: CardUI = CARD_UI.instantiate()
+		
+		card_ui.position = Vector2(start_x + dist * i - card_ui.size.x/2.0, -card_ui.size.y/2.0)
+		curr_card_uis.append(card_ui)
+		add_child(card_ui)
+		
+	return curr_card_uis
+
+
 func prompt(amount: int, promotion: bool) -> void:
 	
-	var num_cards = 3
-	for i in range(num_cards):
-		var card_ui: CardUI = CARD_UI.instantiate()
-		card_ui.position = Vector2((i - num_cards/2) * 384.0 - card_ui.size.x/2.0, -card_ui.size.y/2.0)
-		card_uis.append(card_ui)
+	var num_cards: int = randi_range(2, 4)
+	card_uis = lay_out_cards(num_cards)
+	for card_ui in card_uis:
 		randomize_upgrade(card_ui, amount, promotion)
 		add_child(card_ui)
-
 	get_tree().paused = true
 
 
 func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void:
 	
-	
 	if upgrade_pool.size() == 0:
 		return
-		
+	
+	# add weight
 	var total_weight: int = 0
 	for upgrade_tuple in curr_upgrade_pool:
 		if seen.has(upgrade_tuple):
 			continue
 		total_weight += upgrade_tuple.weight
 	
+	# select upgrade
 	var target: int = randi_range(0, total_weight)
-	
 	for upgrade_tuple in curr_upgrade_pool:
 		if seen.has(upgrade_tuple):
 			continue
@@ -92,30 +112,19 @@ func promote() -> void:
 		get_tree().paused = false
 		return
 	
-	
-	var dist: float = 256.0 + 32.0
-	var offset: float = 0.0
-	if num_cards % 2 == 0:
-		offset += 0.5
-	offset -= int(num_cards/2)
-	
-	var start_x = dist * offset
+	card_uis = lay_out_cards(num_cards)
 	
 	for i in range(num_cards):
 		
-		var card_ui: CardUI = CARD_UI.instantiate()
+		var card_ui: CardUI = card_uis[i]
 		var candidate: CoffeeClassNode = curr.next[i]
 		
 		card_ui.text = candidate.value.name + "\n"
 		card_ui.text += "\nADD " + candidate.value.upgrade.name
 		
-		card_ui.position = Vector2(start_x + dist * i - card_ui.size.x/2.0, -card_ui.size.y/2.0)
 		card_uis.append(card_ui)
 		list_coffee_class(card_ui, candidate)
 		add_child(card_ui)
-	
-	print("promotion")
-	pass
 
 
 func list_coffee_class(card_ui: CardUI, coffee_class: CoffeeClassNode) -> void:

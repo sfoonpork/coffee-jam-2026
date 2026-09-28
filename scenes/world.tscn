@@ -19,9 +19,14 @@
 [ext_resource type="Resource" uid="uid://bceax7p00ucad" path="res://resources/waves/wave_2_3.tres" id="15_7iits"]
 [ext_resource type="Resource" uid="uid://uqet6ruf7qp0" path="res://resources/waves/wave_2_4.tres" id="16_oo54l"]
 [ext_resource type="Resource" uid="uid://bio6g1km1hfku" path="res://resources/waves/wave_2_5.tres" id="17_kpybi"]
+[ext_resource type="Resource" uid="uid://b6mo43hejpy52" path="res://resources/waves/wave_3_1.tres" id="18_f17e3"]
+[ext_resource type="Resource" uid="uid://ko8wd5yh1fjo" path="res://resources/waves/wave_3_2.tres" id="19_x2olw"]
+[ext_resource type="Resource" uid="uid://mdxbru7s5yab" path="res://resources/waves/wave_3_3.tres" id="20_817gm"]
 [ext_resource type="Script" uid="uid://cot62uwxxr3ks" path="res://scripts/upgrade_ui.gd" id="20_oo54l"]
+[ext_resource type="Resource" uid="uid://e8waxdoc1pmk" path="res://resources/waves/wave_3_4.tres" id="21_ggc52"]
 [ext_resource type="Script" uid="uid://4qx56ckevutv" path="res://scripts/upgrade_weight_tuple.gd" id="21_kpybi"]
 [ext_resource type="Resource" uid="uid://17i4ncday2xj" path="res://resources/upgrades/toppings/whipped_cream.tres" id="22_ctatt"]
+[ext_resource type="Resource" uid="uid://bi6o8e2g8hsgk" path="res://resources/waves/wave_3_5.tres" id="22_l8ah6"]
 [ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/creamer.tres" id="23_navra"]
 [ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/cherry_syrup.tres" id="24_luhhm"]
 [ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="25_fh13f"]
@@ -30,12 +35,6 @@
 [ext_resource type="Resource" uid="uid://e3ofaccen3qc" path="res://resources/upgrades/toppings/blackberry_syrup.tres" id="28_f17e3"]
 [ext_resource type="Resource" uid="uid://bs3718nefp3s7" path="res://resources/upgrades/toppings/raspberry_syrup.tres" id="29_x2olw"]
 [ext_resource type="Resource" uid="uid://rgjwrpo542p2" path="res://resources/upgrades/toppings/blueberry_syrup.tres" id="30_817gm"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
-font = ExtResource("13_jhx03")
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
 
 [sub_resource type="Resource" id="Resource_2lf6f"]
 script = ExtResource("21_kpybi")
@@ -91,6 +90,12 @@ upgrade = ExtResource("30_817gm")
 weight = 30
 metadata/_custom_type_script = "uid://4qx56ckevutv"
 
+[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font = ExtResource("13_jhx03")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
+
 [node name="World" type="Node2D" unique_id=336910571]
 script = ExtResource("1_k0juu")
 
@@ -118,8 +123,13 @@ polygon = PackedVector2Array(-10, -10, 1290, -10, 1290, 730, -10, 730, 0, 720, 1
 script = ExtResource("5_71j4m")
 game_ui = NodePath("../GameUI")
 upgrade_ui = NodePath("../UpgradeUI")
-waves = Array[ExtResource("6_i7141")]([ExtResource("8_w7kh3"), ExtResource("9_e3hyu"), ExtResource("10_q5onr"), ExtResource("11_o8fc1"), ExtResource("12_xo05s"), ExtResource("13_pm21f"), ExtResource("14_2lf6f"), ExtResource("15_7iits"), ExtResource("16_oo54l"), ExtResource("17_kpybi")])
+waves = Array[ExtResource("6_i7141")]([ExtResource("8_w7kh3"), ExtResource("9_e3hyu"), ExtResource("10_q5onr"), ExtResource("11_o8fc1"), ExtResource("12_xo05s"), ExtResource("13_pm21f"), ExtResource("14_2lf6f"), ExtResource("15_7iits"), ExtResource("16_oo54l"), ExtResource("17_kpybi"), ExtResource("18_f17e3"), ExtResource("19_x2olw"), ExtResource("20_817gm"), ExtResource("21_ggc52"), ExtResource("22_l8ah6")])
 metadata/_custom_type_script = "uid://dcnanqppi12o1"
+
+[node name="UpgradeUI" type="CanvasLayer" parent="." unique_id=1697273238]
+process_mode = 3
+script = ExtResource("20_oo54l")
+upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_munwf"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_37qwj"), SubResource("Resource_navra"), SubResource("Resource_luhhm"), SubResource("Resource_fh13f")])
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=2110353650]
 script = ExtResource("12_q5onr")
@@ -153,8 +163,3 @@ text = "STATS"
 label_settings = SubResource("LabelSettings_pm21f")
 horizontal_alignment = 2
 vertical_alignment = 2
-
-[node name="UpgradeUI" type="CanvasLayer" parent="." unique_id=1697273238]
-process_mode = 3
-script = ExtResource("20_oo54l")
-upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_munwf"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_37qwj"), SubResource("Resource_navra"), SubResource("Resource_luhhm"), SubResource("Resource_fh13f")])

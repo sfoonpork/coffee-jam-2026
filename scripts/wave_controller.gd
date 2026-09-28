@@ -49,7 +49,7 @@ func end_wave() -> void:
 	
 	var amount = int(wave_index / 5) + 1
 	var promotion = wave_index % 5 == 0
-	promotion = true
+	#promotion = true
 	print("wave index: " + str(wave_index) + ", prompts: " + str(amount) + ", promotion: " + str(promotion))
 	upgrade_ui.prompt(amount, promotion)
 	

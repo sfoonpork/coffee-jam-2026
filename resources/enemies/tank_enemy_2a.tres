@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://epivdf6rct4c"]
+
+[ext_resource type="Script" uid="uid://b7m0ebbk7gghx" path="res://scripts/enemy_stats.gd" id="1_pi1ec"]
+
+[resource]
+script = ExtResource("1_pi1ec")
+name = "Tank Enemy"
+max_health = 1000.0
+speed = 25.0
+fire_rate = 2.0
+bullet_speed = 500.0
+health_regen_rate = 100.0
+metadata/_custom_type_script = "uid://b7m0ebbk7gghx"

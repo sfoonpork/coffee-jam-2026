@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://ko8wd5yh1fjo"]
+
+[ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_ji2rd"]
+[ext_resource type="Resource" uid="uid://ivyjo6n70qyp" path="res://resources/enemies/mortar_enemy_2.tres" id="2_ji2rd"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="3_b8hb8"]
+
+[sub_resource type="Resource" id="Resource_c7sg1"]
+script = ExtResource("1_ji2rd")
+enemy = ExtResource("2_ji2rd")
+weight = 10
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[resource]
+script = ExtResource("3_b8hb8")
+name = "Wave"
+num_enemies = 5
+spawn_time = 0.25
+enemy_pool = Array[ExtResource("1_ji2rd")]([SubResource("Resource_c7sg1")])
+metadata/_custom_type_script = "uid://boh8sawl8snby"
