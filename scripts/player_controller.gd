@@ -23,8 +23,9 @@ func _ready() -> void:
 	
 	super()
 	stats = preload("uid://bkq410kip5nju")
+	stats = stats.duplicate()
 	stats.health = stats.max_health
-	
+
 	self.position = get_viewport().size / 2.0
 	
 	apply_look()

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://cvldmmif7wtx4"]
+
+[ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_22y57"]
+[ext_resource type="Resource" uid="uid://dqtw7rnqlfyl5" path="res://resources/enemies/tank_enemy_1.tres" id="2_22y57"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="3_fxb74"]
+
+[sub_resource type="Resource" id="Resource_g2els"]
+script = ExtResource("1_22y57")
+enemy = ExtResource("2_22y57")
+weight = 10
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[resource]
+script = ExtResource("3_fxb74")
+name = "Wave"
+num_enemies = 2
+enemy_pool = Array[ExtResource("1_22y57")]([SubResource("Resource_g2els")])
+metadata/_custom_type_script = "uid://boh8sawl8snby"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://bceax7p00ucad"]
+
+[ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_8b3ep"]
+[ext_resource type="Resource" uid="uid://dqtw7rnqlfyl5" path="res://resources/enemies/tank_enemy_1.tres" id="2_62hfe"]
+[ext_resource type="Resource" uid="uid://lumg8vnno2iu" path="res://resources/enemies/basic_enemy_2.tres" id="3_lk1yu"]
+[ext_resource type="Resource" uid="uid://dxmpu1764kaeb" path="res://resources/enemies/fast_enemy_2.tres" id="4_62hfe"]
+[ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="4_csitu"]
+
+[sub_resource type="Resource" id="Resource_g2els"]
+script = ExtResource("1_8b3ep")
+enemy = ExtResource("2_62hfe")
+weight = 10
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[sub_resource type="Resource" id="Resource_oboam"]
+script = ExtResource("1_8b3ep")
+enemy = ExtResource("3_lk1yu")
+weight = 20
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[sub_resource type="Resource" id="Resource_ky2l3"]
+script = ExtResource("1_8b3ep")
+enemy = ExtResource("4_62hfe")
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[resource]
+script = ExtResource("4_csitu")
+name = "Wave"
+num_enemies = 20
+spawn_time = 1.0
+enemy_pool = Array[ExtResource("1_8b3ep")]([SubResource("Resource_g2els"), SubResource("Resource_oboam"), SubResource("Resource_ky2l3")])
+metadata/_custom_type_script = "uid://boh8sawl8snby"
