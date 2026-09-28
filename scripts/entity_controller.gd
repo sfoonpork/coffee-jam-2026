@@ -9,6 +9,7 @@ var accel_speed: float = 2500.0
 var health_regen_rate: float = 10.0
 
 var knockback_direction: Vector2 = Vector2.ZERO
+var rotation_velocity: float = 0.0
 
 var sprite: Sprite2D
 
@@ -18,9 +19,21 @@ func _ready() -> void:
 	add_child(ui)
 	pass
 
+var phase = 0.0
 
 func _process(delta: float) -> void:
-	sprite.rotate(move_direction.normalized().x * PI * 2.0 * delta)
+	var target_rotation = move_direction.x / 250.0 * PI / 6.0
+	rotation_velocity += (target_rotation - sprite.rotation) * 8.0 * delta
+	rotation_velocity += (0 - rotation_velocity) * 8.0 * delta
+	sprite.rotation += rotation_velocity
+	
+	phase += delta * move_direction.length() / 250.0 * 2.0
+	phase = fmod(phase, 1.0)
+	var x = sin(phase * 2.0 * PI)
+	var y = cos(phase * 2.0 * PI * 2.0)
+	if stats.speed > 0.0:
+		sprite.position = Vector2(x * 2.0, y * -2.0) * move_direction.length() / stats.speed
+	
 	regen_health_tick(delta)
 	ui.set_health(stats.health)
 	
@@ -80,17 +93,11 @@ func take_knockback(direction: Vector2) -> void:
 
 func take_damage(amount: float) -> void:
 	stats.health -= amount
+	SoundManager.play(self.position, preload("uid://d2a8e5a8bv8mw"), 0.0, 1.0 + randf() * 3.0)
 	if stats.health <= 0.0:
 		die()
 
 
 func die() -> void:
-	var death_sfx: AudioStreamMP3 = preload("uid://beyg3eg8ccc70")
-	var death_sound = AudioStreamPlayer2D.new()
-	#death_sound.volume_db += 12.0
-	death_sound.pitch_scale = 1.0 + randf()
-	death_sound.stream = death_sfx
-	add_sibling(death_sound)
-	death_sound.finished.connect(func(): queue_free())
-	death_sound.play()
+	SoundManager.play(self.position, preload("uid://beyg3eg8ccc70"), 0.0, 1.0 + randf())
 	queue_free()

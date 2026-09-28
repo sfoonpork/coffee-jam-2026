@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Signals="*uid://bjecx720tf1sw"
 GameData="*uid://ctcab65uxvsnf"
+SoundManager="*uid://jbvpdn7njvnq"
 
 [display]
 
@@ -87,8 +88,10 @@ ui_down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
