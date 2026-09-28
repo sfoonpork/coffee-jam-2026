@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://d1srsprpjpsn0"]
 
 [ext_resource type="Script" uid="uid://bn5pv0qxtvf4w" path="res://scripts/intro.gd" id="1_ioskq"]
+[ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="2_yjqpq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ioskq"]
+font = ExtResource("2_yjqpq")
 
 [node name="Intro" type="Node2D" unique_id=1495083760]
 script = ExtResource("1_ioskq")
@@ -19,7 +23,15 @@ offset_right = 62.0
 offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "(START SCREEN)
-Click to begin"
+text = "The tea gods are after the last espresso of the land... i think
+
+They will send their troops in 10 waves of enemies.
+
+WASD to move. Click to shoot.
+
+
+
+Click anywhere to begin."
+label_settings = SubResource("LabelSettings_ioskq")
 horizontal_alignment = 1
 vertical_alignment = 1
