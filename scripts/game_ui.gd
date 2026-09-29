@@ -24,6 +24,6 @@ func _process(delta: float) -> void:
 	#$WaveLabel.set("theme_override_font_sizes/font_size", 48.0  scale)
 	#$WaveLabel.set("theme_override_font_sizes/font_size", 48.0  scale)
 	$WaveLabel.position.y = position_start.y + (anim_in + anim_land) * 32.0
-	$WaveLabel.modulate.a = a
+	$WaveLabel.modulate.a = a + (1.0)/2/.0
 	$StatsLabel.text = "BULLETS FIRED: " + str(GameData.bullets_fired) + "\nENEMIES KILLED: " + str(GameData.enemies_killed)
 	$StatsLabel.modulate.a = 0.5
