@@ -5,9 +5,9 @@
 
 [sub_resource type="Resource" id="Resource_gbnav"]
 script = ExtResource("1_87qfw")
-property = "speed"
+property = "bullet_speed"
 operation = 1
-value = 200.0
+value = 400.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [sub_resource type="Resource" id="Resource_1atii"]

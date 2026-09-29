@@ -5,4 +5,4 @@ enum OPERATION {SET, ADD, MUL}
 
 @export var property: String
 @export var operation: OPERATION
-@export var value: Variant
+@export var value: float

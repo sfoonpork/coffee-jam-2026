@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://6bjn5x072ib1"]
 
 [ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_afbrv"]
-[ext_resource type="Resource" uid="uid://ckeclshc1i6wa" path="res://resources/enemies/basic_enemy_1.tres" id="2_1as45"]
-[ext_resource type="Resource" uid="uid://dm3mtuhwtle0i" path="res://resources/enemies/very_fast_enemy_1.tres" id="4_x4rdi"]
+[ext_resource type="Resource" uid="uid://d3r0qmikupetq" path="res://resources/enemies/basic_enemy.tres" id="2_ughef"]
+[ext_resource type="Resource" uid="uid://bj8cnvcn4nat" path="res://resources/enemies/very_fast_enemy.tres" id="3_afbrv"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="5_1xipm"]
 
 [sub_resource type="Resource" id="Resource_g2els"]
 script = ExtResource("1_afbrv")
-enemy = ExtResource("2_1as45")
+enemy = ExtResource("2_ughef")
 weight = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_q5onr"]
 script = ExtResource("1_afbrv")
-enemy = ExtResource("4_x4rdi")
+enemy = ExtResource("3_afbrv")
 weight = 50
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 

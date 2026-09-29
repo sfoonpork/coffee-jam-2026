@@ -7,18 +7,11 @@
 script = ExtResource("1_11trh")
 property = "fire_rate"
 operation = 1
-value = 1.0
-metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
-
-[sub_resource type="Resource" id="Resource_gbnav"]
-script = ExtResource("1_11trh")
-property = "bullet_speed"
-operation = 1
-value = -50.0
+value = 2.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_yymsy")
 name = "Blueberry Syrup"
-modifiers = Array[ExtResource("1_11trh")]([SubResource("Resource_efl55"), SubResource("Resource_gbnav")])
+modifiers = Array[ExtResource("1_11trh")]([SubResource("Resource_efl55")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

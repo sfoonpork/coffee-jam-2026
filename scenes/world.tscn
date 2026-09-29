@@ -31,9 +31,7 @@
 [ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/creamer.tres" id="24_luhhm"]
 [ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="25_fh13f"]
 [ext_resource type="Resource" uid="uid://exsu4h5pl47l" path="res://resources/upgrades/toppings/strawberry_syrup.tres" id="26_rup4s"]
-[ext_resource type="Resource" uid="uid://cf5sat3xeiw2o" path="res://resources/upgrades/toppings/huckleberry_syrup.tres" id="27_4kbfs"]
 [ext_resource type="Resource" uid="uid://e3ofaccen3qc" path="res://resources/upgrades/toppings/blackberry_syrup.tres" id="28_f17e3"]
-[ext_resource type="Resource" uid="uid://bs3718nefp3s7" path="res://resources/upgrades/toppings/raspberry_syrup.tres" id="29_x2olw"]
 [ext_resource type="Resource" uid="uid://rgjwrpo542p2" path="res://resources/upgrades/toppings/blueberry_syrup.tres" id="30_817gm"]
 
 [sub_resource type="Resource" id="Resource_2lf6f"]
@@ -66,21 +64,9 @@ upgrade = ExtResource("26_rup4s")
 weight = 30
 metadata/_custom_type_script = "uid://4qx56ckevutv"
 
-[sub_resource type="Resource" id="Resource_37qwj"]
-script = ExtResource("21_kpybi")
-upgrade = ExtResource("27_4kbfs")
-weight = 10
-metadata/_custom_type_script = "uid://4qx56ckevutv"
-
 [sub_resource type="Resource" id="Resource_navra"]
 script = ExtResource("21_kpybi")
 upgrade = ExtResource("28_f17e3")
-weight = 10
-metadata/_custom_type_script = "uid://4qx56ckevutv"
-
-[sub_resource type="Resource" id="Resource_luhhm"]
-script = ExtResource("21_kpybi")
-upgrade = ExtResource("29_x2olw")
 weight = 10
 metadata/_custom_type_script = "uid://4qx56ckevutv"
 
@@ -130,7 +116,7 @@ metadata/_custom_type_script = "uid://dcnanqppi12o1"
 [node name="UpgradeUI" type="CanvasLayer" parent="." unique_id=1697273238]
 process_mode = 3
 script = ExtResource("20_oo54l")
-upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_munwf"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_37qwj"), SubResource("Resource_navra"), SubResource("Resource_luhhm"), SubResource("Resource_fh13f")])
+upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_munwf"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_navra"), SubResource("Resource_fh13f")])
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=2110353650]
 script = ExtResource("12_q5onr")

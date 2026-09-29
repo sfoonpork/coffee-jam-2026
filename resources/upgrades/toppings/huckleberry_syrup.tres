@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 script = ExtResource("1_5bow5")
 property = "fire_rate"
 operation = 1
-value = 0.25
+value = 0.5
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]

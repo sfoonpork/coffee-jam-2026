@@ -15,6 +15,17 @@ func _ready() -> void:
 	super()
 	stats = enemy_type
 	stats = stats.duplicate()
+	
+	var bonus_multiplier = GameData.wave_index
+	stats.max_health += stats.bonus_max_health * bonus_multiplier
+	stats.speed += stats.bonus_speed * bonus_multiplier
+	stats.fire_rate += stats.bonus_fire_rate * bonus_multiplier
+	stats.bullet_chocolate_count += stats.bonus_bullet_chocolate_count * bonus_multiplier
+	stats.bullet_espresso_count += stats.bonus_bullet_espresso_count * bonus_multiplier
+	stats.bullet_milk_count += stats.bonus_bullet_milk_count * bonus_multiplier
+	stats.bullet_speed += stats.bonus_bullet_speed * bonus_multiplier
+	stats.health_regen_rate += stats.bonus_health_regen_rate * bonus_multiplier
+	
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
 	stats.bullet_speed_factor = 1

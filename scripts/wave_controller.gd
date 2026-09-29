@@ -40,6 +40,7 @@ func end_wave() -> void:
 	# TODO open upgrade window or something
 	print("wave defeated")
 	wave_index += 1
+	GameData.wave_index = wave_index
 	
 	
 	if wave_index == waves.size():
