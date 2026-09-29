@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_6l6fd")
 name = "Basic Enemy"
-bonus_max_health = 10.0
+bonus_max_health = 1.0
 bonus_speed = 10.0
 bonus_fire_rate = 0.1
 bonus_bullet_espresso_count = 0.2
