@@ -10,8 +10,15 @@ operation = 1
 value = 100.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
+[sub_resource type="Resource" id="Resource_waflw"]
+script = ExtResource("1_5hl82")
+property = "bullet_damage"
+operation = 1
+value = 10.0
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
 [resource]
 script = ExtResource("2_lrg1h")
 name = "Strawberry Syrup"
-modifiers = Array[ExtResource("1_5hl82")]([SubResource("Resource_gbnav")])
+modifiers = Array[ExtResource("1_5hl82")]([SubResource("Resource_gbnav"), SubResource("Resource_waflw")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

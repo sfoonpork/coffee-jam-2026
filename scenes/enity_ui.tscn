@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_l5qkr")
 
 [node name="Label" type="Label" parent="." unique_id=919000757]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

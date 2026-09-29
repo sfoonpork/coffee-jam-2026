@@ -18,7 +18,7 @@ func set_health_color(color: Color) -> void:
 	
 func set_health(amount: float) -> void:
 	$Label.text = str(int(amount))
-	var length: float = amount / 2.0
+	var length: float = amount / 4.0
 	var height: float = 8.0
 	
 	$ColorRect.size = Vector2(length, height)
