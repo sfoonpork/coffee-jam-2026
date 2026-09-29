@@ -26,7 +26,7 @@ func _ready() -> void:
 	stats = stats.duplicate()
 	stats.health = stats.max_health
 	stats.bullet_damage_factor = 1
-	stats.bullet_espresso_count = 1
+	#stats.bullet_espresso_count = 1
 
 	self.position = get_viewport_rect().size / 2.0
 	

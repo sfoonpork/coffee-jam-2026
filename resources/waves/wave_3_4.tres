@@ -8,21 +8,18 @@
 [sub_resource type="Resource" id="Resource_c7sg1"]
 script = ExtResource("1_y3u1j")
 enemy = ExtResource("2_qxs3v")
-weight = 30
 count = 5
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_y3u1j"]
 script = ExtResource("1_y3u1j")
 enemy = ExtResource("3_y3u1j")
-weight = 50
-count = 5
+count = 40
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]
 script = ExtResource("5_sjoyn")
 name = "Wave"
-num_enemies = 10
 spawn_time = 0.25
 enemy_pool = Array[ExtResource("1_y3u1j")]([SubResource("Resource_c7sg1"), SubResource("Resource_y3u1j")])
 metadata/_custom_type_script = "uid://boh8sawl8snby"

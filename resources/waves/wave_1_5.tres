@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://bkwyy88uo220q"]
 
 [ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_c7fkl"]
-[ext_resource type="Resource" uid="uid://cg3ytuokfahcp" path="res://resources/enemies/fast_enemy.tres" id="2_8qwx0"]
+[ext_resource type="Resource" uid="uid://d3r0qmikupetq" path="res://resources/enemies/basic_enemy.tres" id="2_8qwx0"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="4_t177u"]
 
 [sub_resource type="Resource" id="Resource_g2els"]

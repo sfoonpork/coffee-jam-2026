@@ -50,21 +50,24 @@ func prompt(amount: int, promotion: bool) -> void:
 	
 	card_uis = lay_out_cards(min(num_cards, num_available))
 	
-	
 	for card_ui in card_uis:
 		randomize_upgrade(card_ui, amount, promotion)
 		
 	get_tree().paused = true
 	
 	if num_available == 0:
-		Signals.upgrade_chosen.emit()
 		print("no more available cards")
-		get_tree().paused = false
+		Signals.upgrade_chosen.emit()
+		seen.clear()
+		if promotion:
+			promote()
+		else:
+			get_tree().paused = false
 
 
 func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void:
 	
-	if upgrade_pool.size() == 0:
+	if curr_upgrade_pool.size() == 0:
 		return
 	
 	# add weight
@@ -107,7 +110,7 @@ func select_upgrade(upgrade: UpgradeStats, remaining: int, promotion: bool) -> v
 	
 	if remaining == 0:
 		Signals.upgrade_chosen.emit()
-		seen = {}
+		seen.clear()
 		if promotion:
 			promote()
 		else:
@@ -141,7 +144,7 @@ func promote() -> void:
 
 func list_coffee_class(card_ui: CardUI, coffee_class: CoffeeClassNode) -> void:
 	
-	if upgrade_pool.size() == 0:
+	if curr_upgrade_pool.size() == 0:
 		return
 	
 	card_ui.pressed.connect(func(): select_promotion(coffee_class))
