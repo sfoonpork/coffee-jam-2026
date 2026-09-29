@@ -7,5 +7,5 @@ script = ExtResource("1_erxpn")
 name = "Mortar Enemy"
 max_health = 400.0
 fire_rate = 8.0
-bullet_speed = 4000.0
+bullet_speed = 2000.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"

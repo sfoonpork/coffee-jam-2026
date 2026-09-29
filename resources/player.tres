@@ -8,4 +8,5 @@ max_health = 100.0
 speed = 200.0
 fire_rate = 1.0
 bullet_speed = 250.0
+health_regen_rate = 5.0
 metadata/_custom_type_script = "uid://cbgn6faeyqg4c"
