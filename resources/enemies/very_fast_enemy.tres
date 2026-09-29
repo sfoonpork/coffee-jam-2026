@@ -6,7 +6,9 @@
 script = ExtResource("1_v4vdx")
 name = "Very Fast Enemy"
 bonus_max_health = 10.0
+bonus_body_damage = 10.0
 bonus_speed = 40.0
 max_health = 10.0
+body_damage = 10.0
 speed = 250.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"

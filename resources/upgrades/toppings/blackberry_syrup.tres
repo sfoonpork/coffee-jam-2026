@@ -3,22 +3,15 @@
 [ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_cdde3"]
 [ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_oa0wr"]
 
-[sub_resource type="Resource" id="Resource_efl55"]
+[sub_resource type="Resource" id="Resource_fh13f"]
 script = ExtResource("1_cdde3")
-property = "fire_rate"
+property = "bullet_damage"
 operation = 1
-value = 0.5
-metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
-
-[sub_resource type="Resource" id="Resource_6l6fd"]
-script = ExtResource("1_cdde3")
-property = "bullet_speed"
-operation = 1
-value = 50.0
+value = 10.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_oa0wr")
 name = "Blackberry Syrup"
-modifiers = Array[ExtResource("1_cdde3")]([SubResource("Resource_efl55"), SubResource("Resource_6l6fd")])
+modifiers = Array[ExtResource("1_cdde3")]([SubResource("Resource_fh13f")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

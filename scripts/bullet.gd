@@ -4,6 +4,7 @@ extends Area2D
 var direction: Vector2
 var accel_rate: float
 var ignore: String
+var damage: float
 var speed: float
 var speed_factor: float
 var collided: Dictionary
@@ -45,7 +46,8 @@ func _on_body_entered(body: CollisionObject2D) -> void:
 	var entity = body as Entity
 	if entity:
 		valid = false
-		body.take_damage(speed / 10.0)
+		#body.take_damage(speed / 10.0)
+		body.take_damage(damage)
 		var direction_to_entity = entity.position - self.position
 		body.take_knockback(direction_to_entity.normalized() * 250.0)
 		queue_free()

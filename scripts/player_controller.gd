@@ -58,9 +58,11 @@ func _process(delta: float) -> void:
 	#print(stats.bullet_espresso_count)
 	player_stats_label.text = ""
 	player_stats_label.text += "\nMAX HEALTH: " + str(stats.max_health)
+	player_stats_label.text += "\nBODY DAMAGE: " + str(stats.body_damage)
 	player_stats_label.text += "\nHEALTH REGEN RATE: " + str(stats.health_regen_rate)
 	player_stats_label.text += "\n-\nSPEED: " + str(stats.speed)
 	player_stats_label.text += "\n-\nFIRE RATE: " + str(stats.fire_rate)
+	player_stats_label.text += "\nBULLET DAMAGE: " + str(stats.bullet_damage)
 	player_stats_label.text += "\nBULLET SPEED: " + str(stats.bullet_speed)
 	player_stats_label.text += "\nBULLET SPEED MULTIPLIER: " + str(stats.bullet_speed_factor)
 	player_stats_label.text += "\n-\nMILK COUNT: " + str(stats.bullet_milk_count)
@@ -102,7 +104,7 @@ func fire_multiple(amount: int, init_speed_factor: float, accel_rate: float) -> 
 	offset -= int(amount/2)
 	var look_curr = look.rotated(rad * offset)
 	for i in range(amount):
-		fire(look_curr.rotated(rad * i), init_speed_factor, accel_rate, "player", Color.WHITE)
+		fire(look_curr.rotated(rad * i), stats.bullet_damage, init_speed_factor, accel_rate, "player", Color.WHITE)
 
 
 func die() -> void:
