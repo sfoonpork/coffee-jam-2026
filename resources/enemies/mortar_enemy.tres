@@ -5,6 +5,10 @@
 [resource]
 script = ExtResource("1_vul4f")
 name = "Mortar Enemy"
+bonus_max_health = 10.0
+bonus_bullet_chocolate_count = 0.5
+bonus_bullet_speed = 10.0
+bonus_health_regen_rate = 10.0
 max_health = 500.0
 fire_rate = 0.5
 bullet_speed = 1000.0
