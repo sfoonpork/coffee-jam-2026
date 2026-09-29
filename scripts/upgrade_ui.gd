@@ -42,11 +42,20 @@ func lay_out_cards(num_cards: int) -> Array[CardUI]:
 func prompt(amount: int, promotion: bool) -> void:
 	
 	var num_cards: int = randi_range(2, 4)
-	card_uis = lay_out_cards(num_cards)
+	var num_available: int = 0
+	for upgrade_tuple in curr_upgrade_pool:
+		if seen.has(upgrade_tuple):
+			continue
+		num_available += 1
+	
+	card_uis = lay_out_cards(min(num_cards, num_available))
+	
 	for card_ui in card_uis:
 		randomize_upgrade(card_ui, amount, promotion)
 		add_child(card_ui)
 	get_tree().paused = true
+	if num_available == 0:
+		get_tree().paused = false
 
 
 func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void:

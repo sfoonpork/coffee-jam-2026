@@ -48,6 +48,7 @@ func end_wave() -> void:
 		return
 	
 	var amount = int(wave_index / 5) + 1
+	#amount = 3
 	var promotion = wave_index % 5 == 0
 	#promotion = true
 	print("wave index: " + str(wave_index) + ", prompts: " + str(amount) + ", promotion: " + str(promotion))
