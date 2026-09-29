@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [sub_resource type="Resource" id="Resource_ihgsv"]
 script = ExtResource("1_3fgxm")
-property = "bullet_damage_multiplier"
+property = "bullet_damage_factor"
 operation = 2
 value = 0.75
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"

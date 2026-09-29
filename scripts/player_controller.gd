@@ -106,7 +106,7 @@ func set_stat(property: String, value: Variant) -> void:
 
 func add_stat(property: String, value: Variant) -> void:
 	stats.set(property, stats.get(property) + value)
-	print(str(property) + ": *" + str(value))
+	print(str(property) + ": +" + str(value))
 
 
 func mul_stat(property: String, value: Variant) -> void:
