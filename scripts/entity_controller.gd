@@ -72,6 +72,22 @@ func move(accel: Vector2, delta: float) -> void:
 	self.set_velocity(move_direction)
 	move_and_slide()
 
+func fire_all(direction: Vector2, ignore: String, color: Color) -> void:
+	fire_multiple(direction, stats.bullet_espresso_count, 1.0, 0.0, ignore, color)
+	fire_multiple(direction, stats.bullet_milk_count, 1.0, -250.0, ignore, color)
+	fire_multiple(direction, stats.bullet_chocolate_count, 1.0, 500.0, ignore, color)
+
+
+func fire_multiple(direction: Vector2, amount: int, init_speed_factor: float, accel_rate: float, ignore: String, color: Color) -> void:
+	var rad: float = deg_to_rad(5.0)
+	var offset: float = 0.0
+	if amount % 2 == 0:
+		offset += 0.5
+	offset -= int(amount/2)
+	var look_curr = direction.rotated(rad * offset)
+	for i in range(amount):
+		fire(look_curr.rotated(rad * i), stats.bullet_damage, init_speed_factor, accel_rate, ignore, color)
+
 
 func fire(direction: Vector2, damage: float, init_speed_factor: float, accel_rate: float, ignore: String, color: Color) -> void:
 	

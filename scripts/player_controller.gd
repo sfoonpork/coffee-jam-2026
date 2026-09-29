@@ -88,24 +88,10 @@ func _process(delta: float) -> void:
 		if firing:
 			while fire_timer <= 0.0:
 				fire_timer += 1.0 / stats.fire_rate
-				fire_multiple(stats.bullet_espresso_count, 1.0, 0.0)
-				fire_multiple(stats.bullet_milk_count, 1.5, -250.0)
-				fire_multiple(stats.bullet_chocolate_count, 0.5, 240.0)
+				fire_all(look, "player", Color.WHITE)
 		else:
 			if fire_timer <= 0.0:
 				fire_timer = 0.0
-
-
-func fire_multiple(amount: int, init_speed_factor: float, accel_rate: float) -> void:
-	var rad: float = deg_to_rad(5.0)
-	var offset: float = 0.0
-	if amount % 2 == 0:
-		offset += 0.5
-	offset -= int(amount/2)
-	var look_curr = look.rotated(rad * offset)
-	for i in range(amount):
-		fire(look_curr.rotated(rad * i), stats.bullet_damage, init_speed_factor, accel_rate, "player", Color.WHITE)
-
 
 func die() -> void:
 	GameData.end_state = "You were defeated!"
