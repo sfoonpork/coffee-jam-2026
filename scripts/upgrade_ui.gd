@@ -50,10 +50,15 @@ func prompt(amount: int, promotion: bool) -> void:
 	
 	card_uis = lay_out_cards(min(num_cards, num_available))
 	
+	
 	for card_ui in card_uis:
 		randomize_upgrade(card_ui, amount, promotion)
+		
 	get_tree().paused = true
+	
 	if num_available == 0:
+		Signals.upgrade_chosen.emit()
+		print("no more available cards")
 		get_tree().paused = false
 
 
