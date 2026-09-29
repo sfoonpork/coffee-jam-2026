@@ -1,31 +1,17 @@
-[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://dypm0pvsh5t6c"]
+[gd_resource type="Resource" script_class="UpgradeStats" format=3 uid="uid://dvf3a6p4ld42p"]
 
 [ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_bgvda"]
 [ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_clggq"]
 
 [sub_resource type="Resource" id="Resource_gbnav"]
 script = ExtResource("1_bgvda")
-property = "speed"
-operation = 1
-value = 200.0
-metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
-
-[sub_resource type="Resource" id="Resource_1atii"]
-script = ExtResource("1_bgvda")
 property = "max_health"
 operation = 1
-value = -50.0
-metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
-
-[sub_resource type="Resource" id="Resource_pm21f"]
-script = ExtResource("1_bgvda")
-property = "health_regen_rate"
-operation = 1
-value = -5.0
+value = 100.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_clggq")
 name = "Creamer"
-modifiers = Array[ExtResource("1_bgvda")]([SubResource("Resource_gbnav"), SubResource("Resource_1atii"), SubResource("Resource_pm21f")])
+modifiers = Array[ExtResource("1_bgvda")]([SubResource("Resource_gbnav")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"
