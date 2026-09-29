@@ -30,6 +30,6 @@ jobs:
           itch_game: coffee-jam
           version: ${{ github.ref_name }}
           files: |
-            ${{ steps.export.outputs.archive_directory }}/coffeejam-web.zip:web
-            ${{ steps.export.outputs.archive_directory }}/coffeejam-win.zip:windows
-            ${{ steps.export.outputs.archive_directory }}/coffeejam-mac.zip:osx
+            ${{ steps.export.outputs.archive_directory }}/coffeejam-web.zip
+            ${{ steps.export.outputs.archive_directory }}/coffeejam-win.zip
+            ${{ steps.export.outputs.archive_directory }}/coffeejam-mac.zip
