@@ -12,7 +12,7 @@ const MIN_SPAWN_DISTANCE = 175.0
 var is_spawning: bool = false
 var spawn_timer: Timer
 var cur_wave: WaveStats
-var enemies_to_spawn: int
+var enemies_to_spawn: Array[EnemyStats]
 var enemies_left: int
 
 var duration: float = 4.0
@@ -77,43 +77,48 @@ func spawn_enemy() -> void:
 	enemy_positions_x.append(position_x)
 	enemy_positions_y.append(position_y)
 	enemy.modulate = Color.RED  # TODO delete when we have enemy sprites
-	enemy.enemy_type = get_enemy_type()
+	enemy.enemy_type = enemies_to_spawn.pop_back()
 	
 	add_child(enemy)
 	Signals.enemy_spawned.emit()
 	enemies_left += 1
-	enemies_to_spawn -= 1
-	if enemies_to_spawn == 0:
+	if enemies_to_spawn.size() == 0:
 		spawn_timer.stop()
 	print(enemy.stats.name + " spawned at " + str(enemy.position))
 
 
-func get_enemy_type() -> EnemyStats:
-	var total_weight: int = 0
-	for enemy_tuple in cur_wave.enemy_pool:
-		total_weight += enemy_tuple.weight
-	
-	var target: int = randi_range(0, total_weight)
-	
-	for enemy_tuple in cur_wave.enemy_pool:
-		target -= enemy_tuple.weight
-		if target <= 0:
-			return enemy_tuple.enemy
-	
-	return null
+# Old weighted functionality
+#func get_enemy_type() -> EnemyStats:
+	#var total_weight: int = 0
+	#for enemy_tuple in cur_wave.enemy_pool:
+		#total_weight += enemy_tuple.weight
+	#
+	#var target: int = randi_range(0, total_weight)
+	#
+	#for enemy_tuple in cur_wave.enemy_pool:
+		#target -= enemy_tuple.weight
+		#if target <= 0:
+			#return enemy_tuple.enemy
+	#
+	#return null
 
 
 func start_wave(new_wave: WaveStats) -> void:
 	cur_wave = new_wave
 	is_spawning = true
-	enemies_to_spawn = cur_wave.num_enemies
+	
+	for enemy_tuple in cur_wave.enemy_pool:
+		for i in enemy_tuple.count:
+			enemies_to_spawn.append(enemy_tuple.enemy)
+	enemies_to_spawn.shuffle()
+	
 	spawn_timer.start(cur_wave.spawn_time)
 
 
 func on_enemy_killed() -> void:
 	enemies_left -= 1
 	print("enemies_left: " + str(enemies_left))
-	if enemies_to_spawn == 0 and enemies_left == 0:
+	if enemies_to_spawn.size() == 0 and enemies_left == 0:
 		Signals.wave_defeated.emit()
 
 
