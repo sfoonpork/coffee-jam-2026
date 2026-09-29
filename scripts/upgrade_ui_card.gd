@@ -10,3 +10,11 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	self.modulate = Color.WHITE
 	pass # Replace with function body.
+
+
+func set_title_text(msg: String) -> void:
+	$TitleLabel.text = msg
+
+
+func set_details_text(msg: String) -> void:
+	$DetailsLabel.text = msg

@@ -85,8 +85,8 @@ func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void
 		target -= upgrade_tuple.weight
 		if target <= 0:
 			var upgrade = upgrade_tuple.upgrade
-			card_ui.text = upgrade.name + "\n-"
-			card_ui.text += get_modifier_string(upgrade.modifiers)
+			card_ui.set_title_text(upgrade.name)
+			card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
 			card_ui.pressed.connect(func(): select_upgrade(upgrade, remaining, promotion))
 			seen[upgrade_tuple] = true
 			return
@@ -134,11 +134,12 @@ func promote() -> void:
 		var card_ui: CardUI = card_uis[i]
 		var candidate: CoffeeClassNode = curr.next[i]
 		
-		card_ui.text = candidate.value.name + "\n"
-		card_ui.text += "\nNEW " + candidate.value.upgrade.name
-		card_ui.text += "\n-"
-		card_ui.text += get_modifier_string(candidate.value.upgrade.modifiers)
+		card_ui.set_title_text(candidate.value.name)
 		
+		var details: String = ""
+		details += "\nNEW " + candidate.value.upgrade.name
+		details += get_modifier_string(candidate.value.upgrade.modifiers)
+		card_ui.set_details_text(details)
 		
 		card_uis.append(card_ui)
 		list_coffee_class(card_ui, candidate)
