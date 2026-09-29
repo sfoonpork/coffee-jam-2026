@@ -39,7 +39,7 @@ func _on_area_2d_body_entered(body: Player) -> void:
 	body.take_knockback(direction.normalized() * 500.0)
 	self.take_knockback(-direction.normalized() * 500.0)
 	
-	var damage: float = max(body.stats.health, self.stats.health)
+	var damage: float = min(body.stats.health, self.stats.health)
 	body.take_damage(damage)
 	self.take_damage(damage)
 
