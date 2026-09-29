@@ -8,6 +8,7 @@
 script = ExtResource("1_h28ah")
 enemy = ExtResource("2_sx3rp")
 weight = 10
+count = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]
