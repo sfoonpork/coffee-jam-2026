@@ -52,7 +52,6 @@ func prompt(amount: int, promotion: bool) -> void:
 	
 	for card_ui in card_uis:
 		randomize_upgrade(card_ui, amount, promotion)
-		add_child(card_ui)
 	get_tree().paused = true
 	if num_available == 0:
 		get_tree().paused = false
