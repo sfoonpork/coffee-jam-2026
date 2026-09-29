@@ -132,7 +132,6 @@ func promote() -> void:
 		
 		card_uis.append(card_ui)
 		list_coffee_class(card_ui, candidate)
-		add_child(card_ui)
 
 
 func list_coffee_class(card_ui: CardUI, coffee_class: CoffeeClassNode) -> void:
