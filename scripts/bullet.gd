@@ -70,9 +70,9 @@ func _on_area_entered(area: Area2D) -> void:
 			
 		var bullet_speed = bullet.speed
 		bullet.collided[self] = true
-		bullet.speed -= speed
+		bullet.speed -= abs(speed)
 		collided[bullet] = true
-		speed -= bullet_speed
+		speed -= abs(bullet_speed)
 		
 		if bullet.speed <= 0.0:
 			bullet.queue_free()

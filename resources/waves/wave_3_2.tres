@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 [sub_resource type="Resource" id="Resource_fh13f"]
 script = ExtResource("1_ji2rd")
 enemy = ExtResource("3_0q2u8")
-count = 5
+count = 20
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]

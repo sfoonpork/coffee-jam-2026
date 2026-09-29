@@ -8,7 +8,7 @@ extends Control
 func _ready() -> void:
 	enemies_killed_label.text = "Enemies Killed: " + str(GameData.enemies_killed)
 	bullets_fired_label.text = "Bullets Fired: " + str(GameData.bullets_fired)
-	set_message(GameData.end_state)
+	set_message(GameData.end_state + " on Wave " + str(GameData.wave_index) + "")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

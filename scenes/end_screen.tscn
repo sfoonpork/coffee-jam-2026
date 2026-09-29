@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://do5un7hty7jpr"]
 
 [ext_resource type="Script" uid="uid://bttfdya6cs57d" path="res://scripts/end_screen.gd" id="1_kq7ac"]
+[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="2_6e1uj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4bx60"]
+font = ExtResource("2_6e1uj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2l1n"]
+font = ExtResource("2_6e1uj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfs7u"]
+font = ExtResource("2_6e1uj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_es01l"]
+font = ExtResource("2_6e1uj")
+font_size = 24
 
 [node name="EndScreen" type="Control" unique_id=1387874587]
 layout_mode = 3
@@ -25,6 +39,7 @@ offset_bottom = -108.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Enemies Killed: 000"
+label_settings = SubResource("LabelSettings_4bx60")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,6 +57,7 @@ offset_bottom = -48.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Bullets Fired: 000"
+label_settings = SubResource("LabelSettings_i2l1n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,6 +75,7 @@ offset_bottom = 131.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Click to restart"
+label_settings = SubResource("LabelSettings_wfs7u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -69,12 +86,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -191.5
-offset_right = 57.0
-offset_bottom = -168.5
+offset_left = -88.5
+offset_top = -241.5
+offset_right = 88.5
+offset_bottom = -182.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You win!!!"
+text = "You win!"
+label_settings = SubResource("LabelSettings_es01l")
 horizontal_alignment = 1
 vertical_alignment = 1

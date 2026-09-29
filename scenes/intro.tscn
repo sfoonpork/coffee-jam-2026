@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1srsprpjpsn0"]
 
 [ext_resource type="Script" uid="uid://bn5pv0qxtvf4w" path="res://scripts/intro.gd" id="1_ioskq"]
-[ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="2_yjqpq"]
+[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="2_yjqpq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ioskq"]
 font = ExtResource("2_yjqpq")

@@ -29,10 +29,19 @@
 [ext_resource type="Resource" uid="uid://bi6o8e2g8hsgk" path="res://resources/waves/wave_3_5.tres" id="22_l8ah6"]
 [ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/cherry_syrup.tres" id="23_navra"]
 [ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/creamer.tres" id="24_luhhm"]
+[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="25_4kbfs"]
 [ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="25_fh13f"]
 [ext_resource type="Resource" uid="uid://exsu4h5pl47l" path="res://resources/upgrades/toppings/strawberry_syrup.tres" id="26_rup4s"]
 [ext_resource type="Resource" uid="uid://e3ofaccen3qc" path="res://resources/upgrades/toppings/blackberry_syrup.tres" id="28_f17e3"]
 [ext_resource type="Resource" uid="uid://rgjwrpo542p2" path="res://resources/upgrades/toppings/blueberry_syrup.tres" id="30_817gm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font = ExtResource("13_jhx03")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
+font = ExtResource("25_4kbfs")
+font_size = 12
 
 [sub_resource type="Resource" id="Resource_2lf6f"]
 script = ExtResource("21_kpybi")
@@ -76,12 +85,6 @@ upgrade = ExtResource("23_navra")
 weight = 10
 metadata/_custom_type_script = "uid://4qx56ckevutv"
 
-[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
-font = ExtResource("13_jhx03")
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
-
 [node name="World" type="Node2D" unique_id=336910571]
 script = ExtResource("1_k0juu")
 
@@ -112,11 +115,6 @@ game_ui = NodePath("../GameUI")
 upgrade_ui = NodePath("../UpgradeUI")
 waves = Array[ExtResource("6_i7141")]([ExtResource("8_w7kh3"), ExtResource("9_e3hyu"), ExtResource("10_q5onr"), ExtResource("11_o8fc1"), ExtResource("12_xo05s"), ExtResource("13_pm21f"), ExtResource("14_2lf6f"), ExtResource("15_7iits"), ExtResource("16_oo54l"), ExtResource("17_kpybi"), ExtResource("18_f17e3"), ExtResource("19_x2olw"), ExtResource("20_817gm"), ExtResource("21_ggc52"), ExtResource("22_l8ah6")])
 metadata/_custom_type_script = "uid://dcnanqppi12o1"
-
-[node name="UpgradeUI" type="CanvasLayer" parent="." unique_id=1697273238]
-process_mode = 3
-script = ExtResource("20_oo54l")
-upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_navra"), SubResource("Resource_fh13f"), SubResource("Resource_l5qkr")])
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=2110353650]
 script = ExtResource("12_q5onr")
@@ -163,3 +161,8 @@ grow_vertical = 0
 text = "STATS"
 label_settings = SubResource("LabelSettings_pm21f")
 vertical_alignment = 2
+
+[node name="UpgradeUI" type="CanvasLayer" parent="." unique_id=1697273238]
+process_mode = 3
+script = ExtResource("20_oo54l")
+upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_navra"), SubResource("Resource_fh13f"), SubResource("Resource_l5qkr")])

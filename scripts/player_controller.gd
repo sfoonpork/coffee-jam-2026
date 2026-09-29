@@ -57,17 +57,17 @@ func _process(delta: float) -> void:
 	
 	#print(stats.bullet_espresso_count)
 	player_stats_label.text = ""
-	player_stats_label.text += "\nMAX HEALTH: " + str(stats.max_health)
-	player_stats_label.text += "\nBODY DAMAGE: " + str(stats.body_damage)
-	player_stats_label.text += "\nHEALTH REGEN RATE: " + str(stats.health_regen_rate)
-	player_stats_label.text += "\n-\nSPEED: " + str(stats.speed)
-	player_stats_label.text += "\n-\nFIRE RATE: " + str(stats.fire_rate)
-	player_stats_label.text += "\nBULLET SPEED: " + str(stats.bullet_speed)
-	player_stats_label.text += "\nBULLET DAMAGE: " + str(stats.bullet_damage)
-	player_stats_label.text += "\nBULLET DAMAGE MULTIPLIER: " + str(stats.bullet_damage_factor)
-	player_stats_label.text += "\n-\nMILK COUNT: " + str(stats.bullet_milk_count)
-	player_stats_label.text += "\nESPRESSO COUNT: " + str(stats.bullet_espresso_count)
-	player_stats_label.text += "\nCHOCOLATE COUNT: " + str(stats.bullet_chocolate_count)
+	player_stats_label.text += "\nMax Health: " + str(stats.max_health)
+	player_stats_label.text += "\nBody Damage: " + str(stats.body_damage)
+	player_stats_label.text += "\nHealth Regen Rate: " + str(stats.health_regen_rate)
+	player_stats_label.text += "\n-\nSpeed: " + str(stats.speed)
+	player_stats_label.text += "\n-\nFire Rate: " + str(stats.fire_rate)
+	player_stats_label.text += "\nBullet Speed: " + str(stats.bullet_speed)
+	player_stats_label.text += "\nBullet Damage: " + str(stats.bullet_damage)
+	player_stats_label.text += "\nBullet Damage Multiplier: " + str(stats.bullet_damage_factor)
+	player_stats_label.text += "\n-\nMilk Count: " + str(stats.bullet_milk_count)
+	player_stats_label.text += "\nEspresso Count: " + str(stats.bullet_espresso_count)
+	player_stats_label.text += "\nChocolate Count: " + str(stats.bullet_chocolate_count)
 	player_stats_label.modulate.a = 0.5
 	
 	var input_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -94,7 +94,7 @@ func _process(delta: float) -> void:
 				fire_timer = 0.0
 
 func die() -> void:
-	GameData.end_state = "You were defeated!"
+	GameData.end_state = "You were defeated"
 	Signals.player_died.emit()
 	super()
 

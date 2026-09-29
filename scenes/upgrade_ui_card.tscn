@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://dia2yamwblh47"]
 
 [ext_resource type="Script" uid="uid://c4kmyjsumtdyx" path="res://scripts/upgrade_ui_card.gd" id="1_d8l0u"]
+[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="1_l1ldg"]
+
+[sub_resource type="Theme" id="Theme_rup4s"]
+default_font = ExtResource("1_l1ldg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f17e3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhbqm"]
+bg_color = Color(0.06, 0.06, 0.06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ldg"]
+bg_color = Color(0.17, 0.17, 0.17, 1)
 
 [node name="Button" type="Button" unique_id=1851431888]
 anchors_preset = 8
@@ -14,6 +27,10 @@ offset_right = 134.5
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_rup4s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f17e3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uhbqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l1ldg")
 text = "Click to continue 
 (upgrades will be here eventually)"
 script = ExtResource("1_d8l0u")
