@@ -10,8 +10,15 @@ operation = 1
 value = 1.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
+[sub_resource type="Resource" id="Resource_isxcv"]
+script = ExtResource("1_x7kh5")
+property = "bullet_damage_factor"
+operation = 2
+value = 1.25
+metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
+
 [resource]
 script = ExtResource("2_s8ota")
-name = "Espresso: +1 bullet"
-modifiers = Array[ExtResource("1_x7kh5")]([SubResource("Resource_efl55")])
+name = "Espresso"
+modifiers = Array[ExtResource("1_x7kh5")]([SubResource("Resource_efl55"), SubResource("Resource_isxcv")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

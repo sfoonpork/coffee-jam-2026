@@ -19,6 +19,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_7wcq8")
-name = "Foam: +1 decelerating bullet, 25% damage reduction"
+name = "Foam"
 modifiers = Array[ExtResource("1_3fgxm")]([SubResource("Resource_efl55"), SubResource("Resource_ihgsv")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

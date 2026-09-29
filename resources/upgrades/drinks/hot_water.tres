@@ -26,6 +26,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_krlig")
-name = "Hot Water: +9 bullets, +3 fire rate, 50% damage reduction"
+name = "Hot Water"
 modifiers = Array[ExtResource("1_7ihp3")]([SubResource("Resource_efl55"), SubResource("Resource_p5qw8"), SubResource("Resource_1kw67")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

@@ -85,9 +85,8 @@ func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void
 		target -= upgrade_tuple.weight
 		if target <= 0:
 			var upgrade = upgrade_tuple.upgrade
-			card_ui.text = upgrade.name + "\n"
-			for modifier in upgrade.modifiers:
-				card_ui.text += "\n" + modifier.property + ": " + str(UpgradeModifier.OPERATION.keys()[modifier.operation]) + " " + str(modifier.value)
+			card_ui.text = upgrade.name + "\n-"
+			card_ui.text += get_modifier_string(upgrade.modifiers)
 			card_ui.pressed.connect(func(): select_upgrade(upgrade, remaining, promotion))
 			seen[upgrade_tuple] = true
 			return
@@ -136,10 +135,58 @@ func promote() -> void:
 		var candidate: CoffeeClassNode = curr.next[i]
 		
 		card_ui.text = candidate.value.name + "\n"
-		card_ui.text += "\nADD " + candidate.value.upgrade.name
+		card_ui.text += "\nNEW " + candidate.value.upgrade.name
+		card_ui.text += "\n-"
+		card_ui.text += get_modifier_string(candidate.value.upgrade.modifiers)
+		
 		
 		card_uis.append(card_ui)
 		list_coffee_class(card_ui, candidate)
+
+
+func get_modifier_string(modifiers: Array[UpgradeModifier]) -> String:
+	
+	var text = ""
+	for modifier in modifiers:
+		
+		var prefix: String = ""
+		var body: String = get_property_string(modifier.property)
+		var suffix: String = ""
+		
+		if modifier.operation == UpgradeModifier.OPERATION.SET:
+			suffix = " => " + str(int(modifier.value))
+		
+		if modifier.operation == UpgradeModifier.OPERATION.ADD:
+			if modifier.value < 0.0:
+				prefix = "-" + str(int(modifier.value)) + " "
+			else:
+				prefix = "+" + str(int(modifier.value)) + " "
+		
+		if modifier.operation == UpgradeModifier.OPERATION.MUL:
+			suffix = " x " + str(int(modifier.value * 100)) + "%"
+		
+		text += "\n" + prefix + body + suffix
+	return text
+
+
+func get_property_string(property: String) -> String:
+	var map: Dictionary = {}
+	map["max_health"] = "Max Health"
+	map["health_regen_rate"] = "Health Regen"
+	map["body_damage"] = "Body Damage"
+	map["speed"] = "Speed"
+	map["fire_rate"] = "Fire Rate"
+	map["bullet_chocolate_count"] = "Chocolate Bullet"
+	map["bullet_espresso_count"] = "Espresso Bullet"
+	map["bullet_milk_count"] = "Milk Bullet"
+	map["bullet_speed"] = "Bullet Speed"
+	map["bullet_damage"] = "Bullet Damage"
+	map["bullet_damage_factor"] = "Bullet Damage Multiplier"
+	
+	if map.has(property):
+		return map[property]
+		
+	return property
 
 
 func list_coffee_class(card_ui: CardUI, coffee_class: CoffeeClassNode) -> void:
