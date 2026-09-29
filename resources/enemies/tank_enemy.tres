@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_goftu")
 name = "Tank Enemy"
-bonus_max_health = 100.0
-bonus_speed = 10.0
+bonus_max_health = 25.0
+bonus_speed = 5.0
 bonus_bullet_milk_count = 0.5
-bonus_bullet_speed = 10.0
+bonus_bullet_speed = 5.0
 bonus_health_regen_rate = 10.0
 max_health = 250.0
 speed = 40.0
