@@ -7,21 +7,21 @@
 script = ExtResource("1_7ihp3")
 property = "bullet_espresso_count"
 operation = 1
-value = 5
+value = 9.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [sub_resource type="Resource" id="Resource_p5qw8"]
 script = ExtResource("1_7ihp3")
 property = "fire_rate"
 operation = 1
-value = 2.0
+value = 3.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [sub_resource type="Resource" id="Resource_1kw67"]
 script = ExtResource("1_7ihp3")
-property = "bullet_speed_factor"
+property = "bullet_damage_factor"
 operation = 2
-value = 0.1
+value = 0.25
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]

@@ -25,7 +25,7 @@ func _ready() -> void:
 	stats = preload("uid://bkq410kip5nju")
 	stats = stats.duplicate()
 	stats.health = stats.max_health
-	stats.bullet_speed_factor = 1
+	stats.bullet_damage_factor = 1
 	stats.bullet_espresso_count = 1
 
 	self.position = get_viewport_rect().size / 2.0
@@ -62,9 +62,9 @@ func _process(delta: float) -> void:
 	player_stats_label.text += "\nHEALTH REGEN RATE: " + str(stats.health_regen_rate)
 	player_stats_label.text += "\n-\nSPEED: " + str(stats.speed)
 	player_stats_label.text += "\n-\nFIRE RATE: " + str(stats.fire_rate)
-	player_stats_label.text += "\nBULLET DAMAGE: " + str(stats.bullet_damage)
 	player_stats_label.text += "\nBULLET SPEED: " + str(stats.bullet_speed)
-	player_stats_label.text += "\nBULLET SPEED MULTIPLIER: " + str(stats.bullet_speed_factor)
+	player_stats_label.text += "\nBULLET DAMAGE: " + str(stats.bullet_damage)
+	player_stats_label.text += "\nBULLET DAMAGE MULTIPLIER: " + str(stats.bullet_damage_factor)
 	player_stats_label.text += "\n-\nMILK COUNT: " + str(stats.bullet_milk_count)
 	player_stats_label.text += "\nESPRESSO COUNT: " + str(stats.bullet_espresso_count)
 	player_stats_label.text += "\nCHOCOLATE COUNT: " + str(stats.bullet_chocolate_count)

@@ -17,6 +17,7 @@ max_health = 75.0
 body_damage = 50.0
 speed = 150.0
 fire_rate = 0.5
+bullet_espresso_count = 1.0
 bullet_speed = 250.0
 bullet_damage = 25.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"

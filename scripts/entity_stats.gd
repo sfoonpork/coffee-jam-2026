@@ -14,4 +14,4 @@ extends Resource
 
 
 var health: float
-var bullet_speed_factor: float
+var bullet_damage_factor: float

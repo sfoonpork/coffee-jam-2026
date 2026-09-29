@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
-	stats.bullet_speed_factor = 1
+	stats.bullet_damage_factor = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

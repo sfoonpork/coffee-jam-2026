@@ -6,10 +6,11 @@
 [ext_resource type="Resource" uid="uid://defs7t2yjkjfu" path="res://resources/upgrades/classes/mocha.tres" id="3_85gaa"]
 [ext_resource type="Resource" uid="uid://br6vhiby2ckc8" path="res://resources/upgrades/classes/macchiato.tres" id="4_pbjpu"]
 [ext_resource type="Resource" uid="uid://bm7o1ijlkt0ey" path="res://resources/upgrades/classes/latte.tres" id="5_ves6u"]
-[ext_resource type="Resource" uid="uid://desk2t5fjidbl" path="res://resources/upgrades/classes/red_eye.tres" id="6_wxj52"]
+[ext_resource type="Resource" uid="uid://dijttbclp5yc6" path="res://resources/upgrades/classes/red_eye_with_hot_water.tres" id="6_85gaa"]
 [ext_resource type="Resource" uid="uid://dul18hijptvb5" path="res://resources/upgrades/classes/lungo.tres" id="7_6svug"]
 [ext_resource type="Resource" uid="uid://c0i4fhjxbv3oc" path="res://resources/upgrades/classes/doppio.tres" id="8_cfucw"]
 [ext_resource type="Resource" uid="uid://dhml2rxlobkuu" path="res://resources/upgrades/classes/long_black.tres" id="9_0tdrv"]
+[ext_resource type="Resource" uid="uid://desk2t5fjidbl" path="res://resources/upgrades/classes/red_eye_with_espresso.tres" id="9_pbjpu"]
 [ext_resource type="Resource" uid="uid://bnjxtjknubewg" path="res://resources/upgrades/classes/americano.tres" id="10_ve8eq"]
 
 [sub_resource type="Resource" id="Resource_fdlmy"]
@@ -46,7 +47,7 @@ metadata/_custom_type_script = "uid://2hjqj2en0tgv"
 
 [sub_resource type="Resource" id="Resource_ir4m1"]
 script = ExtResource("1_fbxav")
-value = ExtResource("6_wxj52")
+value = ExtResource("6_85gaa")
 metadata/_custom_type_script = "uid://2hjqj2en0tgv"
 
 [sub_resource type="Resource" id="Resource_28m1t"]
@@ -62,7 +63,7 @@ metadata/_custom_type_script = "uid://2hjqj2en0tgv"
 
 [sub_resource type="Resource" id="Resource_kduis"]
 script = ExtResource("1_fbxav")
-value = ExtResource("6_wxj52")
+value = ExtResource("9_pbjpu")
 metadata/_custom_type_script = "uid://2hjqj2en0tgv"
 
 [sub_resource type="Resource" id="Resource_uggan"]

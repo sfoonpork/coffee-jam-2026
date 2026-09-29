@@ -98,7 +98,7 @@ func fire(direction: Vector2, damage: float, init_speed_factor: float, accel_rat
 	bullet.ignore = ignore
 	bullet.modulate = color
 	bullet.speed = stats.bullet_speed * init_speed_factor
-	bullet.speed_factor = stats.bullet_speed_factor
+	bullet.damage_factor = stats.bullet_damage_factor
 	bullet.accel_rate = accel_rate
 	
 	add_sibling(bullet)

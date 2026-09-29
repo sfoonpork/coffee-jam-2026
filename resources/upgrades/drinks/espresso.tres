@@ -7,7 +7,7 @@
 script = ExtResource("1_x7kh5")
 property = "bullet_espresso_count"
 operation = 1
-value = 2
+value = 1.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
