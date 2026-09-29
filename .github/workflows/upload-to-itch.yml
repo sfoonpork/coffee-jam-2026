@@ -29,7 +29,4 @@ jobs:
           itch_user: sfoonpork
           itch_game: coffee-jam
           version: ${{ github.ref_name }}
-          files: |
-            ${{ steps.export.outputs.archive_directory }}/coffeejam-web.zip
-            ${{ steps.export.outputs.archive_directory }}/coffeejam-win.zip
-            ${{ steps.export.outputs.archive_directory }}/coffeejam-mac.zip
+          files: "${{ steps.export.outputs.archive_directory }}/*.zip"
