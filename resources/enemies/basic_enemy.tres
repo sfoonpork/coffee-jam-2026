@@ -13,6 +13,6 @@ bonus_bullet_speed = 5.0
 bonus_health_regen_rate = 1.0
 max_health = 100.0
 speed = 100.0
-fire_rate = 2.0
+fire_rate = 1.0
 bullet_speed = 250.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
