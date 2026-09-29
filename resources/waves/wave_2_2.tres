@@ -21,6 +21,6 @@ metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 script = ExtResource("3_qcf01")
 name = "Wave"
 num_enemies = 10
-spawn_time = 4.0
+spawn_time = 1.0
 enemy_pool = Array[ExtResource("1_gtnor")]([SubResource("Resource_g2els"), SubResource("Resource_oboam")])
 metadata/_custom_type_script = "uid://boh8sawl8snby"
