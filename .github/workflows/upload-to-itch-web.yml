@@ -1,4 +1,4 @@
-name: Publish to Itch.io
+name: Publish to Itch.io as web
 
 on:
   push:
