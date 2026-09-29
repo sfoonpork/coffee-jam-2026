@@ -19,6 +19,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_tdklm")
-name = "Chocolate"
+name = "Chocolate: +2 acceleratng bullets, 25% damage reduction"
 modifiers = Array[ExtResource("1_ihgsv")]([SubResource("Resource_efl55"), SubResource("Resource_f17e3")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

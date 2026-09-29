@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
 script = ExtResource("2_s8ota")
-name = "Espresso"
+name = "Espresso: +1 bullet"
 modifiers = Array[ExtResource("1_x7kh5")]([SubResource("Resource_efl55")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

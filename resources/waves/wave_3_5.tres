@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 [sub_resource type="Resource" id="Resource_bgg4u"]
 script = ExtResource("1_psiya")
 enemy = ExtResource("4_ynecw")
-count = 50
+count = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_psiya"]
@@ -29,13 +29,13 @@ metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 [sub_resource type="Resource" id="Resource_ynecw"]
 script = ExtResource("1_psiya")
 enemy = ExtResource("5_bgg4u")
-count = 10
+count = 5
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_f17e3"]
 script = ExtResource("1_psiya")
 enemy = ExtResource("5_kc37f")
-count = 5
+count = 1
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]
