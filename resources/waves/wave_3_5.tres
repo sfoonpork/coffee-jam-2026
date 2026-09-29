@@ -4,41 +4,43 @@
 [ext_resource type="Resource" uid="uid://bj8cnvcn4nat" path="res://resources/enemies/very_fast_enemy.tres" id="2_psiya"]
 [ext_resource type="Resource" uid="uid://d3r0qmikupetq" path="res://resources/enemies/basic_enemy.tres" id="3_bgg4u"]
 [ext_resource type="Resource" uid="uid://cg3ytuokfahcp" path="res://resources/enemies/fast_enemy.tres" id="4_ynecw"]
+[ext_resource type="Resource" uid="uid://bsroal1ol5i62" path="res://resources/enemies/tank_enemy.tres" id="5_bgg4u"]
 [ext_resource type="Resource" uid="uid://bhicqcvhylxvq" path="res://resources/enemies/mortar_enemy.tres" id="5_kc37f"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="6_cqeda"]
 
 [sub_resource type="Resource" id="Resource_y3u1j"]
 script = ExtResource("1_psiya")
 enemy = ExtResource("2_psiya")
-weight = 50
-count = 10
-metadata/_custom_type_script = "uid://q6l6nf81xn5b"
-
-[sub_resource type="Resource" id="Resource_psiya"]
-script = ExtResource("1_psiya")
-enemy = ExtResource("3_bgg4u")
-weight = 30
 count = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_bgg4u"]
 script = ExtResource("1_psiya")
 enemy = ExtResource("4_ynecw")
-weight = 30
-count = 10
+count = 5
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[sub_resource type="Resource" id="Resource_psiya"]
+script = ExtResource("1_psiya")
+enemy = ExtResource("3_bgg4u")
+count = 20
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_ynecw"]
 script = ExtResource("1_psiya")
+enemy = ExtResource("5_bgg4u")
+count = 5
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[sub_resource type="Resource" id="Resource_f17e3"]
+script = ExtResource("1_psiya")
 enemy = ExtResource("5_kc37f")
-weight = 30
-count = 10
+count = 1
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]
 script = ExtResource("6_cqeda")
 name = "Wave"
-num_enemies = 40
 spawn_time = 0.5
-enemy_pool = Array[ExtResource("1_psiya")]([SubResource("Resource_y3u1j"), SubResource("Resource_psiya"), SubResource("Resource_bgg4u"), SubResource("Resource_ynecw")])
+enemy_pool = Array[ExtResource("1_psiya")]([SubResource("Resource_y3u1j"), SubResource("Resource_bgg4u"), SubResource("Resource_psiya"), SubResource("Resource_ynecw"), SubResource("Resource_f17e3")])
 metadata/_custom_type_script = "uid://boh8sawl8snby"

@@ -4,33 +4,29 @@
 [ext_resource type="Resource" uid="uid://bhicqcvhylxvq" path="res://resources/enemies/mortar_enemy.tres" id="2_c7sg1"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="3_c7sg1"]
 [ext_resource type="Resource" uid="uid://bsroal1ol5i62" path="res://resources/enemies/tank_enemy.tres" id="3_gmxje"]
-[ext_resource type="Resource" uid="uid://bj8cnvcn4nat" path="res://resources/enemies/very_fast_enemy.tres" id="4_synta"]
+[ext_resource type="Resource" uid="uid://d3r0qmikupetq" path="res://resources/enemies/basic_enemy.tres" id="4_c7sg1"]
 
 [sub_resource type="Resource" id="Resource_g2els"]
 script = ExtResource("1_8uk7q")
 enemy = ExtResource("2_c7sg1")
-weight = 10
-count = 15
+count = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_gmxje"]
 script = ExtResource("1_8uk7q")
 enemy = ExtResource("3_gmxje")
-weight = 10
-count = 15
+count = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_c7sg1"]
 script = ExtResource("1_8uk7q")
-enemy = ExtResource("4_synta")
-weight = 50
-count = 15
+enemy = ExtResource("4_c7sg1")
+count = 10
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]
 script = ExtResource("3_c7sg1")
 name = "Wave"
-num_enemies = 40
 spawn_time = 1.0
 enemy_pool = Array[ExtResource("1_8uk7q")]([SubResource("Resource_g2els"), SubResource("Resource_gmxje"), SubResource("Resource_c7sg1")])
 metadata/_custom_type_script = "uid://boh8sawl8snby"

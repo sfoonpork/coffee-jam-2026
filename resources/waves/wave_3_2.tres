@@ -2,19 +2,24 @@
 
 [ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_ji2rd"]
 [ext_resource type="Resource" uid="uid://bhicqcvhylxvq" path="res://resources/enemies/mortar_enemy.tres" id="2_ji2rd"]
+[ext_resource type="Resource" uid="uid://cg3ytuokfahcp" path="res://resources/enemies/fast_enemy.tres" id="3_0q2u8"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="3_b8hb8"]
 
 [sub_resource type="Resource" id="Resource_c7sg1"]
 script = ExtResource("1_ji2rd")
 enemy = ExtResource("2_ji2rd")
-weight = 10
+count = 5
+metadata/_custom_type_script = "uid://q6l6nf81xn5b"
+
+[sub_resource type="Resource" id="Resource_fh13f"]
+script = ExtResource("1_ji2rd")
+enemy = ExtResource("3_0q2u8")
 count = 5
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [resource]
 script = ExtResource("3_b8hb8")
 name = "Wave"
-num_enemies = 5
 spawn_time = 1.0
-enemy_pool = Array[ExtResource("1_ji2rd")]([SubResource("Resource_c7sg1")])
+enemy_pool = Array[ExtResource("1_ji2rd")]([SubResource("Resource_c7sg1"), SubResource("Resource_fh13f")])
 metadata/_custom_type_script = "uid://boh8sawl8snby"
