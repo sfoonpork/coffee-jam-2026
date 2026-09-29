@@ -7,6 +7,6 @@ script = ExtResource("1_w4wpt")
 name = "Fast Enemy"
 max_health = 20.0
 speed = 300.0
-fire_rate = 0.5
+fire_rate = 4.0
 bullet_speed = 250.0
 metadata/_custom_type_script = "uid://b7m0ebbk7gghx"
