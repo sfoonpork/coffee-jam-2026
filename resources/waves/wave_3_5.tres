@@ -1,54 +1,33 @@
 [gd_resource type="Resource" script_class="WaveStats" format=3 uid="uid://bi6o8e2g8hsgk"]
 
 [ext_resource type="Script" uid="uid://q6l6nf81xn5b" path="res://scripts/enemy_weight_tuple.gd" id="1_psiya"]
-[ext_resource type="Resource" uid="uid://buqxu75ih0ljc" path="res://resources/enemies/tank_enemy_2.tres" id="2_bgg4u"]
-[ext_resource type="Resource" uid="uid://epivdf6rct4c" path="res://resources/enemies/tank_enemy_2a.tres" id="3_ynecw"]
-[ext_resource type="Resource" uid="uid://bm5tpf33j4771" path="res://resources/enemies/tank_enemy_2b.tres" id="4_kc37f"]
-[ext_resource type="Resource" uid="uid://b663nx5letwou" path="res://resources/enemies/very_fast_enemy_3.tres" id="5_ipr8o"]
+[ext_resource type="Resource" uid="uid://bj8cnvcn4nat" path="res://resources/enemies/very_fast_enemy.tres" id="2_psiya"]
+[ext_resource type="Resource" uid="uid://d3r0qmikupetq" path="res://resources/enemies/basic_enemy.tres" id="3_bgg4u"]
+[ext_resource type="Resource" uid="uid://cg3ytuokfahcp" path="res://resources/enemies/fast_enemy.tres" id="4_ynecw"]
+[ext_resource type="Resource" uid="uid://bhicqcvhylxvq" path="res://resources/enemies/mortar_enemy.tres" id="5_kc37f"]
 [ext_resource type="Script" uid="uid://boh8sawl8snby" path="res://scripts/wave_stats.gd" id="6_cqeda"]
-[ext_resource type="Resource" uid="uid://lumg8vnno2iu" path="res://resources/enemies/basic_enemy_2.tres" id="6_kc37f"]
-[ext_resource type="Resource" uid="uid://dxmpu1764kaeb" path="res://resources/enemies/fast_enemy_2.tres" id="7_ipr8o"]
-[ext_resource type="Resource" uid="uid://ivyjo6n70qyp" path="res://resources/enemies/mortar_enemy_2.tres" id="8_cqeda"]
-
-[sub_resource type="Resource" id="Resource_c7sg1"]
-script = ExtResource("1_psiya")
-enemy = ExtResource("2_bgg4u")
-weight = 10
-metadata/_custom_type_script = "uid://q6l6nf81xn5b"
-
-[sub_resource type="Resource" id="Resource_k3eac"]
-script = ExtResource("1_psiya")
-enemy = ExtResource("3_ynecw")
-weight = 10
-metadata/_custom_type_script = "uid://q6l6nf81xn5b"
-
-[sub_resource type="Resource" id="Resource_1sth3"]
-script = ExtResource("1_psiya")
-enemy = ExtResource("4_kc37f")
-weight = 10
-metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_y3u1j"]
 script = ExtResource("1_psiya")
-enemy = ExtResource("5_ipr8o")
+enemy = ExtResource("2_psiya")
 weight = 50
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_psiya"]
 script = ExtResource("1_psiya")
-enemy = ExtResource("6_kc37f")
+enemy = ExtResource("3_bgg4u")
 weight = 30
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_bgg4u"]
 script = ExtResource("1_psiya")
-enemy = ExtResource("7_ipr8o")
+enemy = ExtResource("4_ynecw")
 weight = 30
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
 [sub_resource type="Resource" id="Resource_ynecw"]
 script = ExtResource("1_psiya")
-enemy = ExtResource("8_cqeda")
+enemy = ExtResource("5_kc37f")
 weight = 30
 metadata/_custom_type_script = "uid://q6l6nf81xn5b"
 
@@ -57,5 +36,5 @@ script = ExtResource("6_cqeda")
 name = "Wave"
 num_enemies = 40
 spawn_time = 0.5
-enemy_pool = Array[ExtResource("1_psiya")]([SubResource("Resource_c7sg1"), SubResource("Resource_k3eac"), SubResource("Resource_1sth3"), SubResource("Resource_y3u1j"), SubResource("Resource_psiya"), SubResource("Resource_bgg4u"), SubResource("Resource_ynecw")])
+enemy_pool = Array[ExtResource("1_psiya")]([SubResource("Resource_y3u1j"), SubResource("Resource_psiya"), SubResource("Resource_bgg4u"), SubResource("Resource_ynecw")])
 metadata/_custom_type_script = "uid://boh8sawl8snby"
