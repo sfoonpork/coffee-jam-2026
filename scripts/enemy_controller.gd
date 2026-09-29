@@ -3,7 +3,7 @@ extends Entity
 
 var enemy_type: EnemyStats
 
-var timer: float = 2.0
+var timer: float = 0.0
 
 var is_dying: bool = false
 
@@ -39,7 +39,7 @@ func _on_area_2d_body_entered(body: Player) -> void:
 	body.take_knockback(direction.normalized() * 500.0)
 	self.take_knockback(-direction.normalized() * 500.0)
 	
-	var damage: float = 10.0
+	var damage: float = max(body.stats.health, self.stats.health)
 	body.take_damage(damage)
 	self.take_damage(damage)
 

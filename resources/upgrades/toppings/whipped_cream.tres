@@ -7,7 +7,7 @@
 script = ExtResource("1_bgvda")
 property = "health_regen_rate"
 operation = 1
-value = 10.0
+value = 5.0
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
