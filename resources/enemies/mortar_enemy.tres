@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_vul4f")
 name = "Mortar Enemy"
+separation = 1.0
+first_shot_delay = 0.75
 bonus_max_health = 50.0
 bonus_health_regen_rate = 5.0
 bonus_body_damage = 5.0

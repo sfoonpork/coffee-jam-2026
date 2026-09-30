@@ -2,6 +2,8 @@ class_name EnemyStats
 extends EntityStats
 
 @export var name: String
+@export var separation: float
+@export var first_shot_delay: float
 
 @export var bonus_max_health: float
 @export var bonus_health_regen_rate: float

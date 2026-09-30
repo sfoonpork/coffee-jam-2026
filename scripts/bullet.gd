@@ -40,9 +40,6 @@ func _process(delta: float) -> void:
 	
 	if not valid:
 		play_destroy()
-	
-	if self.speed <= BULLET_DESTROY_SPEED:
-		play_destroy()
 
 
 func _on_body_entered(body: CollisionObject2D) -> void:
@@ -87,16 +84,25 @@ func _on_area_entered(area: Area2D) -> void:
 		if self.collided.has(bullet): return
 		
 		# collide
-		var bullet_speed = bullet.speed
 		bullet.collided[self] = true
-		bullet.speed -= abs(speed)
 		collided[bullet] = true
-		speed -= abs(bullet_speed)
 		
-		if bullet.speed <= BULLET_DESTROY_SPEED:
+		var prev_bullet_speed = bullet.speed
+		var prev_speed = speed
+		
+		if bullet.speed > 0:
+			bullet.speed -= abs(prev_speed)
+		else:
+			bullet.speed += abs(prev_speed)
+		if speed > 0:
+			speed -= abs(prev_bullet_speed)
+		else:
+			speed += abs(prev_bullet_speed)
+		
+		if sign(prev_bullet_speed) != sign(bullet.speed):
 			bullet.play_destroy()
 			
-		if self.speed <= BULLET_DESTROY_SPEED:
+		if sign(prev_speed) != sign(speed):
 			play_destroy()
 
 

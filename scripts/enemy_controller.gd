@@ -3,7 +3,7 @@ extends Entity
 
 var enemy_type: EnemyStats
 
-var timer: float = 0.0
+var timer: float = 0.5
 
 var is_dying: bool = false
 
@@ -16,15 +16,19 @@ func _ready() -> void:
 	stats = enemy_type
 	stats = stats.duplicate()
 	
+	timer = stats.first_shot_delay
+	
 	var bonus_multiplier = GameData.wave_index
 	stats.max_health += stats.bonus_max_health * bonus_multiplier
+	stats.health_regen_rate += stats.bonus_health_regen_rate * bonus_multiplier
+	stats.body_damage += stats.bonus_body_damage * bonus_multiplier
 	stats.speed += stats.bonus_speed * bonus_multiplier
 	stats.fire_rate += stats.bonus_fire_rate * bonus_multiplier
 	stats.bullet_chocolate_count += stats.bonus_bullet_chocolate_count * bonus_multiplier
 	stats.bullet_espresso_count += stats.bonus_bullet_espresso_count * bonus_multiplier
 	stats.bullet_milk_count += stats.bonus_bullet_milk_count * bonus_multiplier
 	stats.bullet_speed += stats.bonus_bullet_speed * bonus_multiplier
-	stats.health_regen_rate += stats.bonus_health_regen_rate * bonus_multiplier
+	stats.bullet_damage += stats.bonus_bullet_damage * bonus_multiplier
 	
 	stats.speed *= randf_range(0.8, 1.2)
 	
@@ -46,7 +50,8 @@ func _process(delta: float) -> void:
 			boid_direction += (position - enemy.position)
 		boid_direction /= GameData.enemies.size()
 		boid_direction = boid_direction.normalized()
-		var move_direction = player_direction + boid_direction
+		
+		var move_direction = player_direction * (1.0 - stats.separation) + boid_direction * stats.separation
 		super.move(move_direction, delta)
 		if stats.fire_rate > 0.0:
 			timer -= delta

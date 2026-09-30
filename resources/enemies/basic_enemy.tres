@@ -5,11 +5,13 @@
 [resource]
 script = ExtResource("1_6l6fd")
 name = "Basic Enemy"
+separation = 0.25
+first_shot_delay = 0.25
 bonus_max_health = 5.0
 bonus_health_regen_rate = 1.0
 bonus_body_damage = 2.5
 bonus_speed = 2.5
-bonus_fire_rate = 0.1
+bonus_fire_rate = 0.05
 bonus_bullet_espresso_count = 0.2
 bonus_bullet_speed = 5.0
 bonus_bullet_damage = 0.5
