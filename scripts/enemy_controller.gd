@@ -42,12 +42,12 @@ func _process(delta: float) -> void:
 		var player_direction: Vector2 = (player.position - position).normalized()
 		var boid_direction: Vector2 = Vector2.ZERO
 		for enemy in GameData.enemies:
+			if not enemy: continue
 			boid_direction += (position - enemy.position)
-		#boid_direction /= GameData.enemies.
-		
-		
-		
-		super.move(player_direction, delta)
+		boid_direction /= GameData.enemies.size()
+		boid_direction = boid_direction.normalized()
+		var move_direction = player_direction + boid_direction
+		super.move(move_direction, delta)
 		if stats.fire_rate > 0.0:
 			timer -= delta
 			while timer < 0.0:
