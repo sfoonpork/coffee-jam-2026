@@ -10,6 +10,4 @@ signal wave_defeated
 signal upgrade_chosen
 signal game_defeated
 
-signal set_player_stat
-signal add_player_stat
-signal mul_player_stat
+signal modify_player_stat

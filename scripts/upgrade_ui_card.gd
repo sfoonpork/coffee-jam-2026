@@ -4,12 +4,11 @@ extends Button
 
 func _on_button_down() -> void:
 	self.modulate = Color.GREEN
-	pass # Replace with function body.
 
 
 func _on_button_up() -> void:
 	self.modulate = Color.WHITE
-	pass # Replace with function body.
+
 
 
 func set_title_text(msg: String) -> void:
@@ -18,3 +17,7 @@ func set_title_text(msg: String) -> void:
 
 func set_details_text(msg: String) -> void:
 	$DetailsLabel.text = msg
+
+
+func play_destroy() -> void:
+	queue_free()

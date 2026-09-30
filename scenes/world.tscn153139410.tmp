@@ -94,9 +94,8 @@ offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("14_o8fc1")
 
-[node name="Player" parent="." unique_id=321489202 node_paths=PackedStringArray("player_stats_label") instance=ExtResource("2_rwgxs")]
+[node name="Player" parent="." unique_id=321489202 instance=ExtResource("2_rwgxs")]
 position = Vector2(640, 360)
-player_stats_label = NodePath("../GameUI/PlayerStatsLabel")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1230008194]
 script = ExtResource("1_nnsk1")
