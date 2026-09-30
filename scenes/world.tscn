@@ -165,3 +165,13 @@ vertical_alignment = 2
 process_mode = 3
 script = ExtResource("20_oo54l")
 upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_navra"), SubResource("Resource_fh13f"), SubResource("Resource_l5qkr")])
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=963314794]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 560.0
+offset_right = 160.0
+offset_bottom = 624.0
+grow_vertical = 0
