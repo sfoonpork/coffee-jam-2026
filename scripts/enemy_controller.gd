@@ -26,6 +26,8 @@ func _ready() -> void:
 	stats.bullet_speed += stats.bonus_bullet_speed * bonus_multiplier
 	stats.health_regen_rate += stats.bonus_health_regen_rate * bonus_multiplier
 	
+	stats.speed *= randf_range(0.8, 1.2)
+	
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
 	stats.bullet_damage_factor = 1
