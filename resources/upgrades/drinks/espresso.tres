@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 script = ExtResource("1_x7kh5")
 property = "bullet_damage_factor"
 operation = 2
-value = 1.25
+value = 1.4
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
