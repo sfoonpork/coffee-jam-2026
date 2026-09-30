@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://d1srsprpjpsn0"]
 
-[ext_resource type="Script" uid="uid://bn5pv0qxtvf4w" path="res://scripts/intro.gd" id="1_ioskq"]
-[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="2_yjqpq"]
+[ext_resource type="Script" uid="uid://bn5pv0qxtvf4w" path="res://scripts/intro_screen.gd" id="1_m3gk3"]
+[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="2_q1oon"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ioskq"]
-font = ExtResource("2_yjqpq")
+font = ExtResource("2_q1oon")
 
 [node name="Intro" type="Node2D" unique_id=1495083760]
-script = ExtResource("1_ioskq")
+script = ExtResource("1_m3gk3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=496334536]
 

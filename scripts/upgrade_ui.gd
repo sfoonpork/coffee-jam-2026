@@ -2,70 +2,126 @@ class_name UpgradeUI
 extends CanvasLayer
 
 @export var upgrade_pool: Array[UpgradeWeightTuple]
+
+const CARD_UI: PackedScene = preload("uid://dia2yamwblh47")
+const ROOT: CoffeeClassNode = preload("uid://d285d026kt5lc")
+
 var curr_upgrade_pool: Array[UpgradeWeightTuple]
-
-const CARD_UI = preload("uid://dia2yamwblh47")
-
 var card_uis: Array[CardUI]
 var seen: Dictionary
+var curr = ROOT
 
-var root: CoffeeClassNode = preload("uid://d285d026kt5lc")
-var curr = root
+var spacing: float = 256.0 + 32.0
+var num_cards_min: int = 2
+var num_cards_max: int = 4
 
 func _ready() -> void:
 	curr_upgrade_pool = upgrade_pool.duplicate()
 	seen = {}
 
 
-func lay_out_cards(num_cards: int) -> Array[CardUI]:
+# prompt the user to select cards
+func prompt(remaining: int, promotion: bool) -> void:
 	
-	var curr_card_uis: Array[CardUI] = []
-	var dist: float = 256.0 + 32.0
+	# destroy card uis
+	for card_ui in card_uis:
+		card_ui.play_destroy()
+	
+	# clear cards
+	card_uis.clear()
+	
+	# pause game
+	get_tree().paused = true
+	
+	# get card count
+	var num_cards = 0
+	if remaining > 0:
+		var num_upgrades_randomized: int = randi_range(num_cards_min, num_cards_max)
+		var num_upgades_available = get_num_available_upgrades()
+		num_cards = min(num_upgrades_randomized, num_upgades_available)
+	elif promotion:
+		var num_coffee_classes = curr.next.size()
+		num_cards = num_coffee_classes
+	
+	# break early if no more cards are left
+	if num_cards == 0:
+		close()
+		if promotion:
+			prompt(0, true)
+		return
+		
+	# lay out cards with upgrades
+	card_uis = lay_out_cards(num_cards, spacing)
+	for card_ui in card_uis:
+		
+		# update card ui and select upgrade on card press
+		if remaining > 0:
+			var upgrade = pull_random_upgrade()
+			if not upgrade: break
+			card_ui.set_title_text(upgrade.name)
+			card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
+			card_ui.pressed.connect(func():
+				apply_modifiers(upgrade.modifiers)
+				prompt(remaining - 1, promotion))
+
+		# update card ui and select coffee class on card press
+		elif promotion:
+			
+			# get coffee class candidate among the next candidates
+			var coffee_class: CoffeeClassNode = curr.next[card_uis.find(card_ui)]
+			card_ui.set_title_text(coffee_class.value.name)
+			var details: String = ""
+			card_ui.set_details_text("\nNEW " + 
+				coffee_class.value.upgrade.name +
+				get_modifier_string(coffee_class.value.upgrade.modifiers))
+			card_ui.pressed.connect(func():
+				curr = coffee_class
+				apply_modifiers(coffee_class.value.upgrade.modifiers)
+				prompt(remaining, false))
+
+
+# close the prompt
+func close() -> void:
+	
+	seen.clear()
+	get_tree().paused = false
+
+
+# lay out cards, spaced in pixels
+func lay_out_cards(num_cards: int, spacing: float) -> Array[CardUI]:
+	
+	# calculate start position
 	var offset: float = 0.0
 	if num_cards % 2 == 0:
 		offset += 0.5
 	offset -= int(num_cards/2)
+	var start_x = offset * spacing
 	
-	var start_x = dist * offset
-	
+	# spawn cards, sapced out
+	var curr_card_uis: Array[CardUI] = []
 	for i in range(num_cards):
-		
 		var card_ui: CardUI = CARD_UI.instantiate()
-		
-		card_ui.position = Vector2(start_x + dist * i - card_ui.size.x/2.0, -card_ui.size.y/2.0)
+		card_ui.position = Vector2(start_x + i * spacing, 0.0)
+		card_ui.position -= card_ui.size/2.0
 		curr_card_uis.append(card_ui)
 		add_child(card_ui)
 		
+	# return list of cards
 	return curr_card_uis
 
 
-func prompt(amount: int, promotion: bool) -> void:
-	
-	var num_cards: int = randi_range(2, 4)
+# check how many upgrades are available from the pool
+func get_num_available_upgrades() -> int:
 	var num_available: int = 0
 	for upgrade_tuple in curr_upgrade_pool:
 		if seen.has(upgrade_tuple):
 			continue
 		num_available += 1
-	
-	card_uis = lay_out_cards(min(num_cards, num_available))
-	
-	for card_ui in card_uis:
-		randomize_upgrade(card_ui, amount, promotion)
-		
-	get_tree().paused = true
-	
-	if num_available == 0:
-		print("no more available cards")
-		Signals.upgrade_chosen.emit()
-		seen.clear()
-		if promotion:
-			promote()
-		else:
-			get_tree().paused = false
+	return num_available
 
 
-func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void:
+# pull a random upgrade
+func pull_random_upgrade() -> UpgradeStats:
 	
 	if curr_upgrade_pool.size() == 0:
 		return
@@ -77,7 +133,7 @@ func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void
 			continue
 		total_weight += upgrade_tuple.weight
 	
-	# select upgrade
+	# weighted select
 	var target: int = randi_range(0, total_weight)
 	for upgrade_tuple in curr_upgrade_pool:
 		if seen.has(upgrade_tuple):
@@ -85,64 +141,11 @@ func randomize_upgrade(card_ui: CardUI, remaining: int, promotion: bool) -> void
 		target -= upgrade_tuple.weight
 		if target <= 0:
 			var upgrade = upgrade_tuple.upgrade
-			card_ui.set_title_text(upgrade.name)
-			card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
-			card_ui.pressed.connect(func(): select_upgrade(upgrade, remaining, promotion))
 			seen[upgrade_tuple] = true
-			return
+			return upgrade
+	
+	return null
 
-
-func select_upgrade(upgrade: UpgradeStats, remaining: int, promotion: bool) -> void:
-	
-	apply_modifiers(upgrade.modifiers)
-	
-	for upgrade_tuple in curr_upgrade_pool:
-		if upgrade_tuple.upgrade == upgrade:
-			continue
-		upgrade_tuple.weight *= 2.0
-	
-	remaining -= 1
-	
-	for card_ui in card_uis:
-		card_ui.queue_free()
-	card_uis.clear()
-	
-	if remaining == 0:
-		Signals.upgrade_chosen.emit()
-		seen.clear()
-		if promotion:
-			promote()
-		else:
-			get_tree().paused = false
-			
-	else:
-		prompt(remaining, promotion)
-
-
-func promote() -> void:
-	
-	var num_cards = curr.next.size()
-	if num_cards == 0:
-		print("no classes left")
-		get_tree().paused = false
-		return
-	
-	card_uis = lay_out_cards(num_cards)
-	
-	for i in range(num_cards):
-		
-		var card_ui: CardUI = card_uis[i]
-		var candidate: CoffeeClassNode = curr.next[i]
-		
-		card_ui.set_title_text(candidate.value.name)
-		
-		var details: String = ""
-		details += "\nNEW " + candidate.value.upgrade.name
-		details += get_modifier_string(candidate.value.upgrade.modifiers)
-		card_ui.set_details_text(details)
-		
-		card_uis.append(card_ui)
-		list_coffee_class(card_ui, candidate)
 
 
 func get_modifier_string(modifiers: Array[UpgradeModifier]) -> String:
@@ -154,16 +157,16 @@ func get_modifier_string(modifiers: Array[UpgradeModifier]) -> String:
 		var body: String = get_property_string(modifier.property)
 		var suffix: String = ""
 		
-		if modifier.operation == UpgradeModifier.OPERATION.SET:
+		if modifier.operation == UpgradeModifier.Operation.SET:
 			suffix = " => " + str(int(modifier.value))
 		
-		if modifier.operation == UpgradeModifier.OPERATION.ADD:
+		if modifier.operation == UpgradeModifier.Operation.ADD:
 			if modifier.value < 0.0:
 				prefix = "-" + str(int(modifier.value)) + " "
 			else:
 				prefix = "+" + str(int(modifier.value)) + " "
 		
-		if modifier.operation == UpgradeModifier.OPERATION.MUL:
+		if modifier.operation == UpgradeModifier.Operation.MUL:
 			suffix = " x " + str(int(modifier.value * 100)) + "%"
 		
 		text += "\n" + prefix + body + suffix
@@ -171,55 +174,28 @@ func get_modifier_string(modifiers: Array[UpgradeModifier]) -> String:
 
 
 func get_property_string(property: String) -> String:
-	var map: Dictionary = {}
-	map["max_health"] = "Max Health"
-	map["health_regen_rate"] = "Health Regen"
-	map["body_damage"] = "Body Damage"
-	map["speed"] = "Speed"
-	map["fire_rate"] = "Fire Rate"
-	map["bullet_chocolate_count"] = "Chocolate Bullet"
-	map["bullet_espresso_count"] = "Espresso Bullet"
-	map["bullet_milk_count"] = "Milk Bullet"
-	map["bullet_speed"] = "Bullet Speed"
-	map["bullet_damage"] = "Bullet Damage"
-	map["bullet_damage_factor"] = "Bullet Damage Multiplier"
 	
-	if map.has(property):
-		return map[property]
+	var property_map: Dictionary = {}
+	
+	property_map["max_health"] = "Max Health"
+	property_map["health_regen_rate"] = "Health Regen"
+	property_map["body_damage"] = "Body Damage"
+	property_map["speed"] = "Speed"
+	property_map["fire_rate"] = "Fire Rate"
+	property_map["bullet_chocolate_count"] = "Chocolate Bullet"
+	property_map["bullet_espresso_count"] = "Espresso Bullet"
+	property_map["bullet_milk_count"] = "Milk Bullet"
+	property_map["bullet_speed"] = "Bullet Speed"
+	property_map["bullet_damage"] = "Bullet Damage"
+	property_map["bullet_damage_factor"] = "Bullet Damage Multiplier"
+	
+	if property_map.has(property):
+		return property_map[property]
 		
 	return property
 
 
-func list_coffee_class(card_ui: CardUI, coffee_class: CoffeeClassNode) -> void:
-	
-	if curr_upgrade_pool.size() == 0:
-		return
-	
-	card_ui.pressed.connect(func(): select_promotion(coffee_class))
-	
-
-
-func select_promotion(coffee_class: CoffeeClassNode) -> void:
-	
-	curr = coffee_class
-	
-	apply_modifiers(coffee_class.value.upgrade.modifiers)
-	
-	for card_ui in card_uis:
-		card_ui.queue_free()
-	card_uis.clear()
-	
-	get_tree().paused = false
-	Signals.upgrade_chosen.emit()
-	seen = {}
-
 func apply_modifiers(modifiers: Array[UpgradeModifier]) -> void:
-
+	Signals.upgrade_chosen.emit()
 	for modifier in modifiers:
-		if modifier.operation == UpgradeModifier.OPERATION.SET:
-			Signals.set_player_stat.emit(modifier.property, modifier.value)
-		if modifier.operation == UpgradeModifier.OPERATION.ADD:
-			Signals.add_player_stat.emit(modifier.property, modifier.value)
-		if modifier.operation == UpgradeModifier.OPERATION.MUL:
-			Signals.mul_player_stat.emit(modifier.property, modifier.value)
-	
+		Signals.modify_player_stat.emit(modifier.property, modifier.operation, modifier.value)

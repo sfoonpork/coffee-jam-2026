@@ -12,7 +12,6 @@ var speed: float = 0.0
 var moving: bool = false
 
 var fire_timer: float = 0.0
-#var fire_rate: float = 8.0
 var firing: bool = false
 
 # Looking
@@ -32,9 +31,7 @@ func _ready() -> void:
 	
 	apply_look()
 	
-	Signals.set_player_stat.connect(set_stat)
-	Signals.add_player_stat.connect(add_stat)
-	Signals.mul_player_stat.connect(mul_stat)
+	Signals.modify_player_stat.connect(modify_stat)
 
 
 
@@ -94,21 +91,18 @@ func _process(delta: float) -> void:
 				fire_timer = 0.0
 
 func die() -> void:
-	GameData.end_state = "You were defeated"
+	GameData.end_state = GameData.EndState.DEFEATED
 	Signals.player_died.emit()
 	super()
 
 
-func set_stat(property: String, value: Variant) -> void:
-	stats.set(property, value)
-	print(str(property) + ": =" + str(value))
-
-
-func add_stat(property: String, value: Variant) -> void:
-	stats.set(property, stats.get(property) + value)
-	print(str(property) + ": +" + str(value))
-
-
-func mul_stat(property: String, value: Variant) -> void:
-	stats.set(property, stats.get(property) * value)
-	print(str(property) + ": *" + str(value))
+func modify_stat(property: String, operation: UpgradeModifier.Operation, value: Variant) -> void:
+	if operation == UpgradeModifier.Operation.SET:
+		stats.set(property, value)
+		print(str(property) + ": =" + str(value))
+	if operation == UpgradeModifier.Operation.ADD:
+		stats.set(property, stats.get(property) + value)
+		print(str(property) + ": +" + str(value))
+	if operation == UpgradeModifier.Operation.MUL:
+		stats.set(property, stats.get(property) * value)
+		print(str(property) + ": *" + str(value))

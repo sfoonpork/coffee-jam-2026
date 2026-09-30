@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://blmbub4b6qtdo"]
+
+[ext_resource type="Script" uid="uid://6y2semd1a132" path="res://scripts/game_ui.gd" id="1_u001w"]
+[ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="2_u2dgd"]
+[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="3_bt76a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
+font = ExtResource("2_u2dgd")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
+font = ExtResource("3_bt76a")
+font_size = 12
+
+[node name="GameUI" type="CanvasLayer" unique_id=928845831]
+script = ExtResource("1_u001w")
+
+[node name="WaveLabel" type="Label" parent="." unique_id=1966415358]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_right = 29.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "WAVE 0"
+label_settings = SubResource("LabelSettings_q5onr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerStatsLabel" type="Label" parent="." unique_id=2128176929]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -75.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "PLAYER STATS"
+label_settings = SubResource("LabelSettings_pm21f")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StatsLabel" type="Label" parent="." unique_id=260245329]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -75.0
+offset_right = 193.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "STATS"
+label_settings = SubResource("LabelSettings_pm21f")
+vertical_alignment = 2

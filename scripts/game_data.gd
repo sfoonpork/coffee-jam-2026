@@ -1,9 +1,10 @@
 extends Node
 
+enum EndState {DEFEATED, WON}
 
 var enemies_killed: int = 0
 var bullets_fired: int = 0
-var end_state: String = ""
+var end_state: EndState
 var wave_index: int = 0
 
 
