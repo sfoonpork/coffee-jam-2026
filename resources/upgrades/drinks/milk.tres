@@ -14,14 +14,14 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 script = ExtResource("1_isxcv")
 property = "fire_rate"
 operation = 1
-value = 1.5
+value = 1.75
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [sub_resource type="Resource" id="Resource_1kw67"]
 script = ExtResource("1_isxcv")
 property = "bullet_damage_factor"
 operation = 2
-value = 0.5
+value = 0.6
 metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 
 [resource]
