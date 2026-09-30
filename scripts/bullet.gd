@@ -63,8 +63,9 @@ func _on_body_entered(body: CollisionObject2D) -> void:
 		valid = false
 		#body.take_damage(speed / 10.0)
 		body.take_damage(damage * damage_factor)
-		var direction_to_entity = entity.position - self.position
-		body.take_knockback(direction_to_entity.normalized() * 250.0)
+		#var direction_to_entity = entity.position - self.position
+		#body.take_knockback(direction_to_entity.normalized() * 250.0)
+		body.take_knockback(direction.normalized() * 250.0)
 		play_destroy()
 	
 

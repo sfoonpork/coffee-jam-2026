@@ -31,6 +31,8 @@ func _ready() -> void:
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
 	stats.bullet_damage_factor = 1
+	
+	GameData.enemies.append(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,13 +40,19 @@ func _process(delta: float) -> void:
 	super(delta)
 	if player:
 		var player_direction: Vector2 = (player.position - position).normalized()
+		var boid_direction: Vector2 = Vector2.ZERO
+		for enemy in GameData.enemies:
+			boid_direction += (position - enemy.position)
+		#boid_direction /= GameData.enemies.
+		
+		
+		
 		super.move(player_direction, delta)
 		if stats.fire_rate > 0.0:
 			timer -= delta
 			while timer < 0.0:
 				timer += 1.0 / stats.fire_rate
 				fire_all(player_direction, "enemy", Color.RED)
-				#fire(player_direction, stats.bullet_damage, 1.0, 0.0, "enemy", Color.RED)
 
 
 func _on_area_2d_body_entered(body: Player) -> void:
