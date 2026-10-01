@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://exsu4h5pl47l" path="res://resources/upgrades/toppings/strawberry_syrup.tres" id="26_rup4s"]
 [ext_resource type="Resource" uid="uid://e3ofaccen3qc" path="res://resources/upgrades/toppings/blackberry_syrup.tres" id="28_f17e3"]
 [ext_resource type="Resource" uid="uid://rgjwrpo542p2" path="res://resources/upgrades/toppings/blueberry_syrup.tres" id="30_817gm"]
+[ext_resource type="Script" uid="uid://1eq50eawr6t2" path="res://scenes/virtual_joystick.gd" id="35_f17e3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
 font = ExtResource("24_4kbfs")
@@ -180,3 +181,6 @@ offset_top = 560.0
 offset_right = 160.0
 offset_bottom = 624.0
 grow_vertical = 0
+joystick_size = 128.0
+tip_size = 64.0
+script = ExtResource("35_f17e3")
