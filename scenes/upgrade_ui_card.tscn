@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://dia2yamwblh47"]
 
 [ext_resource type="Script" uid="uid://c4kmyjsumtdyx" path="res://scripts/upgrade_ui_card.gd" id="1_d8l0u"]
-[ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="1_l1ldg"]
 [ext_resource type="Texture2D" uid="uid://cvs36r0fj75h3" path="res://art/syrup_nobg.PNG" id="3_uhbqm"]
 [ext_resource type="FontFile" uid="uid://dykoaxydgcori" path="res://fonts/Minecraft.ttf" id="4_3rgcv"]
+[ext_resource type="Texture2D" uid="uid://dl0srvdvicp2s" path="res://art/health.png" id="5_sb4vm"]
 
-[sub_resource type="Theme" id="Theme_rup4s"]
-default_font = ExtResource("1_l1ldg")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axlpr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f17e3"]
-bg_color = Color(0.3529412, 0.2, 0.12941177, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sb4vm"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhbqm"]
-bg_color = Color(0.3529412, 0.2, 0.12941177, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3rgcv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ldg"]
-bg_color = Color(0.17, 0.17, 0.17, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_broyr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkigt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ik31s"]
 font = ExtResource("4_3rgcv")
@@ -32,15 +30,36 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -134.5
 offset_top = -192.0
-offset_right = 134.5
+offset_right = 121.5
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_rup4s")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f17e3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_uhbqm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_l1ldg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_axlpr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sb4vm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3rgcv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_broyr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkigt")
 script = ExtResource("1_d8l0u")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1087181197]
+self_modulate = Color(0.3529412, 0.2, 0.12941177, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_sb4vm")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2145680815]
 layout_mode = 1
@@ -82,10 +101,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = 70.5
-offset_right = 40.5
-offset_bottom = 121.5
+offset_left = -56.5
+offset_top = 69.0
+offset_right = 56.5
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Upgrade Detail
@@ -96,3 +115,5 @@ horizontal_alignment = 1
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

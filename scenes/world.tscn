@@ -27,8 +27,8 @@
 [ext_resource type="Resource" uid="uid://bi6o8e2g8hsgk" path="res://resources/waves/wave_3_5.tres" id="22_l8ah6"]
 [ext_resource type="Script" uid="uid://6y2semd1a132" path="res://scripts/game_ui.gd" id="23_f17e3"]
 [ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/maple_syrup.tres" id="23_navra"]
+[ext_resource type="FontFile" uid="uid://dykoaxydgcori" path="res://fonts/Minecraft.ttf" id="24_4kbfs"]
 [ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/creamer.tres" id="24_luhhm"]
-[ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="24_x2olw"]
 [ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="25_817gm"]
 [ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="25_fh13f"]
 [ext_resource type="Resource" uid="uid://exsu4h5pl47l" path="res://resources/upgrades/toppings/strawberry_syrup.tres" id="26_rup4s"]
@@ -36,7 +36,7 @@
 [ext_resource type="Resource" uid="uid://rgjwrpo542p2" path="res://resources/upgrades/toppings/blueberry_syrup.tres" id="30_817gm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
-font = ExtResource("24_x2olw")
+font = ExtResource("24_4kbfs")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
@@ -97,7 +97,7 @@ texture = ExtResource("14_o8fc1")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1391447033]
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.627451, 0.4862745, 0.29803923, 1)
+color = Color(0.21225801, 0.13994911, 0.09655719, 1)
 
 [node name="Player" parent="." unique_id=321489202 node_paths=PackedStringArray("player_stats_label") instance=ExtResource("2_rwgxs")]
 position = Vector2(640, 360)

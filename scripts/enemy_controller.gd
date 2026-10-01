@@ -35,8 +35,10 @@ func _ready() -> void:
 	stats.health = stats.max_health
 	ui.set_health_color(Color.RED)
 	stats.bullet_damage_factor = 1
+	$Sprite2D.texture = enemy_type.texture
 	
 	GameData.enemies.append(self)
+	ui.offset.y = -48
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

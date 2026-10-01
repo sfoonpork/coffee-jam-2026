@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://bj8cnvcn4nat"]
 
 [ext_resource type="Script" uid="uid://b7m0ebbk7gghx" path="res://scripts/enemy_stats.gd" id="1_v4vdx"]
+[ext_resource type="Texture2D" uid="uid://x6m6kghs476a" path="res://art/tea/Yellow Tea.png" id="2_cx0u4"]
 
 [resource]
 script = ExtResource("1_v4vdx")
 name = "Very Fast Enemy"
+texture = ExtResource("2_cx0u4")
 bonus_max_health = 10.0
 bonus_body_damage = 0.5
 bonus_speed = 40.0

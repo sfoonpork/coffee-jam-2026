@@ -2,6 +2,7 @@ class_name EnemyStats
 extends EntityStats
 
 @export var name: String
+@export var texture: CompressedTexture2D
 @export var separation: float
 @export var first_shot_delay: float
 

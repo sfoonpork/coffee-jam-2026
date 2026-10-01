@@ -76,7 +76,7 @@ func spawn_enemy() -> void:
 	enemy.position = Vector2(position_x, position_y)
 	enemy_positions_x.append(position_x)
 	enemy_positions_y.append(position_y)
-	enemy.modulate = Color.RED  # TODO delete when we have enemy sprites
+	#enemy.modulate = Color.RED  # TODO delete when we have enemy sprites
 	enemy.enemy_type = enemies_to_spawn.pop_back()
 	
 	add_child(enemy)

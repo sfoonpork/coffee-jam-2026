@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://d3r0qmikupetq"]
 
 [ext_resource type="Script" uid="uid://b7m0ebbk7gghx" path="res://scripts/enemy_stats.gd" id="1_6l6fd"]
+[ext_resource type="Texture2D" uid="uid://c5hdhbifb8d6s" path="res://art/tea/Tea Basic.png" id="2_jqeog"]
 
 [resource]
 script = ExtResource("1_6l6fd")
 name = "Basic Enemy"
+texture = ExtResource("2_jqeog")
 separation = 0.25
 first_shot_delay = 0.25
 bonus_max_health = 5.0

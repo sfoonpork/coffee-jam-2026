@@ -44,7 +44,7 @@ func apply_look() -> void:
 	look = pos_mouse - pos_player
 
 	if look.length_squared() > 0.0:
-		look_sprite.position = look.normalized() * 48.0
+		look_sprite.position = look.normalized() * 42.0
 		look_sprite.rotation = atan2(look.y, look.x)
 	
 

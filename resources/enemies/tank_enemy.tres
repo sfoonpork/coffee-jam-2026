@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://bsroal1ol5i62"]
 
 [ext_resource type="Script" uid="uid://b7m0ebbk7gghx" path="res://scripts/enemy_stats.gd" id="1_goftu"]
+[ext_resource type="Texture2D" uid="uid://d304o5y24b1og" path="res://art/tea/Evil Ice Matcha.png" id="2_ucpcc"]
 
 [resource]
 script = ExtResource("1_goftu")
 name = "Tank Enemy"
+texture = ExtResource("2_ucpcc")
 separation = 0.5
 first_shot_delay = 0.5
 bonus_max_health = 50.0
