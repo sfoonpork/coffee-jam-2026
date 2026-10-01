@@ -80,6 +80,7 @@ func spawn_enemy() -> void:
 	enemy.enemy_type = enemies_to_spawn.pop_back()
 	
 	add_child(enemy)
+	move_child(enemy, -1)
 	Signals.enemy_spawned.emit()
 	enemies_left += 1
 	if enemies_to_spawn.size() == 0:

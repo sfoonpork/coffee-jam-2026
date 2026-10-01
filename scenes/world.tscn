@@ -99,6 +99,7 @@ offset_bottom = 720.0
 texture = ExtResource("2_f17e3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1391447033]
+z_index = -100
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.6548849, 0.32681796, 0.13297802, 1)
@@ -113,10 +114,12 @@ texture = ExtResource("2_f17e3")
 color = Color(0.75, 0.75, 0.75, 1)
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1230008194]
+z_index = -1
 script = ExtResource("1_nnsk1")
 enemy_scene = ExtResource("3_4wyf3")
 
 [node name="WaveController" type="Node2D" parent="." unique_id=150573778 node_paths=PackedStringArray("game_ui", "upgrade_ui")]
+z_index = -1
 script = ExtResource("6_4kbfs")
 game_ui = NodePath("../GameUI")
 upgrade_ui = NodePath("../UpgradeUI")

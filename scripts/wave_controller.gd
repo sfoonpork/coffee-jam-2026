@@ -46,7 +46,7 @@ func end_wave() -> void:
 	
 	
 	if wave_index == waves.size():
-		GameData.end_state = GameData.EndState.DEFEATED
+		GameData.end_state = GameData.EndState.WON
 		Signals.game_defeated.emit()
 		return
 	

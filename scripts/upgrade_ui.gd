@@ -48,7 +48,7 @@ func prompt(remaining: int, promotion: bool) -> void:
 		if promotion and remaining > 0:
 			prompt(remaining - 1, promotion)
 			return
-		elif remaining <= 0:
+		else:
 			close()
 			return
 	
@@ -115,8 +115,8 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 				card_ui.set_upgrade_texture(coffee_class.value.texture, coffee_class.value.modulate)
 				card_ui.set_title_text(coffee_class.value.name)
 				var details: String = ""
-				card_ui.set_details_text("\nNEW " + 
-					coffee_class.value.upgrade.name +
+				card_ui.set_details_text("NEW " + 
+					coffee_class.value.upgrade.name + "\n" +
 					get_modifier_string(coffee_class.value.upgrade.modifiers))
 				card_ui.pressed.connect(func():
 					print("turned off running")
