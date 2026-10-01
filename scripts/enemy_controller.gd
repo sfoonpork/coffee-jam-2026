@@ -38,7 +38,7 @@ func _ready() -> void:
 	$Sprite2D.texture = enemy_type.texture
 	
 	GameData.enemies.append(self)
-	ui.offset.y = -48
+	#ui.offset.y = -48
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

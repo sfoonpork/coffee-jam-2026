@@ -8,21 +8,20 @@ const ROOT: CoffeeClassNode = preload("uid://d285d026kt5lc")
 const SPACING: float = 192.0 + 32.0
 
 var curr_upgrade_pool: Array[UpgradeWeightTuple]
-var card_uis: Array[CardUI]
-var seen: Dictionary
+var card_uis: Array[CardUI] = []
+var seen: Dictionary = {}
 var curr = ROOT
+var upgrading: bool = false
 
 var num_cards_min: int = 2
 var num_cards_max: int = 4
 
 func _ready() -> void:
 	curr_upgrade_pool = upgrade_pool.duplicate()
-	seen = {}
 
 
 # prompt the user to select cards
 func prompt(remaining: int, promotion: bool) -> void:
-	
 	
 	# destroy card uis
 	for card_ui in card_uis:
@@ -47,26 +46,32 @@ func prompt(remaining: int, promotion: bool) -> void:
 	
 	# break early if no more cards are left
 	if num_cards == 0:
-		close()
-		if promotion:
-			prompt(0, false)
-		return
-		
+		if promotion and remaining > 0:
+			prompt(remaining - 1, promotion)
+			return
+		elif remaining <= 0:
+			close()
+			return
+	
 	# lay out cards with upgrades
-	card_uis = await lay_out_cards(num_cards, SPACING, remaining, promotion)
+	await lay_out_cards(num_cards, SPACING, remaining, promotion)
 
 
 # close the prompt
 func close() -> void:
 	
-	Signals.upgrade_chosen.emit()
 	seen.clear()
+	Signals.upgrade_chosen.emit()
 	get_tree().paused = false
 	$ColorRect.modulate.a = 0.0
 
 
 # lay out cards, spaced in pixels
-func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bool) -> Array[CardUI]:
+func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bool) -> void:
+	
+	var running = true
+	
+	
 	
 	# calculate start position
 	var offset: float = 0.0
@@ -76,12 +81,15 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 	var start_x = offset * spacing
 	
 	# spawn cards, sapced out
-	var curr_card_uis: Array[CardUI] = []
 	for i in range(num_cards):
+		
+		if running == false:
+			print("EXIT")
+			return
+		
 		var card_ui: CardUI = CARD_UI.instantiate()
 		var card_ui_position = Vector2(start_x + i * spacing, 0.0)
 		card_ui_position -= card_ui.size/2.0
-		curr_card_uis.append(card_ui)
 		card_ui.start_position = card_ui_position
 		card_ui.position = card_ui_position
 		card_ui.index = i
@@ -96,30 +104,34 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 				card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
 				card_ui.upgrade = upgrade
 				card_ui.pressed.connect(func():
+					print("turned off running from upgrade")
+					running = false
 					apply_modifiers(upgrade.modifiers)
 					prompt(remaining - 1, promotion))
 					
 		elif promotion:
 			
 			# get coffee class candidate among the next candidates
-			var coffee_class: CoffeeClassNode = curr.next[i]
-			card_ui.set_upgrade_texture(coffee_class.value.texture, coffee_class.value.modulate)
-			card_ui.set_title_text(coffee_class.value.name)
-			var details: String = ""
-			card_ui.set_details_text("\nNEW " + 
-				coffee_class.value.upgrade.name +
-				get_modifier_string(coffee_class.value.upgrade.modifiers))
-			card_ui.pressed.connect(func():
-				curr = coffee_class
-				GameData.player_stats.coffee_class = coffee_class.value
-				apply_modifiers(coffee_class.value.upgrade.modifiers)
-				prompt(remaining, false))
+			var coffee_class: CoffeeClassNode = (curr.next[i] if i < curr.next.size() else null)
+			if coffee_class:
+				card_ui.set_upgrade_texture(coffee_class.value.texture, coffee_class.value.modulate)
+				card_ui.set_title_text(coffee_class.value.name)
+				var details: String = ""
+				card_ui.set_details_text("\nNEW " + 
+					coffee_class.value.upgrade.name +
+					get_modifier_string(coffee_class.value.upgrade.modifiers))
+				card_ui.pressed.connect(func():
+					print("turned off running")
+					running = false
+					curr = coffee_class
+					GameData.player_stats.coffee_class = coffee_class.value
+					apply_modifiers(coffee_class.value.upgrade.modifiers)
+					prompt(remaining, false)
+					)
 				
+		card_uis.append(card_ui)
 		add_child(card_ui)
-		await get_tree().create_timer(0.25).timeout
-		
-	# return list of cards
-	return curr_card_uis
+		#await get_tree().create_timer(0.25).timeout
 
 
 # check how many upgrades are available from the pool

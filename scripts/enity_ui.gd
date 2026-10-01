@@ -1,7 +1,7 @@
 class_name EntityUI
 extends Control
 
-var offset = Vector2(0.0, -64.0 - 16.0) 
+var offset = Vector2(0.0, -48.0) 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
