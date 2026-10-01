@@ -11,7 +11,7 @@ func _ready() -> void:
 	bullets_fired_label.text = "Bullets Fired: " + str(GameData.bullets_fired)
 	
 	var end_state_map: Dictionary = {}
-	end_state_map[GameData.EndState.DEFEATED] = "You were defeated! (Made it to wave" + str(GameData.wave_index + 1) + ")"
+	end_state_map[GameData.EndState.DEFEATED] = "You were defeated! (Made it to wave " + str(GameData.wave_index + 1) + ")"
 	end_state_map[GameData.EndState.WON] = "You won! (Completed wave 15)"
 	$MessageLabel.text = end_state_map[GameData.end_state]
 
