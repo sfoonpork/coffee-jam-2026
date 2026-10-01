@@ -104,10 +104,10 @@ func _on_area_entered(area: Area2D) -> void:
 		else:
 			speed += abs(prev_bullet_speed)
 		
-		if sign(prev_bullet_speed) != sign(bullet.speed):
+		if abs(bullet.speed) <= BULLET_DESTROY_SPEED:
 			bullet.play_destroy()
 			
-		if sign(prev_speed) != sign(speed):
+		if abs(speed) <= BULLET_DESTROY_SPEED:
 			play_destroy()
 
 

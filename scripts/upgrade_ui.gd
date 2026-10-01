@@ -11,7 +11,6 @@ var curr_upgrade_pool: Array[UpgradeWeightTuple]
 var card_uis: Array[CardUI] = []
 var seen: Dictionary = {}
 var curr = ROOT
-var upgrading: bool = false
 
 var num_cards_min: int = 2
 var num_cards_max: int = 4
@@ -69,9 +68,8 @@ func close() -> void:
 # lay out cards, spaced in pixels
 func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bool) -> void:
 	
-	var running = true
-	
-	
+	var running = {}
+	running.state = true
 	
 	# calculate start position
 	var offset: float = 0.0
@@ -83,7 +81,7 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 	# spawn cards, sapced out
 	for i in range(num_cards):
 		
-		if running == false:
+		if running.state == false:
 			print("EXIT")
 			return
 		
@@ -105,7 +103,7 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 				card_ui.upgrade = upgrade
 				card_ui.pressed.connect(func():
 					print("turned off running from upgrade")
-					running = false
+					running.state = false
 					apply_modifiers(upgrade.modifiers)
 					prompt(remaining - 1, promotion))
 					
@@ -122,7 +120,7 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 					get_modifier_string(coffee_class.value.upgrade.modifiers))
 				card_ui.pressed.connect(func():
 					print("turned off running")
-					running = false
+					running.state = false
 					curr = coffee_class
 					GameData.player_stats.coffee_class = coffee_class.value
 					apply_modifiers(coffee_class.value.upgrade.modifiers)
@@ -131,7 +129,7 @@ func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bo
 				
 		card_uis.append(card_ui)
 		add_child(card_ui)
-		#await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.25).timeout
 
 
 # check how many upgrades are available from the pool
