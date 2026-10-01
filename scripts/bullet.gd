@@ -104,12 +104,17 @@ func _on_area_entered(area: Area2D) -> void:
 		else:
 			speed += abs(prev_bullet_speed)
 		
+		if sign(prev_bullet_speed) != sign(bullet.speed):
+			bullet.play_destroy()
+			
+		if sign(prev_speed) != sign(speed):
+			play_destroy()
+
 		if abs(bullet.speed) <= BULLET_DESTROY_SPEED:
 			bullet.play_destroy()
 			
 		if abs(speed) <= BULLET_DESTROY_SPEED:
 			play_destroy()
-
 
 # TODO: play destroy animation (fadeout, shrink) for polish
 func play_destroy() -> void:
