@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwdj1inpyyxwa"
-path="res://.godot/imported/whipped_cream.PNG-1956e463341e02d2cd9bbd72520c180b.ctex"
+uid="uid://cffn3gixrg81l"
+path="res://.godot/imported/Ice Coffee.png-66733d4af3377e5a70d603f219e03bc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/whipped_cream.PNG"
-dest_files=["res://.godot/imported/whipped_cream.PNG-1956e463341e02d2cd9bbd72520c180b.ctex"]
+source_file="res://art/coffee/Ice Coffee.png"
+dest_files=["res://.godot/imported/Ice Coffee.png-66733d4af3377e5a70d603f219e03bc1.ctex"]
 
 [params]
 

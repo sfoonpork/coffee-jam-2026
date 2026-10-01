@@ -67,6 +67,10 @@ func _on_body_entered(body: CollisionObject2D) -> void:
 	
 
 
+func set_texture(texture: CompressedTexture2D) -> void:
+	$Sprite2D.texture = texture
+
+
 func _on_area_entered(area: Area2D) -> void:
 	
 	# currently playing the animation, don't register interactions

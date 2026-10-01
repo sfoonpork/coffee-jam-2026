@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://datv25v5nu10j"]
 
 [ext_resource type="Script" uid="uid://c422k1dftc1kc" path="res://scripts/bullet.gd" id="1_mkf8s"]
-[ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="2_y25gk"]
+[ext_resource type="Texture2D" uid="uid://jjmmkusq2bnt" path="res://art/bullets/choco.PNG" id="2_l5glv"]
 [ext_resource type="AudioStream" uid="uid://bhemw3qb5gfoc" path="res://sfx/fire.mp3" id="3_l5glv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik31s"]
@@ -13,8 +13,8 @@ collision_mask = 129
 script = ExtResource("1_mkf8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1413399820]
-scale = Vector2(0.25, 0.5)
-texture = ExtResource("2_y25gk")
+scale = Vector2(2, 2)
+texture = ExtResource("2_l5glv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1943116388]
 shape = SubResource("RectangleShape2D_ik31s")

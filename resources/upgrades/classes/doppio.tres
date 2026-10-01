@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_lrlhh"]
 [ext_resource type="Resource" uid="uid://buam344grxyoc" path="res://resources/upgrades/drinks/espresso.tres" id="2_lrlhh"]
+[ext_resource type="Texture2D" uid="uid://cffn3gixrg81l" path="res://art/coffee/Ice Coffee.png" id="2_wlxu0"]
 
 [resource]
 script = ExtResource("1_lrlhh")
 name = "Doppio"
 upgrade = ExtResource("2_lrlhh")
+texture = ExtResource("2_wlxu0")
 metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

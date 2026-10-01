@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/creamer.tres" id="3_6ij7f"]
 [ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="4_1atii"]
 [ext_resource type="Resource" uid="uid://17i4ncday2xj" path="res://resources/upgrades/toppings/whipped_cream.tres" id="5_sc7q0"]
-[ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/cherry_syrup.tres" id="6_fq5lg"]
+[ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/maple_syrup.tres" id="6_fq5lg"]
 
 [sub_resource type="Resource" id="Resource_gbnav"]
 script = ExtResource("2_gbnav")

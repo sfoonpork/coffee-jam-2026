@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_cdde3"]
 [ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_oa0wr"]
+[ext_resource type="Texture2D" uid="uid://cvs36r0fj75h3" path="res://art/syrup_nobg.PNG" id="3_oa0wr"]
 
 [sub_resource type="Resource" id="Resource_fh13f"]
 script = ExtResource("1_cdde3")
@@ -13,5 +14,7 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 [resource]
 script = ExtResource("2_oa0wr")
 name = "Blackberry Syrup"
+texture = ExtResource("3_oa0wr")
+modulate = Color(0.75, 0.5, 1, 1)
 modifiers = Array[ExtResource("1_cdde3")]([SubResource("Resource_fh13f")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

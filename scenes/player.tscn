@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://6yqgadlnx335"]
 
 [ext_resource type="Script" uid="uid://dnyjl232du0xd" path="res://scripts/player_controller.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://ddn74vg5uca26" path="res://art/coffee/Coffee no face.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cvrg5eb71r38v" path="res://art/arrow.png" id="3_qhqgy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4w8v"]
+radius = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=808563378 node_paths=PackedStringArray("look_sprite") groups=["player"]]
 collision_layer = 128
@@ -15,12 +16,12 @@ look_sprite = NodePath("LookSprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=104182442]
 texture_filter = 1
-texture = ExtResource("2_g2els")
+texture = ExtResource("2_qhqgy")
 
 [node name="LookSprite2D" type="Sprite2D" parent="." unique_id=501349345]
-position = Vector2(0, -32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_g2els")
+position = Vector2(0, -48)
+rotation = -1.5707964
+texture = ExtResource("3_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1579933873]
-shape = SubResource("RectangleShape2D_g2els")
+shape = SubResource("CircleShape2D_c4w8v")

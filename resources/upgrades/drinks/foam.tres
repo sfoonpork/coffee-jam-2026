@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_3fgxm"]
 [ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_7wcq8"]
+[ext_resource type="Texture2D" uid="uid://b2bbbky0yg2q0" path="res://art/bullets/milk.PNG" id="3_7wcq8"]
 
 [sub_resource type="Resource" id="Resource_efl55"]
 script = ExtResource("1_3fgxm")
@@ -20,5 +21,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 [resource]
 script = ExtResource("2_7wcq8")
 name = "Foam"
+texture = ExtResource("3_7wcq8")
 modifiers = Array[ExtResource("1_3fgxm")]([SubResource("Resource_efl55"), SubResource("Resource_ihgsv")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

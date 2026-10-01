@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c4kmyjsumtdyx" path="res://scripts/upgrade_ui_card.gd" id="1_d8l0u"]
 [ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="1_l1ldg"]
-[ext_resource type="Texture2D" uid="uid://dwdj1inpyyxwa" path="res://art/whipped_cream.PNG" id="3_uhbqm"]
+[ext_resource type="Texture2D" uid="uid://cvs36r0fj75h3" path="res://art/syrup_nobg.PNG" id="3_uhbqm"]
+[ext_resource type="FontFile" uid="uid://dykoaxydgcori" path="res://fonts/Minecraft.ttf" id="4_3rgcv"]
 
 [sub_resource type="Theme" id="Theme_rup4s"]
 default_font = ExtResource("1_l1ldg")
@@ -17,12 +18,11 @@ bg_color = Color(0.3529412, 0.2, 0.12941177, 1)
 bg_color = Color(0.17, 0.17, 0.17, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ik31s"]
-font = ExtResource("1_l1ldg")
+font = ExtResource("4_3rgcv")
 font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_ticvn"]
-font = ExtResource("1_l1ldg")
-font_size = 12
+font = ExtResource("4_3rgcv")
 
 [node name="Button" type="Button" unique_id=1851431888]
 anchors_preset = 8

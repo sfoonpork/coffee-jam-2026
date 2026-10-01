@@ -25,6 +25,7 @@ func _ready() -> void:
 	stats = stats.duplicate()
 	stats.health = stats.max_health
 	stats.bullet_damage_factor = 1
+	GameData.player_stats = stats
 	#stats.bullet_espresso_count = 1
 
 	self.position = get_viewport_rect().size / 2.0
@@ -43,7 +44,7 @@ func apply_look() -> void:
 	look = pos_mouse - pos_player
 
 	if look.length_squared() > 0.0:
-		look_sprite.position = look.normalized() * 32.0
+		look_sprite.position = look.normalized() * 48.0
 		look_sprite.rotation = atan2(look.y, look.x)
 	
 
@@ -51,6 +52,8 @@ func apply_look() -> void:
 func _process(delta: float) -> void:
 	
 	super(delta)
+	
+	$Sprite2D.texture = stats.coffee_class.texture
 	
 	#print(stats.bullet_espresso_count)
 	player_stats_label.text = ""

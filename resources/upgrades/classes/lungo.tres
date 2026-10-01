@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="CoffeeClassStats" format=3 uid="uid://dul18hijptvb5"]
 
 [ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_7g2yw"]
+[ext_resource type="Texture2D" uid="uid://bghfqej34vty2" path="res://art/coffee/Ice Latte.png" id="2_sdogg"]
 [ext_resource type="Resource" uid="uid://buam344grxyoc" path="res://resources/upgrades/drinks/espresso.tres" id="2_xsn1p"]
 
 [resource]
 script = ExtResource("1_7g2yw")
 name = "Lungo"
 upgrade = ExtResource("2_xsn1p")
+texture = ExtResource("2_sdogg")
 metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

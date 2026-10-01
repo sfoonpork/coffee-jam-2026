@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bp16xb33m618e"]
 
-[ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://rggq6ftkarc6" path="res://scripts/enemy_controller.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://daaf7dfq4ok26" path="res://art/coffee/Evil Flat White.png" id="2_md0e3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ticvn"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rgcv"]
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ik31s"]
 radius = 32.06244
@@ -15,10 +15,10 @@ collision_mask = 17
 script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=153926240]
-texture = ExtResource("1_7p1mj")
+texture = ExtResource("2_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847753246]
-shape = SubResource("RectangleShape2D_ticvn")
+shape = SubResource("CircleShape2D_3rgcv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1802807542]
 collision_layer = 64

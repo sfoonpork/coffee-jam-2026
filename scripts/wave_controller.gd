@@ -7,6 +7,8 @@ extends Node2D
 @export var upgrade_ui: UpgradeUI
 @export var waves: Array[WaveStats]
 
+const FORCE_PROMOTION: bool = false
+
 var wave_index: int = 0
 var in_intermission: bool = false
 
@@ -50,8 +52,8 @@ func end_wave() -> void:
 	
 	var amount = int(wave_index / 5) + 1
 	#amount = 3
-	var promotion = wave_index % 5 == 0
-	#promotion = true
+	var promotion = FORCE_PROMOTION or wave_index % 5 == 0
+	promotion = true
 	print("wave index: " + str(wave_index) + ", prompts: " + str(amount) + ", promotion: " + str(promotion))
 	upgrade_ui.prompt(amount, promotion)
 	

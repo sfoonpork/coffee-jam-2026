@@ -47,7 +47,7 @@ func prompt(remaining: int, promotion: bool) -> void:
 	if num_cards == 0:
 		close()
 		if promotion:
-			prompt(0, true)
+			prompt(0, false)
 		return
 		
 	# lay out cards with upgrades
@@ -58,6 +58,7 @@ func prompt(remaining: int, promotion: bool) -> void:
 		if remaining > 0:
 			var upgrade = pull_random_upgrade()
 			if not upgrade: break
+			card_ui.set_upgrade_texture(upgrade.texture, upgrade.modulate)
 			card_ui.set_title_text(upgrade.name)
 			card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
 			card_ui.pressed.connect(func():
@@ -69,6 +70,7 @@ func prompt(remaining: int, promotion: bool) -> void:
 			
 			# get coffee class candidate among the next candidates
 			var coffee_class: CoffeeClassNode = curr.next[card_uis.find(card_ui)]
+			card_ui.set_upgrade_texture(coffee_class.value.texture, coffee_class.value.modulate)
 			card_ui.set_title_text(coffee_class.value.name)
 			var details: String = ""
 			card_ui.set_details_text("\nNEW " + 
@@ -76,6 +78,7 @@ func prompt(remaining: int, promotion: bool) -> void:
 				get_modifier_string(coffee_class.value.upgrade.modifiers))
 			card_ui.pressed.connect(func():
 				curr = coffee_class
+				GameData.player_stats.coffee_class = coffee_class.value
 				apply_modifiers(coffee_class.value.upgrade.modifiers)
 				prompt(remaining, false))
 

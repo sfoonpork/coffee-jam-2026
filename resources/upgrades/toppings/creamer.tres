@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_bgvda"]
 [ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_clggq"]
+[ext_resource type="Texture2D" uid="uid://xxcyhqsxu1on" path="res://art/creamer_nobg.PNG" id="3_dxkvg"]
 
 [sub_resource type="Resource" id="Resource_gbnav"]
 script = ExtResource("1_bgvda")
@@ -13,5 +14,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 [resource]
 script = ExtResource("2_clggq")
 name = "Creamer"
+texture = ExtResource("3_dxkvg")
 modifiers = Array[ExtResource("1_bgvda")]([SubResource("Resource_gbnav")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"

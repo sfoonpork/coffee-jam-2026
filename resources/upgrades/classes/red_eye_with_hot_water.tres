@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dc0mkdyvnv6bb" path="res://scripts/coffee_class_stats.gd" id="1_pirng"]
 [ext_resource type="Resource" uid="uid://c74lrrw3as3y7" path="res://resources/upgrades/drinks/hot_water.tres" id="2_pirng"]
+[ext_resource type="Texture2D" uid="uid://daaf7dfq4ok26" path="res://art/coffee/Evil Flat White.png" id="2_qf74b"]
 
 [resource]
 script = ExtResource("1_pirng")
 name = "Red Eye"
 upgrade = ExtResource("2_pirng")
+texture = ExtResource("2_qf74b")
 metadata/_custom_type_script = "uid://dc0mkdyvnv6bb"

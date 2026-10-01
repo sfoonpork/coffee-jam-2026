@@ -73,12 +73,12 @@ func move(accel: Vector2, delta: float) -> void:
 	move_and_slide()
 
 func fire_all(direction: Vector2, ignore: String, color: Color) -> void:
-	fire_multiple(direction, stats.bullet_espresso_count, 1.0, 0.0, ignore, color)
-	fire_multiple(direction, stats.bullet_milk_count, 1.0, -250.0, ignore, color)
-	fire_multiple(direction, stats.bullet_chocolate_count, 1.0, 500.0, ignore, color)
+	fire_multiple(direction, stats.bullet_espresso_count, 1.0, 0.0, ignore, color, preload("res://art/bullets/coffeebean.PNG"))
+	fire_multiple(direction, stats.bullet_milk_count, 1.0, -250.0, ignore, color, preload("res://art/bullets/milk.PNG"))
+	fire_multiple(direction, stats.bullet_chocolate_count, 1.0, 500.0, ignore, color, preload("res://art/bullets/choco.PNG"))
 
 
-func fire_multiple(direction: Vector2, amount: int, init_speed_factor: float, accel_rate: float, ignore: String, color: Color) -> void:
+func fire_multiple(direction: Vector2, amount: int, init_speed_factor: float, accel_rate: float, ignore: String, color: Color, texture: CompressedTexture2D) -> void:
 	var rad: float = deg_to_rad(5.0)
 	var offset: float = 0.0
 	if amount % 2 == 0:
@@ -86,17 +86,18 @@ func fire_multiple(direction: Vector2, amount: int, init_speed_factor: float, ac
 	offset -= int(amount/2)
 	var look_curr = direction.rotated(rad * offset)
 	for i in range(amount):
-		fire(look_curr.rotated(rad * i), stats.bullet_damage, init_speed_factor, accel_rate, ignore, color)
+		fire(look_curr.rotated(rad * i), stats.bullet_damage, init_speed_factor, accel_rate, ignore, color, texture)
 
 
-func fire(direction: Vector2, damage: float, init_speed_factor: float, accel_rate: float, ignore: String, color: Color) -> void:
+func fire(direction: Vector2, damage: float, init_speed_factor: float, accel_rate: float, ignore: String, color: Color, texture: CompressedTexture2D) -> void:
 	
 	var bullet: Bullet = preload("uid://datv25v5nu10j").instantiate()
-	bullet.position = position + direction.normalized() * 32.0
+	bullet.position = position + direction.normalized() * 48.0
 	bullet.direction = direction
 	bullet.damage = damage
 	bullet.ignore = ignore
 	bullet.modulate = color
+	bullet.set_texture(texture)
 	bullet.speed = stats.bullet_speed * init_speed_factor
 	bullet.damage_factor = stats.bullet_damage_factor
 	bullet.accel_rate = accel_rate

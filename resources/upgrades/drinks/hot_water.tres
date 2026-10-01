@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj0f0v6ppo0u3" path="res://scripts/upgrade_modifier.gd" id="1_7ihp3"]
 [ext_resource type="Script" uid="uid://bfdy76mlspsxa" path="res://scripts/upgrade_stats.gd" id="2_krlig"]
+[ext_resource type="Texture2D" uid="uid://ccxtt812vovw8" path="res://art/bullets/coffeebean.PNG" id="3_krlig"]
 
 [sub_resource type="Resource" id="Resource_efl55"]
 script = ExtResource("1_7ihp3")
@@ -27,5 +28,6 @@ metadata/_custom_type_script = "uid://cj0f0v6ppo0u3"
 [resource]
 script = ExtResource("2_krlig")
 name = "Hot Water"
+texture = ExtResource("3_krlig")
 modifiers = Array[ExtResource("1_7ihp3")]([SubResource("Resource_efl55"), SubResource("Resource_p5qw8"), SubResource("Resource_1kw67")])
 metadata/_custom_type_script = "uid://bfdy76mlspsxa"
