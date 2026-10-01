@@ -3,6 +3,8 @@ extends Node
 
 func play(position: Vector2, sfx: AudioStreamMP3, volume: float, pitch: float) -> void:
 	var sound = AudioStreamPlayer2D.new()
+	sound.process_mode = Node.PROCESS_MODE_ALWAYS
+	sound.position = position
 	sound.volume_db = volume
 	sound.pitch_scale = pitch
 	sound.stream = sfx

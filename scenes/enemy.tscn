@@ -12,11 +12,12 @@ radius = 24.0
 radius = 32.06244
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1351696572 groups=["enemy"]]
+z_index = 1
 collision_layer = 33
 collision_mask = 17
 script = ExtResource("1_md0e3")
 
-[node name="Shadow" type="Sprite2D" parent="." unique_id=345496724]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1654290931]
 z_index = -1
 texture_filter = 1
 position = Vector2(0, 16)

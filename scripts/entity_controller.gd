@@ -33,8 +33,11 @@ func _process(delta: float) -> void:
 	var x = sin(phase * 2.0 * PI)
 	var y = cos(phase * 2.0 * PI * 2.0)
 	if stats.speed > 0.0:
+		#var x_offset = sin(sprite.rotation) * 8.0
+		#var y_offset = -cos(sprite.rotation) * 8.0
 		sprite.position = Vector2(x * 2.0, y * -2.0) * move_direction.length() / stats.speed
-		$Shadow.position = sprite.position + Vector2(0.0, 8.0)
+		#sprite.position = Vector2(x * 2.0, y * -2.0) * move_direction.length() / stats.speed + Vector2(x_offset, y_offset)
+		$Shadow.position = sprite.position + Vector2(0.0, 16.0)
 	
 	regen_health_tick(delta)
 	ui.set_health(stats.health)

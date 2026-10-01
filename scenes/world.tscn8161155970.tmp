@@ -27,7 +27,7 @@
 [ext_resource type="Resource" uid="uid://bi6o8e2g8hsgk" path="res://resources/waves/wave_3_5.tres" id="22_l8ah6"]
 [ext_resource type="Script" uid="uid://6y2semd1a132" path="res://scripts/game_ui.gd" id="23_f17e3"]
 [ext_resource type="Resource" uid="uid://dypm0pvsh5t6c" path="res://resources/upgrades/toppings/maple_syrup.tres" id="23_navra"]
-[ext_resource type="FontFile" uid="uid://cyxfygmfdx5xj" path="res://fonts/Limelight-Regular.ttf" id="24_f17e3"]
+[ext_resource type="FontFile" uid="uid://dykoaxydgcori" path="res://fonts/Minecraft.ttf" id="24_4kbfs"]
 [ext_resource type="Resource" uid="uid://dvf3a6p4ld42p" path="res://resources/upgrades/toppings/creamer.tres" id="24_luhhm"]
 [ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="25_817gm"]
 [ext_resource type="Resource" uid="uid://bcbapds6eye11" path="res://resources/upgrades/toppings/mango_syrup.tres" id="25_fh13f"]
@@ -37,10 +37,8 @@
 [ext_resource type="Script" uid="uid://1eq50eawr6t2" path="res://scenes/virtual_joystick.gd" id="35_f17e3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5onr"]
-font = ExtResource("24_f17e3")
+font = ExtResource("24_4kbfs")
 font_size = 48
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pm21f"]
 font = ExtResource("25_817gm")
@@ -99,12 +97,12 @@ offset_bottom = 720.0
 texture = ExtResource("2_f17e3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1391447033]
+visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.6548849, 0.32681796, 0.13297802, 1)
+color = Color(0.21225801, 0.13994911, 0.09655719, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=626646690]
-visible = false
 z_index = -1
 position = Vector2(640, 360)
 texture = ExtResource("2_f17e3")
@@ -183,14 +181,6 @@ vertical_alignment = 2
 process_mode = 3
 script = ExtResource("20_oo54l")
 upgrade_pool = Array[ExtResource("21_kpybi")]([SubResource("Resource_2lf6f"), SubResource("Resource_xgqkh"), SubResource("Resource_ts3gi"), SubResource("Resource_0nbtd"), SubResource("Resource_navra"), SubResource("Resource_fh13f"), SubResource("Resource_l5qkr")])
-
-[node name="ColorRect" type="ColorRect" parent="UpgradeUI" unique_id=1315946900]
-modulate = Color(0, 0, 0, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=963314794]
 anchors_preset = 2

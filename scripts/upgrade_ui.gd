@@ -5,13 +5,13 @@ extends CanvasLayer
 
 const CARD_UI: PackedScene = preload("uid://dia2yamwblh47")
 const ROOT: CoffeeClassNode = preload("uid://d285d026kt5lc")
+const SPACING: float = 192.0 + 32.0
 
 var curr_upgrade_pool: Array[UpgradeWeightTuple]
 var card_uis: Array[CardUI]
 var seen: Dictionary
 var curr = ROOT
 
-var spacing: float = 256.0 + 32.0
 var num_cards_min: int = 2
 var num_cards_max: int = 4
 
@@ -23,6 +23,7 @@ func _ready() -> void:
 # prompt the user to select cards
 func prompt(remaining: int, promotion: bool) -> void:
 	
+	
 	# destroy card uis
 	for card_ui in card_uis:
 		card_ui.play_destroy()
@@ -32,6 +33,7 @@ func prompt(remaining: int, promotion: bool) -> void:
 	
 	# pause game
 	get_tree().paused = true
+	$ColorRect.modulate.a = 0.25
 	
 	# get card count
 	var num_cards = 0
@@ -51,47 +53,20 @@ func prompt(remaining: int, promotion: bool) -> void:
 		return
 		
 	# lay out cards with upgrades
-	card_uis = lay_out_cards(num_cards, spacing)
-	for card_ui in card_uis:
-		
-		# update card ui and select upgrade on card press
-		if remaining > 0:
-			var upgrade = pull_random_upgrade()
-			if not upgrade: break
-			card_ui.set_upgrade_texture(upgrade.texture, upgrade.modulate)
-			card_ui.set_title_text(upgrade.name)
-			card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
-			card_ui.pressed.connect(func():
-				apply_modifiers(upgrade.modifiers)
-				prompt(remaining - 1, promotion))
-
-		# update card ui and select coffee class on card press
-		elif promotion:
-			
-			# get coffee class candidate among the next candidates
-			var coffee_class: CoffeeClassNode = curr.next[card_uis.find(card_ui)]
-			card_ui.set_upgrade_texture(coffee_class.value.texture, coffee_class.value.modulate)
-			card_ui.set_title_text(coffee_class.value.name)
-			var details: String = ""
-			card_ui.set_details_text("\nNEW " + 
-				coffee_class.value.upgrade.name +
-				get_modifier_string(coffee_class.value.upgrade.modifiers))
-			card_ui.pressed.connect(func():
-				curr = coffee_class
-				GameData.player_stats.coffee_class = coffee_class.value
-				apply_modifiers(coffee_class.value.upgrade.modifiers)
-				prompt(remaining, false))
+	card_uis = await lay_out_cards(num_cards, SPACING, remaining, promotion)
 
 
 # close the prompt
 func close() -> void:
 	
+	Signals.upgrade_chosen.emit()
 	seen.clear()
 	get_tree().paused = false
+	$ColorRect.modulate.a = 0.0
 
 
 # lay out cards, spaced in pixels
-func lay_out_cards(num_cards: int, spacing: float) -> Array[CardUI]:
+func lay_out_cards(num_cards: int, spacing: float, remaining: int, promotion: bool) -> Array[CardUI]:
 	
 	# calculate start position
 	var offset: float = 0.0
@@ -104,10 +79,44 @@ func lay_out_cards(num_cards: int, spacing: float) -> Array[CardUI]:
 	var curr_card_uis: Array[CardUI] = []
 	for i in range(num_cards):
 		var card_ui: CardUI = CARD_UI.instantiate()
-		card_ui.position = Vector2(start_x + i * spacing, 0.0)
-		card_ui.position -= card_ui.size/2.0
+		var card_ui_position = Vector2(start_x + i * spacing, 0.0)
+		card_ui_position -= card_ui.size/2.0
 		curr_card_uis.append(card_ui)
+		card_ui.start_position = card_ui_position
+		card_ui.position = card_ui_position
+		card_ui.index = i
+	
+		if remaining > 0:
+			
+			# pull random upgrade
+			var upgrade = pull_random_upgrade()
+			if upgrade:
+				card_ui.set_upgrade_texture(upgrade.texture, upgrade.modulate)
+				card_ui.set_title_text(upgrade.name)
+				card_ui.set_details_text(get_modifier_string(upgrade.modifiers))
+				card_ui.upgrade = upgrade
+				card_ui.pressed.connect(func():
+					apply_modifiers(upgrade.modifiers)
+					prompt(remaining - 1, promotion))
+					
+		elif promotion:
+			
+			# get coffee class candidate among the next candidates
+			var coffee_class: CoffeeClassNode = curr.next[i]
+			card_ui.set_upgrade_texture(coffee_class.value.texture, coffee_class.value.modulate)
+			card_ui.set_title_text(coffee_class.value.name)
+			var details: String = ""
+			card_ui.set_details_text("\nNEW " + 
+				coffee_class.value.upgrade.name +
+				get_modifier_string(coffee_class.value.upgrade.modifiers))
+			card_ui.pressed.connect(func():
+				curr = coffee_class
+				GameData.player_stats.coffee_class = coffee_class.value
+				apply_modifiers(coffee_class.value.upgrade.modifiers)
+				prompt(remaining, false))
+				
 		add_child(card_ui)
+		await get_tree().create_timer(0.25).timeout
 		
 	# return list of cards
 	return curr_card_uis
@@ -172,7 +181,7 @@ func get_modifier_string(modifiers: Array[UpgradeModifier]) -> String:
 		if modifier.operation == UpgradeModifier.Operation.MUL:
 			suffix = " x " + str(int(modifier.value * 100)) + "%"
 		
-		text += "\n" + prefix + body + suffix
+		text += prefix + body + suffix + "\n"
 	return text
 
 
@@ -199,6 +208,5 @@ func get_property_string(property: String) -> String:
 
 
 func apply_modifiers(modifiers: Array[UpgradeModifier]) -> void:
-	Signals.upgrade_chosen.emit()
 	for modifier in modifiers:
 		Signals.modify_player_stat.emit(modifier.property, modifier.operation, modifier.value)

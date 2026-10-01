@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4kmyjsumtdyx" path="res://scripts/upgrade_ui_card.gd" id="1_d8l0u"]
 [ext_resource type="Texture2D" uid="uid://cvs36r0fj75h3" path="res://art/syrup_nobg.PNG" id="3_uhbqm"]
+[ext_resource type="Texture2D" uid="uid://bhv62o0c0qyyy" path="res://art/light.png" id="5_axlpr"]
 [ext_resource type="FontFile" uid="uid://c057j7skuc14q" path="res://fonts/Futura Book.ttf" id="5_broyr"]
 [ext_resource type="Texture2D" uid="uid://dl0srvdvicp2s" path="res://art/health.png" id="5_sb4vm"]
 
@@ -17,12 +18,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ik31s"]
 font = ExtResource("5_broyr")
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.3170249, 0.17422971, 0.09614488, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ticvn"]
 font = ExtResource("5_broyr")
 font_size = 12
-outline_size = 1
+font_color = Color(0.95642394, 0.83713293, 0.7262348, 1)
 
 [node name="Button" type="Button" unique_id=1851431888]
 anchors_preset = 8
@@ -44,7 +45,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bkigt")
 script = ExtResource("1_d8l0u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1087181197]
-self_modulate = Color(0.7316325, 0.33245844, 0.110440336, 1)
+self_modulate = Color(0.6607326, 0.38512743, 0.22831628, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,6 +183,12 @@ Upgrade Detail
 Upgrade Detail"
 label_settings = SubResource("LabelSettings_ticvn")
 horizontal_alignment = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=596059202]
+position = Vector2(128, 192)
+blend_mode = 2
+texture = ExtResource("5_axlpr")
+texture_scale = 2.0
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
