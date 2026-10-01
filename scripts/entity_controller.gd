@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 	rotation_velocity += (target_rotation - sprite.rotation) * 8.0 * delta
 	rotation_velocity += (0 - rotation_velocity) * 8.0 * delta
 	sprite.rotation += rotation_velocity
+	$Shadow.rotation = sprite.rotation
 	
 	phase += delta * move_direction.length() / 250.0 * 2.0
 	phase = fmod(phase, 1.0)
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 	var y = cos(phase * 2.0 * PI * 2.0)
 	if stats.speed > 0.0:
 		sprite.position = Vector2(x * 2.0, y * -2.0) * move_direction.length() / stats.speed
+		$Shadow.position = sprite.position + Vector2(0.0, 8.0)
 	
 	regen_health_tick(delta)
 	ui.set_health(stats.health)

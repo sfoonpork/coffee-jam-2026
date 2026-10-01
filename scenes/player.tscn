@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dnyjl232du0xd" path="res://scripts/player_controller.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://ddn74vg5uca26" path="res://art/coffee/Coffee no face.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cvrg5eb71r38v" path="res://art/arrow.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dpgnfl87bgpkq" path="res://art/shadow.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bhv62o0c0qyyy" path="res://art/light.png" id="4_dqkch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c4w8v"]
 radius = 16.0
@@ -13,6 +15,12 @@ collision_mask = 64
 motion_mode = 1
 script = ExtResource("1_3vyb7")
 look_sprite = NodePath("LookSprite2D")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=338811131]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 16)
+texture = ExtResource("3_qlg0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=104182442]
 texture_filter = 1
@@ -25,3 +33,7 @@ texture = ExtResource("3_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1579933873]
 shape = SubResource("CircleShape2D_c4w8v")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=166543416]
+blend_mode = 2
+texture = ExtResource("4_dqkch")

@@ -32,7 +32,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	speed += accel_rate * delta
-	self.rotation = atan2(direction.y, direction.x) + PI / 2.0
+	$Sprite2D.rotation = atan2(direction.y, direction.x) + PI / 2.0
+	$Shadow.rotation = atan2(direction.y, direction.x) + PI / 2.0
 	self.position += direction.normalized() * speed * delta
 	
 	if destroying:

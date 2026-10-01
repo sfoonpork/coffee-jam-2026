@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c422k1dftc1kc" path="res://scripts/bullet.gd" id="1_mkf8s"]
 [ext_resource type="Texture2D" uid="uid://jjmmkusq2bnt" path="res://art/bullets/choco.PNG" id="2_l5glv"]
 [ext_resource type="AudioStream" uid="uid://bhemw3qb5gfoc" path="res://sfx/fire.mp3" id="3_l5glv"]
+[ext_resource type="Texture2D" uid="uid://dybnh7o3ybutk" path="res://art/shadow_bullet.png" id="3_qncy5"]
+[ext_resource type="Texture2D" uid="uid://cw4710rl7otae" path="res://art/light_bullet.png" id="4_eoqba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik31s"]
 size = Vector2(8, 16)
@@ -13,8 +15,12 @@ collision_mask = 129
 script = ExtResource("1_mkf8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1413399820]
-scale = Vector2(2, 2)
 texture = ExtResource("2_l5glv")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=425261070]
+z_index = -1
+position = Vector2(0, 24)
+texture = ExtResource("3_qncy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1943116388]
 shape = SubResource("RectangleShape2D_ik31s")
@@ -24,6 +30,11 @@ one_shot = true
 
 [node name="ShootAudio" type="AudioStreamPlayer2D" parent="." unique_id=708153722]
 stream = ExtResource("3_l5glv")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1803067776]
+visible = false
+blend_mode = 2
+texture = ExtResource("4_eoqba")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

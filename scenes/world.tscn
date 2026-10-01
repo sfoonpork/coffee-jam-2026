@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hwxjrcokrn8o" path="res://scripts/world.gd" id="1_k0juu"]
 [ext_resource type="Script" uid="uid://drhdkekdpxmsl" path="res://scripts/enemy_spawner.gd" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://cmsteynfeua1c" path="res://art/wood.png" id="2_f17e3"]
 [ext_resource type="PackedScene" uid="uid://6yqgadlnx335" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://bp16xb33m618e" path="res://scenes/enemy.tscn" id="3_4wyf3"]
 [ext_resource type="Script" uid="uid://c86tlowm1y13" path="res://scripts/wave_controller.gd" id="6_4kbfs"]
@@ -13,7 +14,6 @@
 [ext_resource type="Resource" uid="uid://bkwyy88uo220q" path="res://resources/waves/wave_1_5.tres" id="12_xo05s"]
 [ext_resource type="Resource" uid="uid://cvldmmif7wtx4" path="res://resources/waves/wave_2_1.tres" id="13_pm21f"]
 [ext_resource type="Resource" uid="uid://10241yfquhxl" path="res://resources/waves/wave_2_2.tres" id="14_2lf6f"]
-[ext_resource type="Texture2D" uid="uid://byu54gbddpeeh" path="res://art/placeholder.png" id="14_o8fc1"]
 [ext_resource type="Resource" uid="uid://bceax7p00ucad" path="res://resources/waves/wave_2_3.tres" id="15_7iits"]
 [ext_resource type="Resource" uid="uid://uqet6ruf7qp0" path="res://resources/waves/wave_2_4.tres" id="16_oo54l"]
 [ext_resource type="Resource" uid="uid://bio6g1km1hfku" path="res://resources/waves/wave_2_5.tres" id="17_kpybi"]
@@ -90,15 +90,25 @@ metadata/_custom_type_script = "uid://4qx56ckevutv"
 script = ExtResource("1_k0juu")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1654504226]
+visible = false
 modulate = Color(0.19, 0.19, 0.19, 1)
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("14_o8fc1")
+texture = ExtResource("2_f17e3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1391447033]
+visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.21225801, 0.13994911, 0.09655719, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=626646690]
+z_index = -1
+position = Vector2(640, 360)
+texture = ExtResource("2_f17e3")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1034244436]
+color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="Player" parent="." unique_id=321489202 node_paths=PackedStringArray("player_stats_label") instance=ExtResource("2_rwgxs")]
 position = Vector2(640, 360)
