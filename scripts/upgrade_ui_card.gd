@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	var y = noise.get_noise_1d(time + 60.0)
 	#var pos = Vector2(x, y) * amplitude
 	var pos = Vector2(0, -amplitude/2.0)
-	$NinePatchRect.position = pos
+	$NinePatchRect.size = Vector2(256.0, 384.0 + amplitude)
 
 
 
